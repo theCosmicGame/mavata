@@ -65,11 +65,12 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album() {
   const classes = useStyles();
-
+  console.log(classes);
   return (
     <React.Fragment>
       <main>
-        {/* Hero unit */}
+        {/* Hero unit --> on javascript side of things, className="makeStyles-heroContent-2" (in development) but in production className="jss1" or "jss2" and so on (randomly generated class names)*/}
+        {/* container has a .jss1 class that is DIFFERENT from the .jss1 of Landing Page */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography
