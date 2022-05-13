@@ -17,7 +17,7 @@ const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
 
   ReactDOM.render(<App onSignIn={onSignIn} history={history} />, el);
 
-  return{
+  return {
     onParentNavigate({ pathname: nextPathname }) {
       console.log('Container-auth just navigated.');
       // console.log(location);
