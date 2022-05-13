@@ -1,22 +1,20 @@
 const { merge } = require('webpack-merge');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
-const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
-
-const domain = process.env.PRODUCTION_DOMAIN;
+const commonConfig = require('./webpack.common');
 
 const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/container/latest/',
+    publicPath: '/dashboard/latest/',
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'container',
-      remotes: {
-        // each key, e.g. "marketing" must match up to import statement in bootstrap.js file within sub-project folder 
-        marketingMfe: `marketingMod@${domain}/marketing/latest/remoteEntry.js`,
+      name: 'dashboardMod',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './DashboardApp': './src/bootstrap',
       },
       shared: packageJson.dependencies,
     }),

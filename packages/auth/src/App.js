@@ -2,24 +2,31 @@ import React from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
-import Landing from './components/Landing';
-import Pricing from './components/Pricing';
+ import Signin from './components/Signin';
+ import Signup from './components/Signup';
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'mktg',
+  productionPrefix: 'au',
 });
 
 /* 
 Rather than create a memory history object inside app.js, we create it in bootstrap.js because we want to customize it quite a bit
 */
-export default ({ history }) => {
+export default ({ history, onSignIn }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route exact path="/pricing" component={Pricing} />
-            <Route path="/" component={Landing} />
+          {/* removed because refactoring #1 for onSignIn component */}
+          {/* <Route path="/auth/signin" component={Signin} /> */}
+          {/* <Route path="/auth/signup" component={Signup} /> */}
+          <Route path="/auth/signin">
+            <Signin onSignIn={onSignIn} />
+          </Route>
+          <Route path="/auth/signup">
+            <Signup onSignIn={onSignIn} />
+          </Route>
           </Switch>
         </Router>
       </StylesProvider>

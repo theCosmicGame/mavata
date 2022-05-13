@@ -1,8 +1,8 @@
-import { mount } from 'marketingMfe/MarketingApp';
+import { mount } from 'authMfe/AuthApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default () => {
+export default ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory(); // browser history object
 
@@ -13,8 +13,8 @@ export default () => {
     const { onParentNavigate } = mount(ref.current, {
       initialPath: history.location.pathname,
       onNavigate: ({ pathname: nextPathname }) => {
-        console.log('The container noticed navigation inside Marketing ??');
-        console.log('container: next path is ' + nextPathname);    // need synchronization to update current path inside of container
+        console.log('The container noticed navigation inside Auth ..');
+        console.log('AuthApp: next path was ' + nextPathname);    // need synchronization to update current path inside of container
         
         const { pathname } = history.location;
 
@@ -22,6 +22,12 @@ export default () => {
           history.push(nextPathname);   // push tells history object to navigate to nextPathnam
         }
       },
+    /* removed because it can be collapsed down more simply
+      onSignIn: () => {
+        console.log('User signing in');
+        onSignIn();
+      }, */
+      onSignIn,
     });
 
     history.listen(onParentNavigate);
