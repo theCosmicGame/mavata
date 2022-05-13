@@ -19,14 +19,14 @@ export default ({ history, onSignIn }) => {
         <Router history={history}>
           <Switch>
           {/* removed because refactoring #1 for onSignIn component */}
-          {/* <Route path="/auth/signin" component={Signin} /> */}
-          {/* <Route path="/auth/signup" component={Signup} /> */}
-          <Route path="/auth/signin">
-            <Signin onSignIn={onSignIn} />
-          </Route>
-          <Route path="/auth/signup">
-            <Signup onSignIn={onSignIn} />
-          </Route>
+            {/* <Route path="/auth/signin" component={Signin} /> */}
+            {/* <Route path="/auth/signup" component={Signup} /> */}
+            <Route path="/auth/signin">
+              <Signin onSignIn={onSignIn} />
+            </Route>
+            <Route path="/auth/signup">
+              <Signup onSignIn={onSignIn} />
+            </Route>
           </Switch>
         </Router>
       </StylesProvider>

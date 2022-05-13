@@ -8,7 +8,7 @@ import App from './App';
 const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
   // if given a default history object, assign it to history; otherwise use MemoryHistory object
   const history = defaultHistory || createMemoryHistory({
-    initialEntries: [initialPath]    // what initial path is for MemoryHistory
+    initialEntries: [initialPath],    // what initial path is for MemoryHistory
   });
 
   if (onNavigate) {
