@@ -6,7 +6,7 @@ export default () => {
   
   useEffect(() => {
     mount(ref.current);
-    // empty array says only try to use the useEffect function when our marketing app component is FIRST rendered to the screen
+    // empty array says only try to use the useEffect function when our dashboard app component is FIRST rendered to the screen
   }, []);
 
   return <div ref={ref} />;

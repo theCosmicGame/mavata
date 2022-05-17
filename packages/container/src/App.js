@@ -1,3 +1,9 @@
+//rendering logic is inherently coupled with other UI logic: 
+  // how events are handled
+  // how the state changes over time
+  // how the data is prepared for display.
+
+// destructuring useState from React as it is a named export
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
@@ -20,8 +26,13 @@ const generateClassName = createGenerateClassName({
 const history = createBrowserHistory();
 
 export default () => {
+  // useState is a HOOK to keep track of the application state IN A FUNCTION COMPONENT, in this case if the user isSignedIn
+  // State generally refers to data or properties that need to be tracking in an application
+  // hooks can only be called at the top level of a component; cannot be conditional; and can only be called inside React function commponents 
+  // useState accepts an initial state and returns two values: the current state, and a function that updates the state 
   const [isSignedIn, setIsSignedIn] = useState(false);
 
+  // 
   useEffect(() => {
     if (isSignedIn) {
       history.push('/dashboard')
