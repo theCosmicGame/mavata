@@ -12,8 +12,7 @@ const mount = (el, { onNavigate, defaultHistory }) => {
   if (onNavigate) {
     history.listen(onNavigate); // event listener tied to the history object which listens to whenever navigation occur
   }
-  
-  // app component gets wrapped by bootstrap.js in a <Router> component that takes in a history object
+
   ReactDOM.render(<App history={history} />, el);
 
   return{

@@ -50,10 +50,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp({ onSignIn }) {
   const classes = useStyles();
 
-  const onSubmit = (event) => {
-    event.preventDefault()
-  };
-
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
@@ -64,7 +60,7 @@ export default function SignUp({ onSignIn }) {
           Sign up
         </Typography>
         <form
-          onSubmit={onSubmit}
+          onSubmit={(e) => e.preventDefault()}
           className={classes.form}
           noValidate
         >

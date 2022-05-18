@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
-// BEM ADDED
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -52,9 +51,6 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: theme.spacing(6),
       paddingBottom: theme.spacing(6),
     },
-    nav: {
-
-    },
   },
 }));
 
@@ -83,7 +79,7 @@ export default function Header({ isSignedIn, onSignOut }) {
             component={RouterLink}
             to="/"
           >
-          Mavata
+            App App
           </Typography>
           <Button
             color="primary"

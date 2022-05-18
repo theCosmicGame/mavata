@@ -16,7 +16,6 @@ export default ({ history }) => {
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
-        {/* WRAP our app component with <Router> component */}
         <Router history={history}>
           <Switch>
             <Route exact path="/pricing" component={Pricing} />

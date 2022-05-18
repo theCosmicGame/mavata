@@ -2,7 +2,7 @@ import { mount } from 'dashboardMfe/DashboardApp';
 import React, { useRef, useEffect } from 'react';
 
 export default () => {
-  const ref = useRef(null);   // useRef thus ref persists for the full lifetime of the component
+  const ref = useRef(null);
   
   useEffect(() => {
     mount(ref.current);
