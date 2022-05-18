@@ -83,7 +83,7 @@ export default function Header({ isSignedIn, onSignOut }) {
             component={RouterLink}
             to="/"
           >
-          Mavata 
+          Mavata
           </Typography>
           <Button
             color="primary"
