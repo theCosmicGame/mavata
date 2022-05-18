@@ -2,6 +2,8 @@ import { mount } from 'marketingMfe/MarketingApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
+// MarketingLazy (app.js) is filled out with this callback 
+// uses the mount function from MarketingApp.js (container)
 export default () => {
   const ref = useRef(null);
   const history = useHistory(); // browser history object
