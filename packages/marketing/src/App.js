@@ -5,6 +5,14 @@ import { StylesProvider, createGenerateClassName } from '@material-ui/core/style
 import Landing from './components/Landing';
 import Pricing from './components/Pricing';
 
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Barlow', 'Playfair Display']
+  }
+});
+
 const generateClassName = createGenerateClassName({
   productionPrefix: 'mktg',
 });

@@ -60,7 +60,7 @@ export default () => {
           {/* refactor #3
           <Route path="/dashboard" component={DashboardLazy} /> */}
           <Route path="/dashboard">
-            {!isSignedIn && <Redirect />}
+            {!isSignedIn && <Redirect to="/" />}
             <DashboardLazy />
           </Route>
           <Route path="/" component={MarketingLazy} />

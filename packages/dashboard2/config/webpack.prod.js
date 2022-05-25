@@ -11,10 +11,10 @@ const prodConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'dashMod',
+      name: 'dashboard2Mod',
       filename: 'remoteEntry.js',
       exposes: {
-        './DashApp': './src/bootstrap',
+        './Dashboard2App': './src/bootstrap',
       },
       shared: packageJson.dependencies,
     }),

@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "companies",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "C:\\Users\\Bridget\\Developer\\Mavata\\Mavata\\packages\\companies\\amplify\\backend\\api\\companies\\schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}

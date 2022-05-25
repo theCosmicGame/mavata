@@ -23,7 +23,7 @@ const mount = (el, { onSignIn, onNavigate, defaultHistory, initialPath }) => {
       // console.log(location);
       
       const { pathname } = history.location;
-      console.log('auth next path ' + nextPathname)
+      console.log('dashboard2 next path ' + nextPathname)
       
       // avoid getting into an infinite loop
       if (pathname !== nextPathname) {

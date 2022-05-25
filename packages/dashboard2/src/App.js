@@ -2,10 +2,10 @@ import React from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
-import ListCompanies from './components/ListCompanies'
+ import Signin from './components/Signin';
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: 'das',
+  productionPrefix: 'dash2',
 });
 
 /* 
@@ -17,9 +17,10 @@ export default ({ history, onSignIn }) => {
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route exact path="/user/companies" component={ListCompanies} />
-            <Route>
+          <Route path="/user/companies">
+              <Signin onSignIn={onSignIn} />
             </Route>
+            {/* BEM to add more routing */}
           </Switch>
         </Router>
       </StylesProvider>
