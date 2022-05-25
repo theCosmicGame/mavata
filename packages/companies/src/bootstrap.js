@@ -4,7 +4,6 @@ import App from './App';
 
 
 const mount = (el) => {
-    console.log('heree')
     ReactDOM.render(<App />, el);
   };
 

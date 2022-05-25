@@ -105,18 +105,46 @@ const useStyles = makeStyles((theme) => ({
 
 const StyledContainer = styled.section`
     width: 100%;
-    max-width: 1400px;
     margin-top: 20px;
     margin-right: auto;
     margin-left: auto;
     font-family: 'Playfair Display', sans-serif;
 `
 
+const StyledFooterSection = styled.footer`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  max-width: none;
+  padding: 50px 6%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #15113b;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+`
+
 export default function Footer() {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <StyledFooterSection>
         <StyledContainer>
             <footer className={classes.sectionFooter}>
                 <Typography variant="h6" align="center" gutterBottom>
@@ -144,6 +172,7 @@ export default function Footer() {
                 <Copyright />
             </footer>
         </StyledContainer>
-        </React.Fragment>
+        </StyledFooterSection>
+
     )
 }

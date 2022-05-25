@@ -1,44 +1,23 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 module.exports = {
   module: {
     rules: [
         {
-            test: /\.js$/,
+            test: /\.m?js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
-            options: {
-                presets: ['env']
-            }
-        },
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['@babel/preset-react', '@babel/preset-env'],
+                plugins: ['@babel/plugin-transform-runtime'],
+              },
+            },
+          },
         {
-            test: /\.(scss|css)$/,
-            use: [
-                {
-                    // creates style nodes from JS strings
-                    loader: "style-loader",
-                    options: {
-                        sourceMap: true
-                    }
-                },
-                {
-                    // translates CSS into CommonJS
-                    loader: "css-loader",
-                    options: {
-                        sourceMap: true
-                    }
-                },
-                {
-                    // compiles Sass to CSS
-                    loader: "url-loader",
-                    options: {
-                        outputStyle: 'expanded',
-                        sourceMap: true,
-                        sourceMapContents: true
-                    }
-                }
-                // Please note we are not running postcss here
-            ]
-        }
-        ,
+            test: /\.css$/i,
+            use: [MiniCssExtractPlugin.loader, "css-loader"],
+        },
         {
             // Load all images as base64 encoding if they are smaller than 8192 bytes
             test: /\.(png|jpg|gif)$/,
@@ -70,5 +49,9 @@ module.exports = {
             },
         },
     ],
-  },
+    },
+
+    plugins: [
+        new MiniCssExtractPlugin(),
+    ],
 };

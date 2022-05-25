@@ -832,7 +832,7 @@
 .section-4 {
   padding-top: 120px;
   padding-bottom: 0px;
-  background-image: url('../images/bgtile.png');
+  background-image: url('../../images/bgtile.png');
   background-position: 0px 0px;
   background-size: auto;
 }
@@ -2728,7 +2728,7 @@
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  background-image: url('../images/mockup-of-a-woman-with-a-heather-t-shirt-sitting-against-a-wooden-background-28752-1-1.png');
+  background-image: url('../../images/mockup-of-a-woman-with-a-heather-t-shirt-sitting-against-a-wooden-background-28752-1-1.png');
   background-position: 50% 50%;
   background-size: cover;
   -webkit-transform: skew(0deg, 0deg);
