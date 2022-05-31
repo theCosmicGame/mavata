@@ -3,13 +3,14 @@ import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
 import Landing from './components/Landing';
-import Pricing from './components/Pricing';
+import EarlyAccess from './components/LandingPages/EarlyAccess';
+import Learn from './components/LandingPages/Learn';
 
 import WebFont from 'webfontloader';
 
 WebFont.load({
   google: {
-    families: ['Barlow', 'Playfair Display']
+    families: ['Barlow', 'Playfair Display', 'Overpass']
   }
 });
 
@@ -26,7 +27,8 @@ export default ({ history }) => {
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route exact path="/pricing" component={Pricing} />
+            <Route exact path="/earlyaccess" component={EarlyAccess} />
+            <Route exact path="/learn" component={Learn} />
             <Route path="/" component={Landing} />
           </Switch>
         </Router>

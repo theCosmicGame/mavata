@@ -1,8 +1,12 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  module: {
-    rules: [
+    plugins: [
+        new MiniCssExtractPlugin(),
+    ],
+    
+    module: {
+      rules: [
         {
             test: /\.m?js$/,
             exclude: /node_modules/,
@@ -50,8 +54,4 @@ module.exports = {
         },
     ],
     },
-
-    plugins: [
-        new MiniCssExtractPlugin(),
-    ],
 };

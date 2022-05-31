@@ -11,14 +11,18 @@ import Two from './components/Landing';
 
 
 export default () => {
+  const reload = () => window.location.reload();
+
   return (
     <div>
       <StylesProvider>
         <BrowserRouter>
           <Switch>
-          <Route exact path="/">
-            <Redirect push to={"/pages/landing.html"} />
+          <Route exact path="/" onEnter={reload}>
+            <Redirect push to={"/pages/landing.html"} onEnter={reload} />
           </Route>
+          {/* <Route exact path="/home" */}
+            {/* render = { () => (isLoggedIn() ? <Redirect to="/front" /> : <Home />) } /> */}
             <Route exact path="/landing">
                 <Redirect push to={"/faq.html"} />
             </Route>

@@ -19,11 +19,25 @@ const MarketingLazy = lazy(() => import('./components/MarketingApp'))
 const AuthLazy = lazy(() => import('./components/AuthApp'))
 const DashboardLazy = lazy(() => import('./components/DashboardApp'))
 
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Barlow', 'Playfair Display', 'Overpass']
+  }
+});
+
+// BEM TO CHANGE TO /EarlyAccess
+const EarlyAccess = lazy(() => import('./components/Navbar/NavbarNew'))
+
+
 const generateClassName = createGenerateClassName({
   productionPrefix: 'contr',
 });
 
+
 const history = createBrowserHistory();
+
 
 export default () => {
   // useState is a HOOK to keep track of the application state IN A FUNCTION COMPONENT, in this case if the user isSignedIn
@@ -47,6 +61,9 @@ export default () => {
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Suspense fallback={<Progress />}>
         <Switch>
+        <Route path="/companies/last" />
+        <Route path="/user/settings" />
+        <Route exact path="/companies" />
         {/* 
           path indicated in Route is meant to match up to first part of a path
           IMPT NOTE: route in order of priority ('/dashboard' before '/' or else '/' gets routed first)

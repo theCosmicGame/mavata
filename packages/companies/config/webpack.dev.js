@@ -17,6 +17,7 @@ const devConfig = {
     historyApiFallback: {
       index: 'index.html',
     },
+    static: 'public'
   },
   resolve: {
       fallback: {
@@ -46,6 +47,12 @@ const devConfig = {
       inject: true,
       chunks: ['index'],
       filename: 'faq.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/pages/earlyaccess.html',
+      inject: true,
+      chunks: ['index'],
+      filename: 'earlyaccess.html'
     }),
   ],
 };

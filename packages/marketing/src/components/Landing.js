@@ -1,11 +1,18 @@
 import React from 'react';
-import Album from './Album'
-import Footer from './Footer'
+import Footer from './footer/Footer'
+import ContentSection from './LandingPages/ContentSection'
+import Cards from './LandingPages/Cards'
+import Buttons from './LandingPages/SideBySideButtons';
+import HeroContent from './LandingPages/HeroContent';
 
-export default function Home() {
+export default function Landing() {
   return (
     <React.Fragment>
-      <Album />
+      <ContentSection>
+        <HeroContent />
+        <Cards />
+        <Buttons />
+      </ContentSection>
       <Footer />
     </React.Fragment>
   );
