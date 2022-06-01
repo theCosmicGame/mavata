@@ -8,7 +8,7 @@ export default function NavbarContainer({ isSignedIn, ...props}) {
   const bg = isSignedIn ? classes.whiteBg : classes.yellowBg;
   return (
     <AppBar               
-        position="static"
+        position="fixed"
         elevation={0}
         className={classes.appBar1}
       >
