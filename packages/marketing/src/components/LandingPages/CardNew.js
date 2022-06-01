@@ -5,17 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    h3: {
-      fontFamily: ['Playfair Display', 'sans-serif'],
-      fontWeight: 'bold',
-      marginBottom: '5px',
-      fontSize: '16px',
-      lineHeight: '25px',
-      marginTop: '10px',
-
-    },
-  },
   card2: {
     position: 'relative',
     display: '-webkit-box',

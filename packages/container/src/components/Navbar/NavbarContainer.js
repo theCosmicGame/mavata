@@ -6,6 +6,7 @@ import useStyles from '../styling/NavStyle';
 export default function NavbarContainer({ isSignedIn, ...props}) {
   const classes = useStyles();
   const bg = isSignedIn ? classes.whiteBg : classes.yellowBg;
+  
   return (
     <AppBar               
         position="sticky"

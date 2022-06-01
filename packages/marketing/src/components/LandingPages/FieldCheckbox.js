@@ -2,10 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-
-  },
-    
+   
   wCheckbox: {
     display: 'block',
     marginBottom: '5px',

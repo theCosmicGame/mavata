@@ -4,61 +4,7 @@ import FooterLink from './FooterLink';
 import Copyright from './Copyright';
 import FooterButtons from './FooterButtons';
 
-
 const useStyles = makeStyles((theme) => ({
-    '@global': {
-        a: {
-            fontFamily: '"Playfair Display"',
-            textDecoration: 'none',
-        },
-            
-        h2: {
-            fontWeight: 'bold',
-            marginBottom: '10px',
-            fontSize: '24px',
-            lineHeight: '36px',
-            marginTop: '20px',
-        },
-        
-        h6: {
-            fontWeight: 'bold',
-            marginBottom: '10px',
-            fontSize: '12px',
-            lineHeight: '18px',
-            marginTop: '10px',
-        },
-
-        footer: {
-            display: '-webkit-box',
-            display: '-webkit-flex',
-            display: '-ms-flexbox',
-            display: 'flex',
-            position: 'relative',
-            width: '100%',
-            maxWidth: 'none',
-            padding: '30px 6%',
-            paddingTop: '10px',
-            paddingBottom: '10px',
-            marginRight: '50px',
-            backgroundColor: '#15113b',
-            alignItems: 'center',
-            webkitBoxOrient: 'horizontal',
-            webkitBoxDirection: 'normal',
-            webkitFlexDirection: 'row',
-            msFlexDirection: 'row',
-            flexDirection: 'row',
-            webkitBoxPack: 'center',
-            webkitJustifyContent: 'center',
-            msFlexPack: 'center',
-            justifyContent: 'center',
-            webkitBoxAlign: 'center',
-            webkitAlignItems: 'center',
-            msFlexAlign: 'center',
-            webkitTransition: 'all 300ms ease',
-            transition: 'all 300ms ease',
-        },
-    },
-
     sectionFooter: {
         display: 'block',
         color: '#fff',
