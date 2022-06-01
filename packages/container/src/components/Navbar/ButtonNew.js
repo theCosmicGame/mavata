@@ -7,7 +7,7 @@ export default function ButtonNew(props) {
 
   return (
     <ul className={classes.buttonsUl}>
-      <RouterLink to={props.to} className={`${classes.outlinedButton} ${classes.darkOutline} ${classes.wButton}`}>{props.children}</RouterLink>
+      <RouterLink to={props.to} className={`${classes.outlinedButton} ${classes.darkOutline} ${classes.wButton}`} onClick={props.onClick}>{props.children}</RouterLink>
     </ul>
   )
 }

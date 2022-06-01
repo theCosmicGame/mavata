@@ -8,29 +8,16 @@ import { Link as RouterLink } from 'react-router-dom';
 import useStyles from './styling/HeaderStyles';
 import NavbarNew from './Navbar/NavbarNew';
 
-export default function Header({ isSignedIn, onSignOut, activePage }) {
+export default function Header({ isSignedIn, onSignOut }) {
   const classes = useStyles();
-
-
-  const onClick = () => {
-    // && onSignOut function is ALWAYS TRUE
-    if (isSignedIn && onSignOut) {
-      onSignOut();
-    }
-  };
   
-  const onLink = () => {
-    // BEM TO DO: do something with ActivePage - set indicator in navbar
-    
-  }
-
   const linkMap = [
       ["All Companies ", "/companies"],
       ["Company Profile ", "/companies/last"],
       ["Settings ", "/user/settings"]
   ];
 
-  if (isSignedIn) {
+  if (false) {
       return (
         <React.Fragment>
           <AppBar
@@ -77,7 +64,7 @@ export default function Header({ isSignedIn, onSignOut, activePage }) {
       );
   } else {
       return (  
-        <NavbarNew onSignOut={() => setIsSignedIn(false)} isSignedIn={isSignedIn}/>
+        <NavbarNew onSignOut={onSignOut} isSignedIn={isSignedIn}/>
       );
 }
 }

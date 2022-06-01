@@ -16,6 +16,7 @@ import usingStyles from '../styling/HeaderStyles';
       // && onSignOut function is ALWAYS TRUE
       if (isSignedIn && onSignOut) {
         onSignOut();
+        console.log(isSignedIn)
       }
     };
     const classes = useStyles();
