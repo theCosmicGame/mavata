@@ -9,6 +9,14 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 import { createBrowserHistory } from 'history';
 
+import WebFont from 'webfontloader';
+
+WebFont.load({
+  google: {
+    families: ['Barlow', 'Playfair Display', 'Overpass']
+  }
+});
+
 // deleted because we are now using lazy function and Suspense module
 // import MarketingApp from './components/MarketingApp';
 // import AuthApp from './components/AuthApp';
@@ -18,17 +26,6 @@ import Header from './components/Header';
 const MarketingLazy = lazy(() => import('./components/MarketingApp'))
 const AuthLazy = lazy(() => import('./components/AuthApp'))
 const DashboardLazy = lazy(() => import('./components/DashboardApp'))
-
-import WebFont from 'webfontloader';
-
-WebFont.load({
-  google: {
-    families: ['Barlow', 'Playfair Display', 'Overpass']
-  }
-});
-
-// BEM TO CHANGE TO /EarlyAccess
-const EarlyAccess = lazy(() => import('./components/Navbar/NavbarNew'))
 
 
 const generateClassName = createGenerateClassName({
@@ -52,6 +49,7 @@ export default () => {
       history.push('/dashboard')
     }
   }, [isSignedIn]);
+  
 
   return (
     <Router history={history}>

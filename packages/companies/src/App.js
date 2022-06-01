@@ -11,21 +11,16 @@ import Two from './components/Landing';
 
 
 export default () => {
-  const reload = () => window.location.reload();
 
   return (
     <div>
       <StylesProvider>
         <BrowserRouter>
           <Switch>
-          <Route exact path="/" onEnter={reload}>
-            <Redirect push to={"/pages/landing.html"} onEnter={reload} />
-          </Route>
-          {/* <Route exact path="/home" */}
-            {/* render = { () => (isLoggedIn() ? <Redirect to="/front" /> : <Home />) } /> */}
-            <Route exact path="/landing">
-                <Redirect push to={"/faq.html"} />
+            <Route path="/companies/last" >
+              {/* get last company name and render company component */}
             </Route>
+            <Route exact path="/companies" component={Two} />
           </Switch>
         </BrowserRouter>
       </StylesProvider>

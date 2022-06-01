@@ -1,23 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    body: {
-      margin: 0,
-      minHeight: '100%',
-      fontFamily: ['Arial', 'sans-serif'],
-      fontSize: '14px',
-      lineHeight: '20px',
-      color: '#333',
-    },
-
-    img: {
-      maxWidth: '100%',
-      verticalAlign: 'middle',
-      display: 'inline-block',
-    },
-  },
-  
   yellowBg: {
     backgroundColor: '#ffd343',
   },
@@ -29,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   appBar1: {
     borderBottom: `1px solid`,
     borderColor: '#0c0a89',
+    marginBottom: '0px',
   },
   
   toolbar1: {
@@ -282,7 +266,7 @@ const useStyles = makeStyles((theme) => ({
     
     '&:hover': {
       marginLeft: '0px',
-      borderColor: '#ffd343',
+      borderColor: 'transparent',
       backgroundColor: '#ffd343',
       boxShadow: '1px 1px 12px 0 rgba(0, 0, 0, 0.08)',
       webkitTransform: 'translate(2px, 0px)',
@@ -334,7 +318,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
 
     '&:hover': {
-      borderColor: '#ffd343',
+      borderColor: 'transparent',
       backgroundColor: '#15113b',
       boxShadow: 'none',
       webkitTransform: 'translate(5px, 0px)',

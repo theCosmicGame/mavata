@@ -4,8 +4,35 @@ import ContentSection from './LandingPages/ContentSection'
 import Cards from './LandingPages/Cards'
 import Buttons from './LandingPages/SideBySideButtons';
 import HeroContent from './LandingPages/HeroContent';
+import { useLocation } from 'react-router-dom';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  '@global': {
+    body: {
+      margin: 0,
+      minHeight: '100%',
+      fontFamily: ['Arial', 'sans-serif'],
+      fontSize: '14px',
+      lineHeight: '20px',
+      color: '#333',
+      backgroundColor: '#fff',
+    },
+
+    img: {
+      maxWidth: '100%',
+      verticalAlign: 'middle',
+      display: 'inline-block',
+    },
+  },
+}));
+  
 export default function Landing() {
+  const path = useLocation().pathname;
+  console.log('landing here: ' + path)
+  const classes = useStyles();
+  
   return (
     <React.Fragment>
       <ContentSection>
