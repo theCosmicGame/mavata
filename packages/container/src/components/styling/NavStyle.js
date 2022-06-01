@@ -5,7 +5,6 @@ const useStyles = makeStyles((theme) => ({
     body: {
       margin: 0,
       minHeight: '100%',
-      backgroundColor: '#fff',
       fontFamily: ['Arial', 'sans-serif'],
       fontSize: '14px',
       lineHeight: '20px',
@@ -18,16 +17,23 @@ const useStyles = makeStyles((theme) => ({
       display: 'inline-block',
     },
   },
+  
+  yellowBg: {
+    backgroundColor: '#ffd343',
+  },
 
-  appBar: {
+  whiteBg: {
+    backgroundColor: '#fff',
+  },
+
+  appBar1: {
     borderBottom: `1px solid`,
     borderColor: '#0c0a89',
   },
-
-  toolbar: {
+  
+  toolbar1: {
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    backgroundColor: '#ffd343',
     opacity: 1,
     fontFamily: ['Barlow', 'sans-serif'],
   },
@@ -112,10 +118,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  
-  yellowBg: {
-    backgroundColor: '#ffd343',
-  },
 
   wNavBrand: {
     position: 'relative',
@@ -147,8 +149,7 @@ const useStyles = makeStyles((theme) => ({
     webkitAlignItems: 'center',
     msFlexAlign: 'center',
     alignItems: 'center',
-
-    backgroundColor: '#ffd343',
+    
     opacity: 1,
     fontFamily: ['Barlow', 'sans-serif'],
   },
