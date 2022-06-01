@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  containerAuth: {
+    position: 'relative',
+    
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -54,7 +58,7 @@ export default function SignIn({ onSignIn }) {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" className={classes.containerAuth}>
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />

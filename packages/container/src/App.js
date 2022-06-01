@@ -59,7 +59,7 @@ export default () => {
     <div>
       <Header onSignOut={() => setIsSignedIn(false)} isSignedIn={isSignedIn}/>
       {/* <Suspense fallback={<div>Loading...</div>}> */}
-      <Suspense fallback={<Progress />}>
+      <Suspense fallback={<Progress />} >
         <Switch>
         <Route path="/companies/last" />
         <Route path="/user/settings" />
