@@ -21,7 +21,7 @@ const devConfig = {
       filename: 'remoteEntry.js',
       exposes: {
         './MarketingApp': './src/bootstrap',
-        './FooterApp': './src/footer/Footer',
+        './FooterApp': './src/components/footer/Footer',
       },
       shared: packageJson.dependencies,
     }),
