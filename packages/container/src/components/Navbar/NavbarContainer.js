@@ -13,7 +13,9 @@ export default function NavbarContainer(props) {
         className={classes.appBar}
       >
         <Toolbar className={classes.toolbar}>
+        <div className={classes.navContainer}>
           {props.children}
+        </div>
         </Toolbar>
     </AppBar>
   )

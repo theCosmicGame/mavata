@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   navItem: {
-
+    margin: '0px',
+    padding: '0px',
   },
   
   linkButton: {
