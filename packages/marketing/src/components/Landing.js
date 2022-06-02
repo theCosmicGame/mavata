@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '14px',
       lineHeight: '20px',
       color: '#333',
-      backgroundColor: '#000',
     },
 
     img: {

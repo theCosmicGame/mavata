@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
   card2: {
@@ -12,8 +11,8 @@ const useStyles = makeStyles((theme) => ({
     display: '-ms-flexbox',
     display: 'flex',
     width: '190px',
-    height: '75px',
-    padding: '50px 24px 33px',
+    height: 'auto',
+    padding: '33px 24px 33px',
     webkitBoxOrient: 'vertical',
     webkitBoxDirection: 'normal',
     webkitFlexDirection: 'column',
@@ -58,12 +57,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '24px',
     fontFamily: ['Playfair Display', 'sans-serif'],
     color: '#0c0a89',
-  },
-
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
   },
 
   cardContent: {
