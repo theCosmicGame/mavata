@@ -4,9 +4,7 @@ import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
-    body: {
-      background: 'linear-gradient(180deg, #ffd343 70%, #15113b 30%)',
-    },
+
     footer: {
       backgroundColor: 'rgba(21, 17, 59, 1)', 
       display: '-webkit-box',

@@ -4,7 +4,6 @@ import ContentSection from './LandingPages/ContentSection'
 import Cards from './LandingPages/Cards'
 import Buttons from './LandingPages/SideBySideButtons';
 import HeroContent from './LandingPages/HeroContent';
-import { useLocation } from 'react-router-dom';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -17,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '14px',
       lineHeight: '20px',
       color: '#333',
-      backgroundColor: '#fff',
+      backgroundColor: '#000',
     },
 
     img: {
@@ -29,8 +28,6 @@ const useStyles = makeStyles((theme) => ({
 }));
   
 export default function Landing() {
-  const path = useLocation().pathname;
-  console.log('landing here: ' + path)
   const classes = useStyles();
   
   return (
