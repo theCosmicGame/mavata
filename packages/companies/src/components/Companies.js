@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   bodyMain: {
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     display: 'flex',
     flexDirection: 'column',
     height: '100%',
