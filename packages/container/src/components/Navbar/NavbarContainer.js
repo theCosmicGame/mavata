@@ -2,10 +2,13 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import useStyles from '../styling/NavStyle';
+import { useLocation } from 'react-router-dom';
 
 export default function NavbarContainer({ isSignedIn, ...props}) {
   const classes = useStyles();
-  const bg = isSignedIn ? classes.whiteBg : classes.yellowBg;
+  const path = useLocation().pathname;
+  
+  const bg = (!isSignedIn || (path == '/')) ? classes.yellowBg : classes.whiteBg;
   
   return (
     <AppBar               

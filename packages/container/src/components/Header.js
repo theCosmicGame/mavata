@@ -30,7 +30,7 @@ export default function Header({ isSignedIn, onSignOut }) {
 
           <ul className={classes.navItem}>
             <ButtonNew to={isSignedIn ? '/' : '/auth/signin'} onClick={onClick}>{isSignedIn ? 'Logout' : 'Login'}</ButtonNew>
-            <ButtonNew to='/earlyaccess'>Early Access ➝</ButtonNew>
+            {isSignedIn ? '' : <ButtonNew to='/earlyaccess'>Early Access ➝</ButtonNew>}
           </ul>
 
       </NavbarContainer>

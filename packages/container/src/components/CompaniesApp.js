@@ -1,8 +1,8 @@
-import { mount } from 'dashboard2Mfe/Dashboard2App';
+import { mount } from 'companiesMfe/CompaniesApp';
 import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default ({ onSignIn }) => {
+export default () => {
   const ref = useRef(null);
   const history = useHistory(); // browser history object
 
@@ -13,8 +13,8 @@ export default ({ onSignIn }) => {
     const { onParentNavigate } = mount(ref.current, {
       initialPath: history.location.pathname,
       onNavigate: ({ pathname: nextPathname }) => {
-        console.log('The container noticed navigation inside Auth ..');
-        console.log('AuthApp: next path was ' + nextPathname);    // need synchronization to update current path inside of container
+        console.log('The container noticed navigation inside Companies ..');
+        console.log('CompaniesApp: next path was ' + nextPathname);    // need synchronization to update current path inside of container
         
         const { pathname } = history.location;
 
@@ -22,12 +22,6 @@ export default ({ onSignIn }) => {
           history.push(nextPathname);   // push tells history object to navigate to nextPathnam
         }
       },
-    /* removed because it can be collapsed down more simply
-      onSignIn: () => {
-        console.log('User signing in');
-        onSignIn();
-      }, */
-      onSignIn,
     });
 
     history.listen(onParentNavigate);

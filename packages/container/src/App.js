@@ -20,13 +20,13 @@ WebFont.load({
 // deleted because we are now using lazy function and Suspense module
 // import MarketingApp from './components/MarketingApp';
 // import AuthApp from './components/AuthApp';
-import Progress from './components/Progress';
+import Progress from './components/Navbar/Progress';
 import Header from './components/Header';
 
-const MarketingLazy = lazy(() => import('./components/MarketingApp'))
-const AuthLazy = lazy(() => import('./components/AuthApp'))
-const DashboardLazy = lazy(() => import('./components/DashboardApp'))
-
+const MarketingLazy = lazy(() => import('./components/MarketingApp'));
+const AuthLazy = lazy(() => import('./components/AuthApp'));
+const DashboardLazy = lazy(() => import('./components/DashboardApp'));
+const CompaniesLazy = lazy(() => import('./components/CompaniesApp'));
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'contr',
@@ -61,7 +61,7 @@ export default () => {
         <Switch>
         <Route path="/companies/last" />
         <Route path="/user/settings" />
-        <Route exact path="/companies" />
+        <Route exact path="/companies" component={CompaniesLazy} />
         {/* 
           path indicated in Route is meant to match up to first part of a path
           IMPT NOTE: route in order of priority ('/dashboard' before '/' or else '/' gets routed first)

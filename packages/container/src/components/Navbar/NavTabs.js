@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   navLink: {
     margin: '2px',
     padding: '10px',
-    fontSize: '16px',
+    fontSize: '20px',
     fontWeight: 600,
     color: '#0c0a89',
     alignItems: 'center',
