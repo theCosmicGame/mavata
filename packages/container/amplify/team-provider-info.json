@@ -1,34 +1,15 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-mavata-dev-194744-authRole",
-      "UnauthRoleArn": "arn:aws:iam::109723905419:role/amplify-mavata-dev-194744-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::109723905419:role/amplify-mavata-dev-194744-authRole",
+      "AuthRoleName": "amplify-container-dev-191540-authRole",
+      "UnauthRoleArn": "arn:aws:iam::109723905419:role/amplify-container-dev-191540-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::109723905419:role/amplify-container-dev-191540-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-mavata-dev-194744-deployment",
-      "UnauthRoleName": "amplify-mavata-dev-194744-unauthRole",
-      "StackName": "amplify-mavata-dev-194744",
-      "StackId": "arn:aws:cloudformation:us-east-2:109723905419:stack/amplify-mavata-dev-194744/3cc0e0b0-e205-11ec-91fd-02518b3e9a32",
-      "AmplifyAppId": "d3vuw4rg9l8ogc",
-      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-mavata-dev-194744-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
-    },
-    "categories": {
-      "auth": {
-        "mavataAuth": {}
-      },
-      "function": {
-        "mavataAuthPostConfirmation": {
-          "GROUP": "mavataMain",
-          "deploymentBucketName": "amplify-mavata-dev-194744-deployment",
-          "s3Key": "amplify-builds/mavataAuthPostConfirmation-655038696268306d6a7a-build.zip"
-        }
-      },
-      "storage": {
-        "mavata146741bb": {
-          "bucketName": "mavata",
-          "region": "us-east-2"
-        }
-      }
+      "DeploymentBucketName": "amplify-container-dev-191540-deployment",
+      "UnauthRoleName": "amplify-container-dev-191540-unauthRole",
+      "StackName": "amplify-container-dev-191540",
+      "StackId": "arn:aws:cloudformation:us-east-2:109723905419:stack/amplify-container-dev-191540/ed9101d0-e2c9-11ec-a26d-0627b59c75fe",
+      "AmplifyAppId": "d5m16vf14enj1"
     }
   }
 }

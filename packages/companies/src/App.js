@@ -2,6 +2,8 @@ import React from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
+import '../configureAmplify'
+
 //import Landing from './components/Landing2';
 import Album from './components/Companies';
 // let LandingAlbum = require('./pages/landing.js')
