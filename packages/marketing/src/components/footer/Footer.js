@@ -3,22 +3,53 @@ import React from 'react';
 import FooterLink from './FooterLink';
 import Copyright from './Copyright';
 import FooterButtons from './FooterButtons';
+import { useEffect, useRef } from "react";
+
 
 const useStyles = makeStyles((theme) => ({
+    '@global': {
+        footer: {
+            backgroundColor: '#15113b',
+            display: '-webkit-box',
+            display: '-webkit-flex',
+            display: '-ms-flexbox',
+            display: 'flex',
+            width: '100%',
+            maxWidth: 'none',
+            paddingTop: '10px',
+            paddingBottom: '10px',
+            alignItems: 'center',
+            webkitBoxOrient: 'horizontal',
+            webkitBoxDirection: 'normal',
+            webkitFlexDirection: 'row',
+            msFlexDirection: 'row',
+            flexDirection: 'row',
+            webkitBoxPack: 'center',
+            webkitJustifyContent: 'center',
+            msFlexPack: 'center',
+            justifyContent: 'center',
+            webkitBoxAlign: 'center',
+            webkitAlignItems: 'center',
+            msFlexAlign: 'center',
+            webkitTransition: 'all 300ms ease',
+            transition: 'all 300ms ease',
+        },
+    },
+
     sectionFooter: {
         display: 'block',
         color: '#fff',
-        width: '85%',
         padding: theme.spacing(4),
     },
+
     footerContainer: {
         backgroundColor: 'rgba(21, 17, 59, 1)',   // company darkest blue
-        width: '100%',
-        marginTop: '20px',
+        marginTop: '0px',
         marginRight: 'auto',
         marginLeft: 'auto',
         fontFamily: ['Playfair Display', 'sans-serif'],
     },
+
     footerWrap: {
         display: '-webkit-box',
         display: '-webkit-flex',
@@ -30,15 +61,18 @@ const useStyles = makeStyles((theme) => ({
         msFlexPack: 'justify',
         justifyContent: 'space-between',
     },
+
     textWhite: {
         color: '#fff',
         fontFamily: '"Playfair Display"',
         align: 'left',
     },
+
     footerBottom: {
         display: 'flex',
         height: '30px',
     },
+
     footerGrid: {
         // 4-col-grid
         display: 'grid',
@@ -49,10 +83,12 @@ const useStyles = makeStyles((theme) => ({
         gridTemplateColumns: '1fr 1fr 1fr 1fr',
         gridTemplateRows: 'auto',
     },
+
     footerColumn: {
         borderTop: '1px solid hsla(0, 0%, 96.9%, 0.2)',
         fontSize: '16px'
     },
+
     footerTitle: {
         paddingTop: '8px',
         paddingBottom: '8px',
@@ -101,6 +137,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 }));
+
 
 export default function Footer() {
     const classes = useStyles();

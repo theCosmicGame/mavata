@@ -10,8 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   appBar1: {
-    borderBottom: `1px solid`,
-    borderColor: '#0c0a89',
+    borderBottom: `1px solid #0c0a89`,
     marginBottom: '0px',
   },
   

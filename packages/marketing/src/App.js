@@ -22,6 +22,7 @@ const generateClassName = createGenerateClassName({
 Rather than create a memory history object inside app.js, we create it in bootstrap.js because we want to customize it quite a bit
 */
 export default ({ history }) => {
+
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>

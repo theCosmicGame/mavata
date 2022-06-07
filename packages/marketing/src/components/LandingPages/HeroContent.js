@@ -2,9 +2,18 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+  '@global': {
+    h1: {
+      fontWeight: 'bold',
+      marginBottom: '10px',
+      fontSize: '90px',
+      marginTop: '20px',
+    },
+  },
+
   subHeadingLarge: {
     fontSize: '24px',
-    lineHeight: '32px',
+    lineHeight: '36px',
     fontWeight: 300,
   },
 

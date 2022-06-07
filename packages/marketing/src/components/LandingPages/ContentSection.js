@@ -4,49 +4,17 @@ import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
-
-    footer: {
-      backgroundColor: '#15113b',
-      display: '-webkit-box',
-      display: '-webkit-flex',
-      display: '-ms-flexbox',
-      display: 'flex',
-      position: 'relative',
-      width: '100%',
-      maxWidth: 'none',
-      padding: '30px 6%',
-      paddingTop: '10px',
-      paddingBottom: '10px',
-      marginRight: '50px',
-      alignItems: 'center',
-      webkitBoxOrient: 'horizontal',
-      webkitBoxDirection: 'normal',
-      webkitFlexDirection: 'row',
-      msFlexDirection: 'row',
-      flexDirection: 'row',
-      webkitBoxPack: 'center',
-      webkitJustifyContent: 'center',
-      msFlexPack: 'center',
-      justifyContent: 'center',
-      webkitBoxAlign: 'center',
-      webkitAlignItems: 'center',
-      msFlexAlign: 'center',
-      webkitTransition: 'all 300ms ease',
-      transition: 'all 300ms ease',
-    },
     section: {
       width: '100%',
+      backgroundColor: '#ffd343',
     },
     // MUST KEEP
     html: {
       height: '100%',
     },
-    h1: {
-      fontWeight: 'bold',
-      marginBottom: '10px',
-      fontSize: '48px',
-      lineHeight: '42px',
-      marginTop: '20px',
+    body: {
+      margin: 0,
+      padding: 0,
     },
     h2: {
       fontWeight: 'bold',
@@ -75,31 +43,20 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  alignCenter: {
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    color: '#0c0a89',
-    textAlign: 'center',
-  },
-      
-  max800Px: {
-    color: '#0c0a89',
-    fontSize: '48px',
-    lineHeight: '60px',
-    maxWidth: 'none',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    textAlign: 'center',
+  containerYellow: {
+    backgroundColor: '#ffd343',
+    width: '100%',
   },
   
-  section11: {
+  section1: {
     display: '-webkit-box',
     display: '-webkit-flex',
     display: '-ms-flexbox',
     display: 'flex',
     width: 'auto',
     maxWidth: 'none',
-    padding: '35px 6%',
-    paddingTop: '10px',
-    paddingBottom: '40px',
+    paddingTop: '50px',
+    paddingBottom: '120px',
     webkitBoxOrient: 'horizontal',
     webkitBoxDirection: 'normal',
     webkitFlexDirection: 'row',
@@ -114,12 +71,8 @@ const useStyles = makeStyles((theme) => ({
     msFlexAlign: 'center',
     alignItems: 'center',
   },
-       
-  yellowBg: {
-    backgroundColor: '#ffd343',
-  },
 
-  container18: {
+  container1: {
     width: 'auto',
     maxWidth: '1400px',
     marginTop: '20px',
@@ -143,9 +96,11 @@ export default function ContentSection(props) {
   
   return (
     <React.Fragment>
-      <section className={`${classes.section11} ${classes.yellowBg}`}>
-        <div className={classes.container18}>{props.children}</div>
+      <div className={classes.containerYellow}>
+      <section className={classes.section1}>
+        <div className={classes.container1}>{props.children}</div>
       </section>
+      </div>
     </React.Fragment>
   )
 };
