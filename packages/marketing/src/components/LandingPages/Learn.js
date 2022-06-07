@@ -1,13 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+
 import ContentSection from './ContentSection';
 import ContactForm from './ContactForm'
 import LearnMoreSection from './LearnMoreSection';
 import Footer from '../footer/Footer';
-
-const useStyles = makeStyles((theme) => ({
-  
-}));
+import SubmitButton from './SubmitButton';
 
 
 export default function Learn() {  
@@ -16,6 +13,7 @@ export default function Learn() {
       <ContentSection>
         <ContactForm />
         <LearnMoreSection />
+        <SubmitButton />
       </ContentSection>
       <Footer />
     </React.Fragment>

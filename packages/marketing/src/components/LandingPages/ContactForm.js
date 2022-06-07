@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     msGridRows: 'auto auto',
     gridTemplateRows: 'auto auto',
     gridRowGap: '16px',
-    gridColumnGap: '16px',
+    gridColumnGap: '100px',
   },
         
   _2ColGrid: {
@@ -151,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
   },
   ContactSection: {
     padding: '5px',
+    margin: 0,
   },
 }));
 

@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20px',
     marginRight: 'auto',
     marginLeft: 'auto',
-    marginBottom: '40px',
+    marginBottom: '30px',
     position: 'relative',
     webkitBoxPack: 'center',
     webkitJustifyContent: 'center',

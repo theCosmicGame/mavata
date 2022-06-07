@@ -33,7 +33,7 @@ export default function NavTabs() {
   const linkMap = [
     ["All Companies", "/companies"],
     ["Company Profile", "/companies/last"], // BEM TO DO: change to dropdown 
-    ["Settings", "/user/settings"]
+    ["Settings", "/dashboard"]
   ];
 
   return (
