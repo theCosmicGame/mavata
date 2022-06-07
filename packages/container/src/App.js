@@ -9,7 +9,6 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 import { createBrowserHistory } from 'history';
 
-import '../configureAmplify'
 
 import WebFont from 'webfontloader';
 

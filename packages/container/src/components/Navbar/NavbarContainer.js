@@ -8,7 +8,7 @@ export default function NavbarContainer({ isSignedIn, ...props}) {
   const classes = useStyles();
   const path = useLocation().pathname;
   const onPath = ((path == '/') || (path == '/learn') || (path == '/earlyaccess'))
-  const bg = (!isSignedIn || onPath) ? classes.yellowBg : classes.whiteBg;
+  const bg = onPath ? classes.yellowBg : classes.whiteBg;
   
   return (
     <AppBar               

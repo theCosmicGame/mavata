@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   card2: {
+    backgroundColor: '#8ef0de',
     position: 'relative',
     display: '-webkit-box',
     display: '-webkit-flex',
@@ -27,11 +28,14 @@ const useStyles = makeStyles((theme) => ({
     msFlexAlign: 'center',
     alignItems: 'center',
     borderRadius: '8px',
-    backgroundColor: '#8ef0de',
     boxShadow: '1px 1px 13px 0 rgba(0, 0, 0, 0.07)',
   },
 
   _24PxAlignLeftMobileLandscape: {
+    fontSize: '24px',
+    fontFamily: ['Playfair Display', 'sans-serif'],
+    color: '#0c0a89',
+
     display: '-webkit-box',
     display: '-webkit-flex',
     display: '-ms-flexbox',
@@ -53,10 +57,6 @@ const useStyles = makeStyles((theme) => ({
     msFlexAlign: 'center',
     alignItems: 'center',
     textAlign: 'center',
-
-    fontSize: '24px',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    color: '#0c0a89',
   },
 
   cardContent: {

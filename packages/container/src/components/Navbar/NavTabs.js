@@ -5,26 +5,25 @@ import Tabs from '@material-ui/core/Tabs';
 
 const useStyles = makeStyles((theme) => ({
   navLink: {
-    margin: '2px',
-    padding: '10px',
+    margin: '10px',
+    padding: '3px',
     fontSize: '20px',
     fontWeight: 600,
     color: '#0c0a89',
     alignItems: 'center',
-  },
-  
-  navLinkItem: {  
-    padding: '3px', 
-    margin: '2px',
+
     '&:hover': {
-      border: '2px dashed #0c0a89',
+      borderBottom: '3px solid #0c0a89',
     },
   },
 
   navActive: {
     backgroundColor: '#0c0a89',
+    borderRadius: '5px',
+    padding: '7px 10px 10px 10px',
     color: '#fff',
     border: 'none',
+    pointerEvents: 'none',
   },
 }));
 
@@ -33,19 +32,17 @@ export default function NavTabs() {
     
   const linkMap = [
     ["All Companies", "/companies"],
-    ["Company Profile", "/companies/last"],
+    ["Company Profile", "/companies/last"], // BEM TO DO: change to dropdown 
     ["Settings", "/user/settings"]
   ];
 
   return (
     <React.Fragment>
-      <div className={classes.navLink}>
         {linkMap.map(([title, url], index) => (
             <NavLink exact to={url} key={index} className={classes.navLink} activeClassName={classes.navActive}>
-                <a className={`${classes.navLinkItem}`}>{title}</a>
+                {title}
             </NavLink>
         ))}
-      </div>
     </React.Fragment>
   )
 }

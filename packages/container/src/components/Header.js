@@ -5,6 +5,8 @@ import NavTabs from './Navbar/NavTabs';
 import NavbarContainer from './Navbar/NavbarContainer';
 import useStyles from './styling/NavStyle';
 
+
+
 export default function Header({ isSignedIn, onSignOut }) {
   const classes = useStyles();
 

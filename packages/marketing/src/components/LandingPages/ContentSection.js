@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   '@global': {
 
     footer: {
-      backgroundColor: 'rgba(21, 17, 59, 1)', 
+      backgroundColor: '#15113b',
       display: '-webkit-box',
       display: '-webkit-flex',
       display: '-ms-flexbox',
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: '10px',
       paddingBottom: '10px',
       marginRight: '50px',
-      backgroundColor: '#15113b',
       alignItems: 'center',
       webkitBoxOrient: 'horizontal',
       webkitBoxDirection: 'normal',
