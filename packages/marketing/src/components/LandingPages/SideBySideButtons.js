@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '16px',
     textTransform: 'uppercase',
 
-    '@media screen and (max-width: 767px)': {
+    ['@media screen and (max-width: 767px)']: {
       paddingTop: '10px',
     },
   },
