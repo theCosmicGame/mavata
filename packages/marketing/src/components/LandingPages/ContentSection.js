@@ -70,6 +70,18 @@ const useStyles = makeStyles((theme) => ({
     webkitAlignItems: 'center',
     msFlexAlign: 'center',
     alignItems: 'center',
+
+    '@media screen and (max-width: 991px)': {
+      padding: '50px 5% 65px',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      padding: '40px 4%',
+    },
+
+    '@media screen and (max-width: 479px)': {
+      padding: '30px 5%',
+    },
   },
 
   container1: {
@@ -88,6 +100,24 @@ const useStyles = makeStyles((theme) => ({
     webkitAlignItems: 'center',
     msFlexAlign: 'center',
     alignItems: 'center',
+
+    '&.megaNavContainer': {
+      display: '-webkit-box',
+      display: '-webkit-flex',
+      display: '-ms-flexbox',
+      display: 'flex',
+
+      '@media screen and (max-width: 991px)': {
+        display: '-webkit-box',
+        display: '-webkit-flex',
+        display: '-ms-flexbox',
+        display: 'flex',
+        webkitBoxAlign: 'start',
+        webkitAlignItems: 'flex-start',
+        msFlexAlign: 'start',
+        alignItems: 'flex-start',
+      },
+    },
   },
 }));
 

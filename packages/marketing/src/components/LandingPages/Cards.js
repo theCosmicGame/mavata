@@ -13,9 +13,12 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     paddingTop: '10px',
     paddingBottom: '10px',
-    alignItems: 'center',
+
+    '@media screen and (max-width: 767px)': {
+      paddingTop: '25px',
+    },
   },
-  
+
   _3ColGrid: {
     width: '100%',
     gridAutoFlow: 'row',
@@ -27,6 +30,26 @@ const useStyles = makeStyles((theme) => ({
     msGridRows: 'auto auto',
     gridTemplateRows: 'auto auto',
     justifyContent: 'space-between',
+
+    '@media screen and (max-width: 767px)': {
+      display: '-webkit-box',
+      display: '-webkit-flex',
+      display: '-ms-flexbox',
+      display: 'flex',
+      webkitFlexWrap: 'wrap',
+      msFlexWrap: 'wrap',
+      flexWrap: 'wrap',
+    },
+  },
+    
+  wLayoutGrid: {
+    gridAutoColumns: '1fr',
+    msGridColumns: '1fr 1fr',
+    gridTemplateColumns: '1fr 1fr',
+    msGridRows: 'auto auto',
+    gridTemplateRows: 'auto auto',
+    gridRowGap: '16px',
+    gridColumnGap: '16px',
   },
 }));
 
@@ -42,7 +65,7 @@ export default function Cards() {
   return (
     <React.Fragment>
       <Container className={classes._5CardContainer}>
-        <Grid container spacing={2} className={classes._3ColGrid}>
+        <Grid container spacing={2} className={`${classes._3ColGrid} ${classes.wLayoutGrid}`}>
           {cards.map((card, index) => (
             <Grid item key={index} sm={6} md={2} lg={2}>
               <CardNew key={index}>

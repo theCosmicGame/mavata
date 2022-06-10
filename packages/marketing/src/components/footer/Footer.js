@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
             display: '-webkit-flex',
             display: '-ms-flexbox',
             display: 'flex',
-            width: '100%',
+            width: 'auto',
             maxWidth: 'none',
             paddingTop: '10px',
             paddingBottom: '10px',
@@ -33,6 +33,21 @@ const useStyles = makeStyles((theme) => ({
             msFlexAlign: 'center',
             webkitTransition: 'all 300ms ease',
             transition: 'all 300ms ease',
+
+            '@media screen and (max-width: 991px)': {
+                paddingRight: '20px',
+                paddingLeft: '20px',
+            },
+            
+            '@media screen and (max-width: 767px)': {
+                padding: '40px 20px',
+            },
+
+            '@media screen and (max-width: 479px)': {
+                paddingRight: '20px',
+                paddingLeft: '20px',
+                textAlign: 'left',
+            },
         },
     },
 
@@ -60,6 +75,33 @@ const useStyles = makeStyles((theme) => ({
         webkitJustifyContent: 'space-between',
         msFlexPack: 'justify',
         justifyContent: 'space-between',
+        
+        '@media screen and (max-width: 991px)': {
+            width: '100%',
+        },
+        
+        '@media screen and (max-width: 767px)': {
+            webkitBoxOrient: 'vertical',
+            webkitBoxDirection: 'normal',
+            webkitFlexDirection: 'column',
+            msFlexDirection: 'column',
+            flexDirection: 'column',
+            webkitBoxPack: 'center',
+            webkitJustifyContent: 'center',
+            msFlexPack: 'center',
+            justifyContent: 'center',
+            webkitBoxAlign: 'start',
+            webkitAlignItems: 'flex-start',
+            msFlexAlign: 'start',
+            alignItems: 'flex-start',
+        },
+
+        '@media screen and (max-width: 469px)': {
+            webkitBoxAlign: 'start',
+            webkitAlignItems: 'flex-start',
+            msFlexAlign: 'start',
+            alignItems: 'flex-start',
+        },
     },
 
     textWhite: {

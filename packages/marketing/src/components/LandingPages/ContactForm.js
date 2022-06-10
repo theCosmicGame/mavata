@@ -25,6 +25,21 @@ const useStyles = makeStyles((theme) => ({
     display: '-webkit-flex',
     display: '-ms-flexbox',
     display: 'flex',
+
+    '@media screen and (max-width: 991px)': {
+      width: '70%',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      width: '100%',
+      minWidth: 'auto',
+      paddingTop: '10px',
+    },
+
+    '@media screen and (max-width: 479px)': {
+      display: 'block',
+      textAlign: 'center',
+    },
   },
     
   wLayoutGrid: {

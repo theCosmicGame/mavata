@@ -45,6 +45,11 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: '3px solid #15113b',
     color: '#15113b',
     textAlign: 'left',
+
+    '@media screen and (max-width: 991px)': {
+      width: '45%',
+      marginRight: '5%',
+    },
   },
 
     wClearfix: {
@@ -83,6 +88,18 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: ['Barlow', 'sans-serif'],
     color: '#0c0a89',
     textAlign: 'left',
+
+    '@media screen and (max-width: 991px)': {
+      width: '45%',
+      marginRight: '5%',
+    },
+
+    '@media screen and (max-width: 479px)': {
+      width: '100%',
+      marginTop: '6px',
+      borderBottomColor: '#15113b',
+      color: '#15113b',
+    },
   },
 
   checkbox: {

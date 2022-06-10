@@ -18,12 +18,19 @@ const useStyles = makeStyles((theme) => ({
   },
 
   navActive: {
-    backgroundColor: '#0c0a89',
-    borderRadius: '5px',
+    backgroundColor: '#08048C',
+    borderRadius: '8px',
     padding: '7px 10px 10px 10px',
     color: '#fff',
     border: 'none',
     pointerEvents: 'none',
+  },
+
+  navActive2: {
+    paddingTop: '30px',
+    borderBottom: '3px solid #08048C',
+    borderRadius: '8px 16px 0px 0px',
+    bottom: '0%',
   },
 }));
 
@@ -39,7 +46,7 @@ export default function NavTabs() {
   return (
     <React.Fragment>
         {linkMap.map(([title, url], index) => (
-            <NavLink exact to={url} key={index} className={classes.navLink} activeClassName={classes.navActive}>
+            <NavLink exact to={url} key={index} className={classes.navLink} activeClassName={classes.navActive2}>
                 {title}
             </NavLink>
         ))}

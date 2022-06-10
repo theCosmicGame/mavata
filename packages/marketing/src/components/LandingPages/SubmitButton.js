@@ -103,6 +103,11 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20px',
     backgroundColor: '#15113b',
     color: '#fff',
+
+    '@media screen and (max-width: 479px)': {
+      minHeight: '45px',
+      textAlign: 'center',
+    },
   },
   
   wButton: {
@@ -114,6 +119,11 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 'inherit',
     textDecoration: 'none',
     cursor: 'pointer',
+
+    '@media screen and (max-width: 991px)': {
+      paddingRight: '15px',
+      paddingLeft: '15px',
+    },
   },
 }));
 

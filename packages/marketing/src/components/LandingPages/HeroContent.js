@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '24px',
     lineHeight: '36px',
     fontWeight: 300,
+
+    '@media screen and (max-width: 767px)': {
+      marginTop: '14px',
+      fontSize: '20px',
+      lineHeight: '30px',
+    },
   },
 
   intro: {

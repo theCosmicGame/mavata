@@ -19,6 +19,22 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     opacity: 1,
     fontFamily: ['Barlow', 'sans-serif'],
+
+    '@media screen and (max-width: 991px)': {
+      display: '-webkit-box',
+      display: '-webkit-flex',
+      display: '-ms-flexbox',
+      display: 'flex',
+      padding: '0px 3%',
+      webkitBoxPack: 'center',
+      webkitJustifyContent: 'center',
+      msFlexPack: 'center',
+      justifyContent: 'center',
+      webkitBoxAlign: 'center',
+      webkitAlignItems: 'center',
+      msFlexAlign: 'center',
+      alignItems: 'center',
+    },
   },
 
   navItem: {
@@ -65,6 +81,27 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#ffd343',
     opacity: 1,
     fontFamily: ['Barlow', 'sans-serif'],
+    
+    '@media screen and (max-width: 991px)': {
+      display: '-webkit-box',
+      display: '-webkit-flex',
+      display: '-ms-flexbox',
+      display: 'flex',
+      padding: '0px 3%',
+      webkitBoxPack: 'center',
+      webkitJustifyContent: 'center',
+      msFlexPack: 'center',
+      justifyContent: 'center',
+      webkitBoxAlign: 'center',
+      webkitAlignItems: 'center',
+      msFlexAlign: 'center',
+      alignItems: 'center',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      minHeight: 'auto',
+      padding: '2px 3%',
+    },
   },
 
   wNav: {
@@ -135,6 +172,19 @@ const useStyles = makeStyles((theme) => ({
     
     opacity: 1,
     fontFamily: ['Barlow', 'sans-serif'],
+
+    '@media screen and (max-width: 991px)': {
+      width: '100%',
+      maxHeight: '65px',
+      maxWidth: '100%',
+      minHeight: '65px',
+      paddingRight: '0%',
+      paddingLeft: '0%',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      minHeight: 'auto',
+    },
   },
   
   wNavMenu: {
@@ -181,11 +231,44 @@ const useStyles = makeStyles((theme) => ({
     webkitAlignItems: 'center',
     msFlexAlign: 'center',
     alignItems: 'center',
+
+    '@media screen and (max-width: 991px)': {
+      webkitBoxPack: 'start',
+      webkitJustifyContent: 'flex-start',
+      msFlexPack: 'start',
+      justifyContent: 'flex-start',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      height: 'auto',
+    },
   },
 
   logo: {
     maxWidth: '80%',
     marginTop: '5px',
+
+    '@media screen and (max-width: 991px)': {
+      marginBottom: '20px',
+      paddingRight: '24px',
+      paddingLeft: '24px',
+      webkitBoxPack: 'center',
+      webkitJustifyContent: 'center',
+      msFlexPack: 'center',
+      justifyContent: 'center',
+      webkitFlexWrap: 'wrap',
+      msFlexWrap: 'wrap',
+      flexWrap: 'wrap',
+      webkitBoxAlign: 'center',
+      webkitAlignItems: 'center',
+      msFlexAlign: 'center',
+      alignItems: 'center',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      maxWidth: '80%',
+      marginTop: '10px',
+    },
   },
     
   section11: {
@@ -216,6 +299,10 @@ const useStyles = makeStyles((theme) => ({
     
     '&.contactV2Section': {
       backgroundColor: '#ffd343',
+    },
+
+    '@media screen and (max-width: 991px)': {
+      padding: '50px 5% 65px',
     },
   },
     

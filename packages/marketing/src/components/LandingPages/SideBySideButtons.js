@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-  
   darkBlue: {
     backgroundColor: '#0c0a89',
     color: '#fff',
@@ -41,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     color: '#000',
     fontSize: '16px',
     textTransform: 'uppercase',
+
+    '@media screen and (max-width: 767px)': {
+      paddingTop: '10px',
+    },
   },
   
   sideBySideButtonContain: {
@@ -78,6 +81,11 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     cursor: 'pointer',
     borderRadius: 0,
+
+    '@media screen and (max-width: 991px)': {
+      paddingRight: '15px',
+      paddingLeft: '15px',
+    },
   },
   
   button8: {
@@ -149,6 +157,20 @@ const useStyles = makeStyles((theme) => ({
         webkitTransform: 'none',
         msTransform: 'none',
         transform: 'none',
+      },
+
+      '@media screen and (max-width: 767px)': {
+        display: '-webkit-box',
+        display: '-webkit-flex',
+        display: '-ms-flexbox',
+        display: 'flex',
+      },
+
+      '&.introButton': {
+        '@media screen and (max-width: 767px)': {
+          marginLeft: '0px',
+          textAlign: 'center',
+        },
       },
     },
   },

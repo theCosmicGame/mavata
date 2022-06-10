@@ -41,6 +41,21 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     borderRadius: '8px',
     boxShadow: '1px 1px 13px 0 rgba(0, 0, 0, 0.07)',
+
+    '@media screen and (max-width: 991px)': {
+      webkitBoxOrient: 'horizontal',
+      webkitBoxDirection: 'normal',
+      webkitFlexDirection: 'row',
+      msFlexDirection: 'row',
+      flexDirection: 'row',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      width: '100%',
+      marginBottom: '10px',
+      paddingTop: '20px',
+      paddingBottom: '20px',
+    },
   },
 
   cardContent: {
@@ -71,13 +86,49 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 'auto',
     marginTop: '10px',
 
-    fontSize: '24px',
     fontFamily: ['Playfair Display', 'sans-serif'],
     color: '#0c0a89',
 
     textAlign: 'center',
   },
+  
+  _24pxAlignLeftMobileLandscape: {
+    fontSize: '16px',
 
+    '@media screen and (max-width: 991px)': {
+      fontSize: '16px',
+      lineHeight: '24px',
+      textAlign: 'center',
+    },
+
+    '@media screen and (max-width: 767px)': {
+      textAlign: 'left',
+    },
+
+    '@media screen and (max-width: 479px)': {
+      display: '-webkit-box',
+      display: '-webkit-flex',
+      display: '-ms-flexbox',
+      display: 'flex',
+      marginRight: 'auto',
+      marginLeft: 'auto',
+      webkitBoxOrient: 'vertical',
+      webkitBoxDirection: 'normal',
+      webkitFlexDirection: 'column',
+      msFlexDirection: 'column',
+      flexDirection: 'column',
+      webkitBoxPack: 'center',
+      webkitJustifyContent: 'center',
+      msFlexPack: 'center',
+      justifyContent: 'center',
+      webkitBoxAlign: 'center',
+      webkitAlignItems: 'center',
+      msFlexAlign: 'center',
+      alignItems: 'center',
+      fontSize: '15px',
+      textAlign: 'center',
+    },
+  },
 }));
 
 export default function CardNew(props) {
@@ -86,7 +137,7 @@ export default function CardNew(props) {
   return (
     <Card className={classes.card2}>
       <CardContent className={classes.cardContent}>
-          <h4>{props.children}</h4>
+          <h4 className={classes._24pxAlignLeftMobileLandscape}>{props.children}</h4>
       </CardContent>
   </Card>
   )

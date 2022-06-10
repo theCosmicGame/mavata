@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
       cursor: 'pointer',
       borderRadius: 0,
+
+      '@media screen and (max-width: 991px)': {
+        paddingRight: '15px',
+        paddingLeft: '15px',
+      },
     },
     
     button3: {
@@ -125,6 +130,11 @@ const useStyles = makeStyles((theme) => ({
           msTransform: 'translate(0px, -3px)',
           transform: 'translate(0px, -3px)',
           color: '#fff',
+        },
+
+        '@media screen and (max-width: 479px)': {
+          marginLeft: '0px',
+          textAlign: 'center',
         },
       },
     },
