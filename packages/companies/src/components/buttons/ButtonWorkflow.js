@@ -2,7 +2,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import PlusCircle from '../../assets/img/button/plus-circle.png'
+import PlusCircle from '../../assets/img/icons/plus-circle.png'
 
 const useStyles = makeStyles((theme) => ({
   buttonsUl4: {
