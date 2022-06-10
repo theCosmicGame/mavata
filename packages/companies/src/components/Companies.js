@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
 
   padBot: {
     paddingBottom: '10px',
-    lineHeight: '70px',
   },
 
   wrapper: {
