@@ -13,7 +13,6 @@ const advancedData = {
   ],
 
   rows: [
-    {  },
   ],
 }
 
@@ -21,6 +20,6 @@ export default function CompaniesTable() {
   const classses = useStyles();
   
   return (
-
+    
   );
 };

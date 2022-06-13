@@ -51,25 +51,25 @@ const useStyles = makeStyles((theme) => ({
 
   
   wButton4: {
-    height: '30px',
+    minHeight: '35px',
+    minWidth: '200px !important',
 
-    minWidth: '175px!important',
     flex: '0 0 auto',
 
     display: 'inline-block',
-    padding: '9px 15px',
-    width: '120px !important',
+    padding: '11px 15px 11px 15px',
+    margin: '0 auto',
+
+    verticalAlign: 'middle',
+
     backgroundColor: '#0c0a89',
     color: 'white',
     borderColor: '#0c0a89',
-    marginTop: '0px',
     lineHeight: 'inherit',
     textDecoration: 'none',
     cursor: 'pointer',
     borderRadius: '8px',
     fontWeight: 'bold',
-
-    verticalAlign: 'middle',
     
     '&:hover': {
       marginLeft: '0px',
@@ -86,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
     
   button4: {
     marginTop: '40px',
-    webkitTransition: 'all 350ms ease',
     transition: 'all 350ms ease',
     fontFamily: ['Playfair Display', 'sans-serif'],
     fontSize: '16px',
@@ -122,15 +121,14 @@ const useStyles = makeStyles((theme) => ({
 
   /* Add a new company */
   buttonText: {
-    height: '30px',
-
-    marginLeft: '5%',
+    marginLeft: '6%',
+    marginTop: '5px',
+    marginBottom: '5px',
   
     fontFamily: 'Overpass',
     fontStyle: 'normal',
     fontWeight: 700,
     fontSize: '15px',
-    lineHeight: '35px',
     /* identical to box height, or 133% */
     letterSpacing: '-0.02em',
     color: '#FFFFFF',
@@ -139,14 +137,21 @@ const useStyles = makeStyles((theme) => ({
     order: 2,
     flexGrow: 0,
   },
+
+  divButton: {
+    position: 'relative',
+    verticalAlign: 'middle',
+  },
 }))
 
 export default function ButtonWorkflow(props) {
   const classes = useStyles();
 
   return (
+    <div className={classes.divButton}>
       <RouterLink to={props.to} className={classes.wButton4} onClick={props.onClick}>
         <img src={PlusCircle} className={classes.buttonPlusCircle} alt='add' /><span className={classes.buttonText}>{props.children}</span>
       </RouterLink>
+    </div>
   )
 }

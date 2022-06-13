@@ -9,28 +9,33 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px',
     gap: '8px',
     
-    marginTop: '50px',
+    margin: '50px 5px',
+    //marginBottom: '50px',
 
     display: 'Webkit-box',
     display: 'WebkitFlex',
     display: '-msFlexbox',
     display: 'flex',
+
     width: '100%',
     maxWidth: 'none',
     minHeight: 'auto',
+
     marginRight: '0px',
     marginLeft: '0px',
     paddingTop: '0px',
     paddingRight: '0%',
     paddingLeft: '0%',
+    
     webkitBoxPack: 'justify',
     webkitJustifyContent: 'space-between',
     msFlexPack: 'justify',
     justifyContent: 'space-between',
-    webkitBoxAlign: 'flexStart',
-    webkitAlignItems: 'ceflexStartnter',
-    msFlexAlign: 'flexStart',
-    alignItems: 'flexStart',
+
+    webkitBoxAlign: 'center',
+    webkitAlignItems: 'center',
+    msFlexAlign: 'center',
+    alignItems: 'center',
     
     flexDirection: 'row',
   },
@@ -141,11 +146,6 @@ const useStyles = makeStyles((theme) => ({
     order: 2,
     flexGrow: 0,
   },
-
-  buttonDiv: {
-    display: 'inline-block',
-    width: '250px!important',
-  },
 }))
 
 const table = [['FastServe HVAC', 'Business Services', 'Admin'],
@@ -171,7 +171,7 @@ export default function CompaniesHeading() {
         <h1 className={classes.headingA}>All Companies</h1>
         <p className={classes.subHeadingA}>You have {n} companies in your dashboard.</p>
       </div>
-      <div className={classes.buttonDiv}><ButtonWorkflow to='/addcompany'>Add a new company</ButtonWorkflow></div>
+      <ButtonWorkflow to='/addcompany'>Add a new company</ButtonWorkflow>
     </div>
     </React.Fragment>
   )
