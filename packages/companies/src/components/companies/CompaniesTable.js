@@ -9,11 +9,11 @@ const advancedData = {
   columns: [
     { label: 'Name', field: 'name', sort: true },
     { label: 'Sector', field: 'sector', sort: false },
-    { label: 'Your Role', field: 'role', sort, false },
+    { label: 'Your Role', field: 'role', sort: false },
   ],
 
   rows: [
-    { name:  },
+    {  },
   ],
 }
 
