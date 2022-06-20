@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import ButtonWorkflow from '../buttons/ButtonWorkflow'
 
 const useStyles = makeStyles((theme) => ({
-
   frame: {
     padding: '0px',
     gap: '8px',
@@ -49,8 +48,9 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Overpass',
     fontStyle: 'normal',
     fontWeight: 900,
-    fontSize: '36px',
+    fontSize: '4vw',    //'36px',
     lineHeight: '40px',
+    whiteSpace: 'nowrap',
     /* identical to box height, or 111% */
     letterSpacing: '-0.03em',
     /* Blacks/001 */
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Overpass',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '16px',
+    fontSize: '1.5vw',         //'16px',
     lineHeight: '28px',
     /* identical to box height, or 175% */
     letterSpacing: '-0.02em',
@@ -146,6 +146,10 @@ const useStyles = makeStyles((theme) => ({
     order: 2,
     flexGrow: 0,
   },
+
+  headingDiv: {
+    padding: '10px 30px',
+  },
 }))
 
 const table = [['FastServe HVAC', 'Business Services', 'Admin'],
@@ -158,7 +162,7 @@ const table = [['FastServe HVAC', 'Business Services', 'Admin'],
               ['Rigid Bikes', 'Consumer', 'Admin'],
               ['UCare', 'Healthcare', 'Admin'],
               ['LifeWorx', 'Healthcare', 'Admin']
-            ]
+            ];
 
 export default function CompaniesHeading() {
   const classes = useStyles()
@@ -167,11 +171,13 @@ export default function CompaniesHeading() {
   return (
     <React.Fragment>
     <div className={classes.frame}>
-      <div>
+      <div className={classes.headingDiv}>
         <h1 className={classes.headingA}>All Companies</h1>
         <p className={classes.subHeadingA}>You have {n} companies in your dashboard.</p>
       </div>
-      <ButtonWorkflow to='/addcompany'>Add a new company</ButtonWorkflow>
+      <div className={classes.headingDiv}>
+        <ButtonWorkflow to='/addcompany'>Add a new company</ButtonWorkflow>
+      </div>
     </div>
     </React.Fragment>
   )

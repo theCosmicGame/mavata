@@ -1,7 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
-import Tabs from '@material-ui/core/Tabs';
+import styled from 'styled-components';
+
+const NavDiv = styled.div`
+  @media (max-width: 767px) {
+    display: none;
+  }
+`
 
 const useStyles = makeStyles((theme) => ({
   navLink: {
@@ -34,22 +40,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NavTabs() {
+export default function NavTabs({ linkMap }) {
   const classes = useStyles();
-    
-  const linkMap = [
-    ["All Companies", "/companies"],
-    ["Company Profile", "/companies/last"], // BEM TO DO: change to dropdown 
-    ["Settings", "/dashboard"]
-  ];
 
   return (
     <React.Fragment>
+      <NavDiv>
         {linkMap.map(([title, url], index) => (
             <NavLink exact to={url} key={index} className={classes.navLink} activeClassName={classes.navActive2}>
                 {title}
             </NavLink>
         ))}
+      </NavDiv>
     </React.Fragment>
   )
 }

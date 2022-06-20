@@ -13,17 +13,21 @@ module.exports = {
               },
             },
             {
-              test: /\.s[ac]ss$/i,
-              exclude: /node_modules/,
-              use: [
-                // Creates `style` nodes from JS strings
-                "style-loader",
-                // Translates CSS into CommonJS
-                "css-loader",
-                // Compiles Sass to CSS
-                // "sass-loader",
-              ],
+              test: /\.css$/,
+              use: ['style-loader', 'css-loader']
             },
+            // {
+            //   test: /\.s[ac]ss$/i,
+            //   exclude: /node_modules/,
+            //   use: [
+            //     // Creates `style` nodes from JS strings
+            //     "style-loader",
+            //     // Translates CSS into CommonJS
+            //     "css-loader!postcss-loader",
+            //     // Compiles Sass to CSS
+            //     "sass-loader",
+            //   ],
+            // },
             // {
             //   test: /\.(css|sass|scss)$/,
             //   use: [
@@ -64,18 +68,6 @@ module.exports = {
             //       // Loads a SASS/SCSS file and compiles it to CSS
             //       loader: 'sass-loader'
             //     },
-            //   ]
-            // },
-            // {
-            //   test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-            //   use: [
-            //     {
-            //       loader: 'file-loader',
-            //       options: {
-            //         name: '[path][name].[ext]',
-            //         outputPath: 'fonts/'
-            //       }
-            //     }
             //   ]
             // },
             // {
@@ -122,11 +114,13 @@ module.exports = {
             },
             {
               test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+              exclude: /node_modules/,
               use: [
                 {
                   loader: 'file-loader',
                   options: {
-                    name: '[path][name].[ext]',
+                    //name: '[path][name].[ext]',
+                    name: '[name].[ext]',
                     outputPath: 'fonts/'
                   }
                 }

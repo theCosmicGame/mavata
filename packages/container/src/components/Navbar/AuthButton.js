@@ -43,10 +43,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   
-  wButton4: {
+  wButton3: {
     display: 'inline-block',
     padding: '9px 15px',
     lineHeight: 'inherit',
+    whiteSpace: 'nowrap',
     textDecoration: 'none',
     cursor: 'pointer',
     margin: '2px',
@@ -83,7 +84,7 @@ export default function AuthButton({ isSignedIn, onSignOut }) {
 
   return (
     <Button
-      className={`${classes.darkOutline4} ${classes.wButton4} ${classes.outlinedButton4}`}
+      className={`${classes.darkOutline4} ${classes.wButton3} ${classes.outlinedButton4}`}
       component={RouterLink}
       to={isSignedIn ? '/' : '/auth/signin'}
       onClick={onClick}

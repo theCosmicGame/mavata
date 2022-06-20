@@ -2,4 +2,7 @@ node_modules
 dist
 .DS_Store
 purchases
+playground
+webflow
+re-pro
 package-lock.json

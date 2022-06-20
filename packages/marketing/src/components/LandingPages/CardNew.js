@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     webkitAlignItems: 'center',
     msFlexAlign: 'center',
     alignItems: 'center',
+    align: 'center!important',
     borderRadius: '8px',
     boxShadow: '1px 1px 13px 0 rgba(0, 0, 0, 0.07)',
 

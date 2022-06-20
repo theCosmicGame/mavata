@@ -15,6 +15,8 @@ const useStyles = makeStyles((theme) => ({
   },
   
   toolbar1: {
+    height: '75px',
+    
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     opacity: 1,
@@ -40,6 +42,24 @@ const useStyles = makeStyles((theme) => ({
   navItem: {
     margin: '0px',
     padding: '0px',
+  },
+
+  navItemSm: {
+    '@media screen and (min-width: 767px)': {
+      display: 'none!important',
+    },
+    '@media screen and (max-width: 766px)': {
+      display: 'inline-block!important',
+    },
+  },
+
+  navItemMd: {
+    '@media screen and (min-width: 767px)': {
+      display: 'inline-block!important',
+    },
+    '@media screen and (max-width: 766px)': {
+      display: 'none!important',
+    },
   },
   
   linkButton: {
@@ -233,10 +253,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
 
     '@media screen and (max-width: 991px)': {
-      webkitBoxPack: 'start',
-      webkitJustifyContent: 'flex-start',
-      msFlexPack: 'start',
-      justifyContent: 'flex-start',
+      verticalAlign: 'middle',
+      width: '152px',
     },
 
     '@media screen and (max-width: 767px)': {
@@ -248,26 +266,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '80%',
     marginTop: '5px',
 
-    '@media screen and (max-width: 991px)': {
-      marginBottom: '20px',
-      paddingRight: '24px',
-      paddingLeft: '24px',
-      webkitBoxPack: 'center',
-      webkitJustifyContent: 'center',
-      msFlexPack: 'center',
-      justifyContent: 'center',
-      webkitFlexWrap: 'wrap',
-      msFlexWrap: 'wrap',
-      flexWrap: 'wrap',
-      webkitBoxAlign: 'center',
-      webkitAlignItems: 'center',
-      msFlexAlign: 'center',
-      alignItems: 'center',
-    },
-
     '@media screen and (max-width: 767px)': {
       maxWidth: '80%',
-      marginTop: '10px',
     },
   },
     

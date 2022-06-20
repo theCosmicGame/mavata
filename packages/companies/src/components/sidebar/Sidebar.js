@@ -15,12 +15,13 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
 import { Nav } from 'react-bootstrap';
-
 import { makeStyles } from '@material-ui/core/styles';
+
+import MenuSharpIcon from '@material-ui/icons/MenuSharp';
+import { MDBRow, MDBBtn, MDBIcon } from 'mdbreact';
 
 const useStyles = makeStyles((theme) => ({
   sidebar1: {
@@ -37,8 +38,6 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1000,
     color: '#000000',
     fontWeight: 200,
-
-
     
     '&$sidebarWrapper': {
       position: 'relative',
@@ -533,12 +532,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Sidebar() {
   const classes = useStyles();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen({
+      isOpen: !isOpen
+    });
+  };
 
   return (
     <div className={classes.sidebar1}>
       <div className={classes.sidebarWrapper}>
+        <MDBRow>
+          <MDBBtn color="#fff" borderColor='#fff' onClick={handleToggle}><MenuSharpIcon fontSize='small' /></MDBBtn>
+        </MDBRow>
         <div className={`${classes.logo} ${classes.dFlex} ${classes.alignItemsCenter} ${classes.justifyContentStart}`}>
           <a
             href="https://www.creative-tim.com?ref=lbd-sidebar"

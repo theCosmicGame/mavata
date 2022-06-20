@@ -59,9 +59,7 @@ export default () => {
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Suspense fallback={<Progress />} >
         <Switch>
-        <Route path="/companies/last" />
-        <Route path="/user/settings" />
-        <Route exact path="/companies" component={CompaniesLazy} />
+        <Route path="/companies" component={CompaniesLazy} />
         {/* 
           path indicated in Route is meant to match up to first part of a path
           IMPT NOTE: route in order of priority ('/dashboard' before '/' or else '/' gets routed first)

@@ -5,20 +5,6 @@ import CardNew from './CardNew'
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({     
-  _5CardContainer: {
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
-    width: '100%',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-
-    '@media screen and (max-width: 767px)': {
-      paddingTop: '25px',
-    },
-  },
-
   _3ColGrid: {
     width: '100%',
     gridAutoFlow: 'row',
@@ -30,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     msGridRows: 'auto auto',
     gridTemplateRows: 'auto auto',
     justifyContent: 'space-between',
-
+    alignItems: 'center',
+    
     '@media screen and (max-width: 767px)': {
       display: '-webkit-box',
       display: '-webkit-flex',

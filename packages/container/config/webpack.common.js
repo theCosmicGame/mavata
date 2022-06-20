@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   module: {
@@ -14,16 +15,41 @@ module.exports = {
           },
         },
       },
+      // {
+      //   test: /\.s[ac]ss$/i,
+      //   use: [
+      //     // Creates `style` nodes from JS strings
+      //     "style-loader",
+      //     // Translates CSS into CommonJS
+      //     "css-loader",
+      //     // Compiles Sass to CSS
+      //     "sass-loader",
+      //   ],
+      // },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(scss)$/,
         use: [
-          // Creates `style` nodes from JS strings
-          "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
+          {
+            // Adds CSS to the DOM by injecting a `<style>` tag
+            loader: 'style-loader'
+          },
+          {
+            // Interprets `@import` and `url()` like `import/require()` and will resolve them
+            loader: 'css-loader'
+          },
+          {
+            // Loads a SASS/SCSS file and compiles it to CSS
+            loader: 'sass-loader'
+          },
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
       {
         // Load all images as base64 encoding if they are smaller than 8192 bytes
@@ -35,6 +61,7 @@ module.exports = {
             options: {
               // On development we want to see where the file is coming from, hence we preserve the [path]
               name: '[path][name].[ext]?hash=[hash:20]',
+              //name: '[path][name].[ext]',
               limit: 8192
             },
           },

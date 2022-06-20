@@ -2,7 +2,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import PlusCircle from '../../assets/img/icons/plus-circle.png'
+import PlusCircle from '../../assets/img/icons/plus-circle-white.png'
 
 const useStyles = makeStyles((theme) => ({
   buttonsUl4: {
@@ -52,12 +52,11 @@ const useStyles = makeStyles((theme) => ({
   
   wButton4: {
     minHeight: '35px',
-    minWidth: '200px !important',
 
     flex: '0 0 auto',
 
     display: 'inline-block',
-    padding: '11px 15px 11px 15px',
+    padding: '11px 30px 11px 15px',
     margin: '0 auto',
 
     verticalAlign: 'middle',
@@ -82,32 +81,12 @@ const useStyles = makeStyles((theme) => ({
       color: '#fff',
       textDecoration: 'none',
     },
-  },
-    
-  button4: {
-    marginTop: '40px',
-    transition: 'all 350ms ease',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    fontSize: '16px',
-    fontWeight: 400,
-    textTransform: 'uppercase',
 
-    '&:hover': {
-      webkitTransform: 'translate(0px, -2px)',
-      msTransform: 'translate(0px, -2px)',
-      transform: 'translate(0px, -2px)',
-      textDecoration: 'none',
+    [theme.breakpoints.down('767')]: {
+      maxWidth: '50px',
     },
   },
-  
-  darkBlue4: {
-    backgroundColor: '#0c0a89',
-    color: '#fff',
-    
-    '&:hover': {
-      backgroundColor: '#09d5b0',
-    },
-  },
+
 
   /* plusCircle */
   buttonPlusCircle: {
@@ -136,11 +115,16 @@ const useStyles = makeStyles((theme) => ({
     flex: 'none',
     order: 2,
     flexGrow: 0,
+
+    [theme.breakpoints.down('767')]: {
+      display: 'none',
+    },
   },
 
   divButton: {
     position: 'relative',
     verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
   },
 }))
 

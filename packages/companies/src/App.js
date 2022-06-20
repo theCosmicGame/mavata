@@ -1,11 +1,14 @@
 import React from 'react';
-import { Switch, Route, Router, Redirect } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./assets/css/all.css";
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
 
 import Album from './components/Companies';
+import Company from './components/Company';
+import Settings from './components/UserSettings'
 
 import WebFont from 'webfontloader';
 
@@ -20,17 +23,16 @@ const generateClassName = createGenerateClassName({
 });
 
 export default ({ history }) => {
+  
   return (
     <div>
       <StylesProvider generateClassName={generateClassName}>
         <Router history={history}>
           <Switch>
-            <Route path="/companies/last" >
+            <Route exact path="/companies/last" component={Company} />
               {/* get last company name and render company component */}
-            </Route>
-            <Route exact path="/companies">
-              <Album />
-            </Route>
+            <Route exact path="/user/settings" component={Settings} />
+            <Route path="/companies" component={Album} />
           </Switch>
         </Router>
       </StylesProvider>

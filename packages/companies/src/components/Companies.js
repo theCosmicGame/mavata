@@ -1,16 +1,15 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Link } from 'react-router-dom';
 
-import Sidebar from './sidebar/Sidebar';
 import CompaniesHeading from './companies/CompaniesHeading';
+import CompaniesTable from './companies/CompaniesTable';
+
 
 
 const useStyles = makeStyles((theme) => ({
   bodyMain: {
     margin: 0,
-    padding: 0,
+    padding: '10px 50px',
     position: 'relative',
 
     maxHeight: '100%',
@@ -53,12 +52,12 @@ export default function Album() {
   return (
     <React.Fragment>
       <div className={classes.wrapper}>
-        <Sidebar />
         <main className={classes.bodyMain}>
           {/* Hero unit --> on javascript side of things, className="makeStyles-heroContent-2" (in development) but in production className="jss1" or "jss2" and so on (randomly generated class names)*/}
           {/* container has a .jss1 class that is DIFFERENT from the .jss1 of Landing Page */}
           <div className={classes.sectionContent}>
             <CompaniesHeading />
+            <CompaniesTable />
           </div>
         </main>
       </div>
