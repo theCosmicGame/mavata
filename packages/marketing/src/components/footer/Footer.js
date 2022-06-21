@@ -3,54 +3,64 @@ import React from 'react';
 import FooterLink from './FooterLink';
 import Copyright from './Copyright';
 import FooterButtons from './FooterButtons';
-import { useEffect, useRef } from "react";
+import styled from 'styled-components';
 
+const FooterStyled = styled.footer`
+  /* .section-10 */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  max-width: none;
+  padding: 50px 6%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  /* .section-10.footer-section */
+  position: relative;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #15113b;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+
+  @media screen and (max-width: 991px) {
+    padding: 50px 5% 65px;
+  };
+
+  @media screen and (max-width: 767px) {
+    padding: 40px 4%;
+  };
+
+  @media screen and (max-width: 479px) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  };
+`
+
+const FooterContainer = styled.div`
+  width: 100%;
+  max-width: 1400px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: 'Playfair Display', sans-serif;
+  display: block;
+`
 
 const useStyles = makeStyles((theme) => ({
-    '@global': {
-        footer: {
-            backgroundColor: '#15113b',
-            display: '-webkit-box',
-            display: '-webkit-flex',
-            display: '-ms-flexbox',
-            display: 'flex',
-            width: 'auto',
-            maxWidth: 'none',
-            paddingTop: '10px',
-            paddingBottom: '10px',
-            alignItems: 'center',
-            webkitBoxOrient: 'horizontal',
-            webkitBoxDirection: 'normal',
-            webkitFlexDirection: 'row',
-            msFlexDirection: 'row',
-            flexDirection: 'row',
-            webkitBoxPack: 'center',
-            webkitJustifyContent: 'center',
-            msFlexPack: 'center',
-            justifyContent: 'center',
-            webkitBoxAlign: 'center',
-            webkitAlignItems: 'center',
-            msFlexAlign: 'center',
-            webkitTransition: 'all 300ms ease',
-            transition: 'all 300ms ease',
-
-            '@media screen and (max-width: 991px)': {
-                paddingRight: '20px',
-                paddingLeft: '20px',
-            },
-            
-            '@media screen and (max-width: 767px)': {
-                padding: '40px 20px',
-            },
-
-            '@media screen and (max-width: 479px)': {
-                paddingRight: '20px',
-                paddingLeft: '20px',
-                textAlign: 'left',
-            },
-        },
-    },
-
     sectionFooter: {
         display: 'block',
         color: '#fff',
@@ -185,8 +195,8 @@ export default function Footer() {
     const classes = useStyles();
 
     return (
-        <footer>
-            <section className={classes.footerContainer}>
+        <FooterStyled>
+            <FooterContainer>
                 <div className={classes.sectionFooter}>
                     <div className={classes.footerWrap}>
                         <div className={classes.max300Px}>
@@ -217,8 +227,8 @@ export default function Footer() {
                     <div className={classes.footerBottom}></div>
                     <Copyright />
                 </div>
-            </section>
-        </footer>
+            </FooterContainer>
+        </FooterStyled>
 
     )
 }
