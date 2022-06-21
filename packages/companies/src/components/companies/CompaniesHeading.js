@@ -1,12 +1,13 @@
-import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
-import ButtonWorkflow from '../buttons/ButtonWorkflow'
+import ButtonWorkflow from '../buttons/ButtonWorkflow';
+
 
 const useStyles = makeStyles((theme) => ({
   frame: {
     padding: '0px',
-    gap: '8px',
+    //gap: '8px',
     
     margin: '50px 5px',
     //marginBottom: '50px',
@@ -41,15 +42,15 @@ const useStyles = makeStyles((theme) => ({
 
   /* All Companies */
   headingA: {
-    padding: 0,
-    margin: 0,
+    paddingBottom: '15px',
+    marginBottom: '15px',
 
     height: '40px',
     fontFamily: 'Overpass',
     fontStyle: 'normal',
     fontWeight: 900,
-    fontSize: '4vw',    //'36px',
-    lineHeight: '40px',
+    fontSize: '2.5vw',
+    lineHeight: '45px',
     whiteSpace: 'nowrap',
     /* identical to box height, or 111% */
     letterSpacing: '-0.03em',
@@ -69,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Overpass',
     fontStyle: 'normal',
     fontWeight: 400,
-    fontSize: '1.5vw',         //'16px',
+    fontSize: '1.15vw',
     lineHeight: '28px',
     /* identical to box height, or 175% */
     letterSpacing: '-0.02em',

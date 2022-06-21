@@ -6,7 +6,7 @@ export default function UsersTable() {
 
   return (
     <Wrapper>
-
+      <h1>Hello</h1>
     </Wrapper>
   )
 }

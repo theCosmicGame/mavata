@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
-import "./assets/css/all.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
+import "./assets/css/all.min.css";
+import "./assets/css//bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
 import Album from './components/Companies';

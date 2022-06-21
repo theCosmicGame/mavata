@@ -4,15 +4,13 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    h4: {
-      fontFamily: ['Playfair Display', 'sans-serif'],
-      fontWeight: 'bold',
-      marginBottom: '5px',
-      fontSize: '15px',
-      lineHeight: '20px',
-      marginTop: '10px',
-    },
+  h4styled: {
+    fontFamily: ['Playfair Display', 'sans-serif'],
+    fontWeight: 'bold',
+    marginBottom: '5px',
+    fontSize: '15px',
+    lineHeight: '20px',
+    marginTop: '10px',
   },
 
   card2: {
@@ -138,7 +136,7 @@ export default function CardNew(props) {
   return (
     <Card className={classes.card2}>
       <CardContent className={classes.cardContent}>
-          <h4 className={classes._24pxAlignLeftMobileLandscape}>{props.children}</h4>
+          <h4 className={`${classes.h4styled} ${classes._24pxAlignLeftMobileLandscape}`}>{props.children}</h4>
       </CardContent>
   </Card>
   )

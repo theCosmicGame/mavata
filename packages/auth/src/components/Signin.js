@@ -26,11 +26,6 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    a: {
-      textDecoration: 'none',
-    },
-  },
   containerAuth: {
     position: 'relative',
     

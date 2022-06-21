@@ -17,7 +17,7 @@ const Wrap = styled(Container)`
 export default function Wrapper(props) {
 
   return (
-    <Wrap>
+    <Wrap maxWidth={false} >
       {props.children}
     </Wrap>
   )

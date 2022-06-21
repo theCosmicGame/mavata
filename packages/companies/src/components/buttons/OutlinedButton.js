@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function ButtonWorkflow(props) {
+export default function OutlinedButton(props) {
   const classes = useStyles();
 
   return (

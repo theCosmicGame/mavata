@@ -100,7 +100,7 @@ export default function CompaniesTable() {
 
   return (
     <React.Fragment>
-      <TableContainer>
+      <TableContainer maxWidth='lg' >
         {/* <DataTable
           columns={columns} 
           data={rows} 

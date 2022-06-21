@@ -2,44 +2,22 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    section: {
-      width: '100%',
-      backgroundColor: '#ffd343',
-    },
-    // MUST KEEP
-    html: {
-      height: '100%',
-    },
-    body: {
-      margin: 0,
-      padding: 0,
-    },
-    h2: {
-      fontWeight: 'bold',
-      marginBottom: '10px',
-        fontSize: '24px',
-        lineHeight: '36px',
-        marginTop: '20px',
-    },
-    h3: {
-      fontFamily: ['Playfair Display', 'sans-serif'],
-      fontWeight: 'bold',
-      marginBottom: '5px',
-      fontSize: '16px',
-      lineHeight: '25px',
-      marginTop: '10px',
-    },
 
-    a: {
-      fontFamily: '"Playfair Display"',
-      textDecoration: 'none',
-    },
+  h2styled: {
+    fontWeight: 'bold',
+    marginBottom: '10px',
+    fontSize: '24px',
+    lineHeight: '36px',
+    marginTop: '20px',
+  },
 
-    p: {
-      marginTop: 0,
-      marginBottom: '20px',
-    },
+  h3styled: {
+    fontFamily: ['Playfair Display', 'sans-serif'],
+    fontWeight: 'bold',
+    marginBottom: '5px',
+    fontSize: '16px',
+    lineHeight: '25px',
+    marginTop: '10px',
   },
 
   containerYellow: {
@@ -52,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
     display: '-webkit-flex',
     display: '-ms-flexbox',
     display: 'flex',
-    width: 'auto',
+    width: '100%',
+    backgroundColor: '#ffd343',
     maxWidth: 'none',
     paddingTop: '50px',
     paddingBottom: '120px',

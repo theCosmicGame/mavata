@@ -1,21 +1,32 @@
 import React from 'react';
-import Footer from './footer/Footer'
-import ContentSection from './LandingPages/ContentSection'
-import Cards from './LandingPages/Cards'
+import Footer from './footer/Footer';
+import ContentSection from './LandingPages/ContentSection';
+import Cards from './LandingPages/Cards';
+import CardsStyled from './LandingPages/CardsStyled';
 import Buttons from './LandingPages/SideBySideButtons';
 import HeroContent from './LandingPages/HeroContent';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
+    // MUST KEEP
+    html: {
+      height: '100%',
+    },
     body: {
       margin: 0,
       padding: 0,
       height: '100%',
-      fontFamily: ['Arial', 'sans-serif'],
-      fontSize: '14px',
-      lineHeight: '20px',
-      color: '#333',
+    },
+
+    a: {
+      fontFamily: '"Playfair Display"',
+      textDecoration: 'none',
+    },
+
+    p: {
+      marginTop: 0,
+      marginBottom: '20px',
     },
 
     '*': {
@@ -31,7 +42,7 @@ export default function Landing() {
     <React.Fragment>
       <ContentSection>
         <HeroContent />
-        <Cards />
+        <CardsStyled />
         <Buttons />
       </ContentSection>
       <Footer />

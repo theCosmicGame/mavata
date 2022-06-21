@@ -23,11 +23,6 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    a: {
-      textDecoration: 'none',
-    },
-  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',

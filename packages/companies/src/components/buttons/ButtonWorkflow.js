@@ -125,6 +125,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
+
+    display: 'block',
+    align: 'center',
   },
 }))
 
