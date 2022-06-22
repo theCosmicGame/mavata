@@ -44,6 +44,12 @@ const useStyles = makeStyles((theme) => ({
     padding: '0px',
   },
 
+  navItemOptional: {
+    '@media screen and (max-width: 479px)': {
+      display: 'none!important',
+    },
+  },
+
   navItemSm: {
     '@media screen and (min-width: 767px)': {
       display: 'none!important',

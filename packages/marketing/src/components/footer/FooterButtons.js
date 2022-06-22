@@ -1,6 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import styled from 'styled-components';
+
+const OutlinedButtonLink = styled(RouterLink)`
+
+`
+
 
 const useStyles = makeStyles((theme) => ({
     displayBlock: {
@@ -207,6 +213,21 @@ const useStyles = makeStyles((theme) => ({
     footerButtonsContain: {
       width: '380px',
       marginLeft: '150px',
+
+      '@media screen and (max-width: 991px)': {
+        width: '360px',
+        marginLeft: '12px',
+      },
+
+      '@media screen and (max-width: 767px)': {
+        width: '360px',
+        marginLeft: '0px',
+        paddingTop: '24px',
+      },
+
+      '@media screen and (max-width: 467px)': {
+        width: '100%',
+      }
     },
 }));
 

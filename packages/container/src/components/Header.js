@@ -37,7 +37,7 @@ export default function Header({ isSignedIn, onSignOut }) {
             <div className={classes.navItemSm}>{isSignedIn ? <NavSelect linkMap={linkMap} /> : ''}</div>
           </ul>
 
-          <ul className={classes.navItem}>
+          <ul className={`${classes.navItem} ${classes.navItemOptional}`}>
             <ButtonNew to={isSignedIn ? '/' : '/auth/signin'} onClick={onClick}>{isSignedIn ? 'Logout' : 'Login'}</ButtonNew>
             {isSignedIn ? '' : <ButtonNew to='/earlyaccess'>Early Access ➝</ButtonNew>}
           </ul>

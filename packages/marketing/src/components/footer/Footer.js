@@ -58,15 +58,106 @@ const FooterContainer = styled.div`
   margin-left: auto;
   font-family: 'Playfair Display', sans-serif;
   display: block;
+  color: #fff;
+  padding: 10px;
+`
+
+const FooterWrap = styled.div`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  };
+
+  @media screen and (max-width: 767px) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  };
+
+  @media screen and (max-width: 479px) {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  };
+`
+
+const StyledH2 = styled.h2`
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+
+    /* .white-text */
+    font-family: 'Playfair Display', sans-serif;
+    color: #fff;
+    font-size: 20px;
+`
+
+const FooterButtonsContainer = styled.div`
+  width: 380px;
+  margin-left: 150px;
+`
+
+const FooterGrid = styled.div`
+  /* .w-layout-grid */
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto auto;
+  grid-template-rows: auto auto;
+  grid-row-gap: 16px;
+
+  /* _4-col-grid */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  grid-column-gap: 35px;
+  grid-row-gap: 0px;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+
+  @media screen and (max-width: 767px) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-bottom: 0px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  };
 `
 
 const useStyles = makeStyles((theme) => ({
-    sectionFooter: {
-        display: 'block',
-        color: '#fff',
-        padding: theme.spacing(4),
-    },
-
     footerContainer: {
         backgroundColor: 'rgba(21, 17, 59, 1)',   // company darkest blue
         marginTop: '0px',
@@ -154,6 +245,7 @@ const useStyles = makeStyles((theme) => ({
     },
         
     max300Px: {
+        fontFamily: 'inherit',
         maxWidth: '300px',
     },
         
@@ -197,12 +289,9 @@ export default function Footer() {
     return (
         <FooterStyled>
             <FooterContainer>
-                <div className={classes.sectionFooter}>
-                    <div className={classes.footerWrap}>
+                    <FooterWrap>
                         <div className={classes.max300Px}>
-                            <h2 className={classes.textWhite}>
-                                Connect
-                            </h2>
+                            <StyledH2>Connect</StyledH2>
                             <div className={`${classes.socialLinksWrapper} ${classes.justifyStart}`}>
                                 <a href="https://www.linkedin.com/company/mavata" target="_blank" className={`${classes.socialLinksWrapper} ${classes.wInlineBlock}`}>
                                 <img src="https://uploads-ssl.webflow.com/615b5c7a50624691794203d6/627a8f7bffcba4fbc69b5fa0_5e1ed0b824ceb838fadfa9b7_linkedin-icon-png-transparent-background-5.png" width="18" sizes="(max-width: 767px) 18px, (max-width: 991px) 2vw, 18px" srcSet="https://uploads-ssl.webflow.com/615b5c7a50624691794203d6/627a8f7bffcba4fbc69b5fa0_5e1ed0b824ceb838fadfa9b7_linkedin-icon-png-transparent-background-5-p-500.png 500w, https://uploads-ssl.webflow.com/615b5c7a50624691794203d6/627a8f7bffcba4fbc69b5fa0_5e1ed0b824ceb838fadfa9b7_linkedin-icon-png-transparent-background-5.png 609w" alt="Link Up with Mavata" />
@@ -210,8 +299,8 @@ export default function Footer() {
                             </div>
                         </div>
                         <FooterButtons />
-                    </div>
-                    <div className={classes.footerGrid}>
+                    </FooterWrap>
+                    <FooterGrid>
                         <div className={classes.footerColumn}><div className={classes.footerTitle}>Home</div>
                             <FooterLink to="/">Home</FooterLink>
                         </div>
@@ -223,10 +312,9 @@ export default function Footer() {
                             <FooterLink to="/toa">Terms</FooterLink>
                         </div>
                         <div className={classes.footerColumn}></div>
-                    </div>
+                    </FooterGrid>
                     <div className={classes.footerBottom}></div>
                     <Copyright />
-                </div>
             </FooterContainer>
         </FooterStyled>
 
