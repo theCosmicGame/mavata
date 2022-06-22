@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     // MUST KEEP
     html: {
       height: '100%',
+      webkitTextSizeAdjust: '100%',
     },
     body: {
       margin: 0,

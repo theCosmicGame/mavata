@@ -157,6 +157,40 @@ const FooterGrid = styled.div`
   };
 `
 
+const FoooterColumn = styled.div`
+    border-top: 1px solid hsla(0, 0%, 96.9%, 0.2);
+    font-size: 16px;
+
+  @media screen and (max-width: 767px) {
+    width: 48%;
+    margin-bottom: 50px;
+  }
+`
+
+const FooterTitle = styled.div`
+  /* .footer-title */
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #15113b;
+  font-weight: 600;
+  
+  /* .white-text */
+  font-family: 'Playfair Display', sans-serif;
+  color: #fff;
+  font-size: 20px;
+
+  /* .footer-title.white-text */
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+
+  @media screen and (max-width: 767px) {
+    text-align: left;
+  };
+`
+
 const useStyles = makeStyles((theme) => ({
     footerContainer: {
         backgroundColor: 'rgba(21, 17, 59, 1)',   // company darkest blue
@@ -301,17 +335,17 @@ export default function Footer() {
                         <FooterButtons />
                     </FooterWrap>
                     <FooterGrid>
-                        <div className={classes.footerColumn}><div className={classes.footerTitle}>Home</div>
+                        <FoooterColumn><FooterTitle>Home</FooterTitle>
                             <FooterLink to="/">Home</FooterLink>
-                        </div>
-                        <div className={classes.footerColumn}><div className={classes.footerTitle}>Company</div>
+                        </FoooterColumn>
+                        <FoooterColumn><FooterTitle>Company</FooterTitle>
                             <FooterLink to="/">Careers</FooterLink>
-                        </div>
-                        <div className={classes.footerColumn}><div className={classes.footerTitle}>Other</div>
+                        </FoooterColumn>
+                        <FoooterColumn><FooterTitle>Other</FooterTitle>
                             <FooterLink to="/pp">Privacy Policy</FooterLink>
                             <FooterLink to="/toa">Terms</FooterLink>
-                        </div>
-                        <div className={classes.footerColumn}></div>
+                        </FoooterColumn>
+                        <FoooterColumn></FoooterColumn>
                     </FooterGrid>
                     <div className={classes.footerBottom}></div>
                     <Copyright />
