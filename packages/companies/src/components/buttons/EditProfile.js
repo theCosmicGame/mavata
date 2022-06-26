@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
 
-    [theme.breakpoints.down('767')]: {
+    [theme.breakpoints.down('479')]: {
       maxWidth: '50px',
     },
   },
@@ -95,6 +95,10 @@ const useStyles = makeStyles((theme) => ({
     top: '50%',
 
     verticalAlign: 'middle',
+
+    [theme.breakpoints.down('479')]: {
+      verticalAlign: 'top',
+    },
   },
 
   /* Add a new company */
@@ -119,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
     order: 2,
     flexGrow: 0,
 
-    [theme.breakpoints.down('767')]: {
+    [theme.breakpoints.down('479')]: {
       display: 'none',
     },
   },

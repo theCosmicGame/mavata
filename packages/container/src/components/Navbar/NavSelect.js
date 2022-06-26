@@ -6,6 +6,11 @@ import { ButtonDropdown, DropdownMenu, DropdownToggle, DropdownItem } from 'reac
 
 const SelectToggle = styled(DropdownToggle)`
   font-family: Playfair Display;
+  font-size: 24px;
+`
+
+const SelectButton = styled(ButtonDropdown)`
+  background: #000 !important;
 `
 
 export default function NavSelect({ linkMap }) {
@@ -18,8 +23,8 @@ export default function NavSelect({ linkMap }) {
   }
   return (
     <React.Fragment>
-      <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
-        <SelectToggle caret>Navigate</SelectToggle>
+      <SelectButton isOpen={dropdownOpen} toggle={toggle} variant='primary' >
+        <SelectToggle caret >Navigate </SelectToggle>
         <DropdownMenu>
           {linkMap.map(([title, url], index) => (
               <DropdownItem tag={NavLink} key={index} exact to={url}>
@@ -27,7 +32,7 @@ export default function NavSelect({ linkMap }) {
               </DropdownItem>
           ))}
         </DropdownMenu>
-      </ButtonDropdown>
+      </SelectButton>
     </React.Fragment>
   )
 }

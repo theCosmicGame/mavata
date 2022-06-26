@@ -6,23 +6,6 @@ import IconGlobe from '../../assets/img/icons/icon-globe.png';
 import IconLocation from '../../assets/img/icons/icon-location.png';
 import ExternalLink from '../../assets/img/icons/external-link.png';
 
-const Details = styled.div`
-  min-width: 25%;   /* tied to width of 'Description' styled div */
-  width: auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  vertical-align: middle;
-  justify-content: space-evenly;
-
-  white-space: nowrap;
-
-  @media screen and (max-width: 850px) {
-    display: none;
-  };
-`
-
 const Detail = styled.div`
   padding: 5px;
   display: inline-block;
@@ -44,7 +27,7 @@ const DetailText = styled.div`
 `
 
 const DetailHeading = styled.h5`
-  margin: 0;
+  margin: 2px 0 0 0;
   padding: 0;
 
   font-weight: 700;
@@ -53,6 +36,10 @@ const DetailHeading = styled.h5`
   letter-spacing: -0.02em;
   /* Blacks/002 */
   color: #2F2F4C;
+
+  @media screen and (max-width: 850px) {
+    font-size: 12px;
+  };
 `
 
 const DetailDescriptor = styled.h6`
@@ -65,41 +52,55 @@ const DetailDescriptor = styled.h6`
   letter-spacing: -0.02em;
   /* Grays/003 */
   color: #6A698C;
+
+  @media screen and (max-width: 850px) {
+    font-size: 10px;
+  };
 `
 
-const ExtLinkIcon = styled.img`
+const Icon = styled.img`
+  @media screen and (max-width: 850px) {
+    height: 30px;
+    width: auto;
+    vertical-align: top;
+  };
+`
+
+const ExtLinkIcon = styled.img.attrs({ src: `${ExternalLink}` })`
   margin-left: 5px;
   vertical-align: middle;
+
+  @media screen and (max-width: 850px) {
+    height: 10px;
+  };
 `
 
-export default function DescriptionDetails() {
+export default function DescriptionDetails({ isExpanded, mainWidth }) {
 
   return(
     <React.Fragment>
-      <Details>
-        <Detail>
-          <img src={IconBriefcase} alt='sector' />
-          <DetailText>
-            <DetailHeading>Business Serivces </DetailHeading>
-            <DetailDescriptor>Sector</DetailDescriptor>
-          </DetailText>
-        </Detail>
-        <Detail>
-          <img src={IconLocation} alt='headquarters' />
-          <DetailText>
-            <DetailHeading>Chicago, IL </DetailHeading>
-            <DetailDescriptor>Headquarters</DetailDescriptor>
-          </DetailText>
-        </Detail>
-        <Detail>
-          <img src={IconGlobe} alt='webpage' />
-          {/* BEM TO DO: refactor icon to link */}
-          <DetailText>
-            <DetailHeading>www.fastservhvac.com<ExtLinkIcon src={ExternalLink} /></DetailHeading>
-            <DetailDescriptor>Website</DetailDescriptor>
-          </DetailText>
-        </Detail>
-      </Details>
+      <Detail>
+        <Icon src={IconBriefcase} alt='sector' />
+        <DetailText>
+          <DetailHeading>Business Serivces </DetailHeading>
+          <DetailDescriptor>Sector</DetailDescriptor>
+        </DetailText>
+      </Detail>
+      <Detail>
+        <Icon src={IconLocation} alt='headquarters' />
+        <DetailText>
+          <DetailHeading>Chicago, IL </DetailHeading>
+          <DetailDescriptor>Headquarters</DetailDescriptor>
+        </DetailText>
+      </Detail>
+      <Detail>
+        <Icon src={IconGlobe} alt='webpage' />
+        {/* BEM TO DO: refactor icon to link */}
+        <DetailText>
+          <DetailHeading>www.fastservhvac.com<ExtLinkIcon /></DetailHeading>
+          <DetailDescriptor>Website</DetailDescriptor>
+        </DetailText>
+      </Detail>
     </React.Fragment>
   )
 }

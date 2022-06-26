@@ -578,6 +578,11 @@ const useStyles = makeStyles((theme) => ({
 
     },
   },
+
+  navSelect: {
+    background: '#000 !important',
+  },
+
 }));
 
 export default useStyles

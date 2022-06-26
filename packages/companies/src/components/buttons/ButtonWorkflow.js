@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
 
     display: 'flex',
     justifyContent: 'center',
-    alginItems: 'center',
+    alignItems: 'center',
   },
 }))
 

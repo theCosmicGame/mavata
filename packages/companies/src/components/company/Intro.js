@@ -48,11 +48,32 @@ const ContainerBox = styled.div`
   align-items: stretch;   /* gives items same height (flex-direction=row) or width for column flex direction */
 `
 
+const ContainerBoxFlex = styled.div`
+  padding: 0px 10px;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: stretch;  
+  
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+  };
+
+  ${props => props.isExpanded} {
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+`
+
 const TitleText = styled.h1`
   font-family: Overpass;
   font-style: bold;
   font-weight: 400;
   font-size: 18px;
+  vertical-align: middle;
 
   padding: 10px 0;
   /* Grays/001 */
@@ -84,11 +105,13 @@ const TitleLine = styled.div`
 
 const Description = styled.div`
   position: relative;
-  overflow: auto;
 
   min-height: 100px;
   max-height: 200px;
   width: 65%;       /* tied to width of 'Details' styled div */
+
+  overflow: auto;
+  padding-right: 10px;
   
   p {
     width: auto;
@@ -96,14 +119,44 @@ const Description = styled.div`
     font-size: 14px;
   };
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 850px) {
     width: auto!important;
   };
 `
 
+const Details = styled.div`
+  min-width: 25%;   /* tied to width of 'Description' styled div */
+  width: auto;
 
-export default function Intro() {
+  display: ${props => (props.mainWidth > 850) ? 'flex' : 'none'};
+  flex-direction: column;
+  align-items: left;
+  vertical-align: middle;
+  justify-content: space-evenly;
 
+  white-space: nowrap;
+
+  @media screen and (max-width: 850px) {
+    display: none;
+  };
+`
+
+const DetailsSmall = styled.div`
+  ${props => props.isExpanded} {
+    display: ${props => (props.mainWidth <= 850) ? 'flex' : 'none'};
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  ${props => !props.isExpanded} {
+    @media screen and (min-width: 850px) {
+      display: none;
+    }
+  }
+`
+
+export default function Intro({ isExpanded, mainWidth }) {
+  console.log('main width', mainWidth)
   return (
     <Wrapper>
       <Banner>
@@ -118,7 +171,10 @@ export default function Intro() {
         </TitleLine>
       </ContainerBox>
 
-      <ContainerBox>
+      <ContainerBoxFlex isExpanded={isExpanded} >
+        <DetailsSmall isExpanded={isExpanded} mainWidth={mainWidth} >
+          <DescriptionDetails />
+        </DetailsSmall>
         <Description>
           <div>
             <p>FastServe HVAC is a leading provider of residential HVAC services in the Chicagoland. The Company provides HVAC installation, maintenance, and repair services to over 1500 residential customers.</p>
@@ -132,8 +188,10 @@ export default function Intro() {
           </div>
         </Description>
 
-        <DescriptionDetails />
-      </ContainerBox>
+        <Details isExpanded={isExpanded} mainWidth={mainWidth} >
+          <DescriptionDetails />
+        </Details>
+      </ContainerBoxFlex>
     </Wrapper>
   )
 }

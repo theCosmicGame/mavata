@@ -17,6 +17,8 @@ export default function Header({ isSignedIn, onSignOut }) {
     if (isSignedIn && onSignOut) {
       onSignOut();
       console.log(isSignedIn)
+      //localStorage.clear();
+      localStorage.removeItem('sidebar-collapsed');
     }
   };
 

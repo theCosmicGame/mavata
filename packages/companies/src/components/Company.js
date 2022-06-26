@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
 
     background: '#E5E5E5',
 
-    minHeight: '100%',
-    height: '100vh',
+    height: '100%',
+    minHeight: '100vh',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -65,20 +65,35 @@ export default function Company() {
   const classes = useStyles();
 
   // sidebar collapse
-  localStorage.setItem('sidebar-collapsed', true);
+  localStorage.setItem('sidebar-collapsed', (window.innerWidth > 850) ? false : true);
   const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
   const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
   const [sidebarWidth, setSidebarWidth] = useState(isExpanded ? '250px' : '50px')
+  const [mainWidth, setMainWidth] = useState(window.innerWidth - parseInt(sidebarWidth))
+
+  
 
   // resize on sidebar collapse or window resize
   useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
+    const debouncedHandleResize = debounce(async function handleResize() {
       let x = (window.innerWidth > 850) ? '50px' : '0px';
-      setSidebarWidth(isExpanded && (window.innerWidth > 850) ? '250px' : x)
+      let y = (isExpanded && (window.innerWidth > 850)) ? '250px' : x;
+      await setSidebarWidth(y);
+
+      if (isExpanded && (window.innerWidth <= 850)) {
+        setIsExpanded(false)
+        localStorage.setItem('sidebar-collapsed', true);
+      }
+
+      let z = (window.innerWidth - parseInt(y))
+      setMainWidth(z);
+      setMainWidth(z);
+      console.log('2 main width ', mainWidth, window.innerWidth, z, parseInt(y))
     }, 100);
 
     window.addEventListener('resize', debouncedHandleResize);
 
+    // necessary cleanup
     return _ => {
       window.removeEventListener('resize', debouncedHandleResize)
     };
@@ -99,12 +114,12 @@ export default function Company() {
       <div className={classes.wrapper2}>
         <Row>
           <Col flex={sidebarWidth}>
-            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} setMainWidth={setMainWidth} />
           </Col>
           <div style={contentStyle}>
             <main className={classes.bodyMain2}>
               <div className={classes.sectionContent2}>
-                <Intro />
+                <Intro isExpanded={isExpanded} mainWidth={mainWidth} />
                 <DataConnection />
                 <UsersTable />
               </div>

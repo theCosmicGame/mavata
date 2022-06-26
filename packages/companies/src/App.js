@@ -3,8 +3,9 @@ import { Switch, Route, Router } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 
 import "./assets/css/all.min.css";
-import "./assets/css//bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
+import "./assets/css/bootstrap.min.css";
+import "./assets/css/mdb.min.css";
+// import "mdbreact/dist/css/mdb.css";
 
 import Album from './components/Companies';
 import Company from './components/Company';

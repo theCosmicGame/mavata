@@ -145,7 +145,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
     },
     
-    [theme.breakpoints.down('762px')]: {
+    [theme.breakpoints.down('850px')]: {
       display: 'none!important',
     },
   },
@@ -215,21 +215,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Sidebar( { isExpanded, setIsExpanded } ) {
+export default function Sidebar( { isExpanded, setIsExpanded, setMainWidth } ) {
   const classes = useStyles();
-  
     
   const handleToggle = () => {
     if (isExpanded) {
       setIsExpanded(false);
       localStorage.setItem('sidebar-collapsed', true);
+
+      setMainWidth(window.innerWidth - 50)    // BEM TO DO: what do if display none / collapse irrelevant
     } else {
       setIsExpanded(true);
       localStorage.removeItem('sidebar-collapsed');
+
+      setMainWidth(window.innerWidth - 250)
     }
   };
-
-  // default is expanded
 
   return (
     <SidebarContainer>
