@@ -17,7 +17,7 @@ const theme = createMuiTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(','),
-    fontSize: 16,
+    fontSize: 14,
   },
   components: {
     MuiCssBaseline: {

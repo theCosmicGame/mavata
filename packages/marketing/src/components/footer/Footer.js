@@ -334,6 +334,7 @@ export default function Footer() {
                         </div>
                         <FooterButtons />
                     </FooterWrap>
+                    
                     <FooterGrid>
                         <FoooterColumn><FooterTitle>Home</FooterTitle>
                             <FooterLink to="/">Home</FooterLink>

@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import Wrapper from '../Wrapper';
 
 import EditProfile from '../buttons/EditProfile';
+import DescriptionDetails from './DescriptionDetails';
 
 import img from '../../assets/img/banners/Rectangle.png';
 import img1 from '../../assets/img/banners/Rectangle-1.png';
+
 
 const BannerImg = styled.div`
   position: relative;
@@ -38,49 +40,67 @@ const CompanyImage = styled.img`
 
 const ContainerBox = styled.div`
   padding: 0px 10px;
-`
 
-const Description = styled.div`
-  position: relative;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: 100px;
-  width: 750px;
+  display: flex;
+  flex-direction: row;
 
-
-  p {
-    width: auto;
-  };
-
-  @media (max-width: 767px) {
-    width: auto!important;
-  };
-`
-
-const Details = styled.div`
-
+  justify-content: space-between;
+  align-items: stretch;   /* gives items same height (flex-direction=row) or width for column flex direction */
 `
 
 const TitleText = styled.h1`
   font-family: Overpass;
-  font-ftyle: normal;
+  font-style: bold;
   font-weight: 400;
-  font-size: 1.75vw;        /* 16px */
-  line-height: 28px;
-  /* identical to box height, or 175% */
-  letter-spacing: -0.02em;
+  font-size: 18px;
+
+  padding: 10px 0;
   /* Grays/001 */
   color: #3E3D5C;
+
+  @media (min-width: 768px) {
+    font-size: 22px;
+    font-style: normal;
+  };
+  @media (min-width: 1024px) {
+      font-size: 24px;
+  };
+  @media (min-width: 1280px) {
+      font-size: 28px;
+  };
 `
 
 const TitleLine = styled.div`
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   vertical-align: middle;
+  minHeight: 35px;
 `
+
+const Description = styled.div`
+  position: relative;
+  overflow: auto;
+
+  min-height: 100px;
+  max-height: 200px;
+  width: 65%;       /* tied to width of 'Details' styled div */
+  
+  p {
+    width: auto;
+    overflow-wrap: break-word;
+    font-size: 14px;
+  };
+
+  @media screen and (max-width: 767px) {
+    width: auto!important;
+  };
+`
+
 
 export default function Intro() {
 
@@ -100,14 +120,19 @@ export default function Intro() {
 
       <ContainerBox>
         <Description>
-          <p>FastServe HVAC is a leading provider of residential HVAC services in the Chicagoland. The Company provides HVAC installation, maintenance, and repair services to over 1500 residential customers.</p>
-          <p>The Company operates across the greater Chicagoland (IL, WI, IN) with over 70 employees.</p>
-          <p>Rock Equity invested in 2019.</p>
+          <div>
+            <p>FastServe HVAC is a leading provider of residential HVAC services in the Chicagoland. The Company provides HVAC installation, maintenance, and repair services to over 1500 residential customers.</p>
+            <p>The Company operates across the greater Chicagoland (IL, WI, IN) with over 70 employees.</p>
+            <p>Rock Equity invested in 2019.</p>
+            <p>Rock Equity invested in 2019.</p>
+            <p>Rock Equity invested in 2019.</p>
+            <p>Rock Equity invested in 2019.</p>
+            <p>Rock Equity invested in 2019.</p>
+            <p>Rock Equity invested in 2019.</p>
+          </div>
         </Description>
 
-        <Details>
-
-        </Details>
+        <DescriptionDetails />
       </ContainerBox>
     </Wrapper>
   )

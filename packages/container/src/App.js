@@ -46,7 +46,7 @@ export default () => {
   // 
   useEffect(() => {
     if (isSignedIn) {
-      history.push('/dashboard')
+      history.push('/companies/last')
     }
   }, [isSignedIn]);
   
@@ -59,7 +59,6 @@ export default () => {
       {/* <Suspense fallback={<div>Loading...</div>}> */}
       <Suspense fallback={<Progress />} >
         <Switch>
-        <Route path="/companies" component={CompaniesLazy} />
         {/* 
           path indicated in Route is meant to match up to first part of a path
           IMPT NOTE: route in order of priority ('/dashboard' before '/' or else '/' gets routed first)
@@ -69,6 +68,10 @@ export default () => {
           <Route path="/auth">
             <AuthLazy onSignIn={() => setIsSignedIn(true)} />
             {/* you can pull in more state management stuff like Redux here */}
+          </Route>
+          <Route path="/companies">
+            {!isSignedIn && <Redirect to="/" />}
+            <CompaniesLazy />
           </Route>
           {/* refactor #3
           <Route path="/dashboard" component={DashboardLazy} /> */}

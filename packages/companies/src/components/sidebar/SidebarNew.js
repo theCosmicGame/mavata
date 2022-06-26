@@ -40,7 +40,7 @@ const animateLeft = keyframes`
 `
 
 const SidebarContainer = styled.div`
-  @media (max-width: 850px) {
+  @media screen and (max-width: 850px) {
     display: none!important;
   }
 `

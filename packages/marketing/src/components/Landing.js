@@ -31,8 +31,9 @@ const useStyles = makeStyles((theme) => ({
     },
 
     '*': {
-      margin: '0px',
-      padding: '0px',
+      webkitFontSmoothing: 'antialiased',
+      mozOsxFontSmoothing: 'grayscale',
+      fontSmoothing: 'always',
     },
   },
 }));

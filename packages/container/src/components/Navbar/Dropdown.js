@@ -1,135 +1,143 @@
-import '../styling/Dropdown.css';
-import { ReactComponent as BellIcon } from '../../assets/icons/bell.svg';
-import { ReactComponent as MessengerIcon } from '../../assets/icons/messenger.svg';
-import { ReactComponent as CaretIcon } from '../../assets/icons/caret.svg';
-import { ReactComponent as PlusIcon } from '../../assets/icons/plus.svg';
-import { ReactComponent as CogIcon } from '../../assets/icons/cog.svg';
-import { ReactComponent as ChevronIcon } from '../../assets/icons/chevron.svg';
-import { ReactComponent as ArrowIcon } from '../../assets/icons/arrow.svg';
-import { ReactComponent as BoltIcon } from '../../assets/icons/bolt.svg';
+import React from 'react';
+import useStyles from '../styling/NavStyle';
+import styled from 'styled-components';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { CSSTransition } from 'react-transition-group';
+const NavWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #00BAF0;
+  background: linear-gradient(to left, #f46b45, #eea849);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #FFF;
+  height: 40px;
+  width: 40px;
+  padding: 1em;
+`
+
+const StyledInput = styled.input.attrs({ type: 'checkbox' })`
+  display: none;
+
+  '&:checked + ${MenuButtonContainer} ${MenuButton}::before' {
+    margin-top: 0px;
+    transform: rotate(405deg);
+  };
+
+  '&:checked + ${MenuButtonContainer} ${MenuButton}' {
+    background: rgba(255, 255, 255, 0);
+  };
+
+  '&:checked + ${MenuButtonContainer} ${MenuButton}::after' {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+  };
+
+  @media (max-width: 767px) {
+    '& ~ ${StyledMenu} li' {
+      border: 1px solid #333;
+      height: 2.5em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+  };
+`
+
+const MenuButton = styled.div`
+  &, &::before, &::after {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+  };
+
+  &::before {
+    content: '';
+    margin-top: -8px;
+  };
+
+  &::after {
+    content: '';
+    margin-top: 8px;
+  };
+`
+
+const MenuButtonContainer = styled.label`
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    display: flex;
+  };
+`
+
+const StyledMenu = styled.ul`
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  '& > li' {
+    margin: 0 1rem;
+    overflow: hidden;
+  };
+
+  @media (max-width: 767px) {
+    position: absolute;
+    top: 0;
+    margin-top: 50px;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    '& > li' {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0.5em 0;
+      width: 100%;
+      color: white;
+      background-color: #222;
+    };
+
+    '& > li:not(:last-child)' {
+      border-bottom: 1px solid #444;
+    };
+  };
+`
 
 export default function Dropdown() {
-  return (
-    <Navbar>
-      <NavItem icon={<PlusIcon />} />
-      <NavItem icon={<BellIcon />} />
-
-      <NavItem icon={<CaretIcon />}>
-        <DropdownMenu></DropdownMenu>
-      </NavItem>
-    </Navbar>
-  );
-}
-
-function Navbar(props) {
-  return (
-    <nav className="navbar">
-      <ul className="navbar-nav">{props.children}</ul>
-    </nav>
-  );
-}
-
-function NavItem(props) {
-  const [open, setOpen] = useState(false);
+  const classes = useStyles();
 
   return (
-    <li className="nav-item">
-      <a href="#" className="icon-button" onClick={() => setOpen(!open)}>
-        {props.icon}
-      </a>
-
-      {open && props.children}
-    </li>
-  );
-}
-
-function DropdownMenu() {
-  const [activeMenu, setActiveMenu] = useState('main');
-  const [menuHeight, setMenuHeight] = useState(null);
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
-  }, [])
-
-  function calcHeight(el) {
-    const height = el.offsetHeight;
-    setMenuHeight(height);
-  }
-
-  function DropdownItem(props) {
-    return (
-      <a href="#" className="menu-item" onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}>
-        <span className="icon-button">{props.leftIcon}</span>
-        {props.children}
-        <span className="icon-right">{props.rightIcon}</span>
-      </a>
-    );
-  }
-
-  return (
-    <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
-
-      <CSSTransition
-        in={activeMenu === 'main'}
-        timeout={500}
-        classNames="menu-primary"
-        unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
-          <DropdownItem>My Profile</DropdownItem>
-          <DropdownItem
-            leftIcon={<CogIcon />}
-            rightIcon={<ChevronIcon />}
-            goToMenu="settings">
-            Settings
-          </DropdownItem>
-          <DropdownItem
-            leftIcon="🦧"
-            rightIcon={<ChevronIcon />}
-            goToMenu="animals">
-            Animals
-          </DropdownItem>
-
-        </div>
-      </CSSTransition>
-
-      <CSSTransition
-        in={activeMenu === 'settings'}
-        timeout={500}
-        classNames="menu-secondary"
-        unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>My Tutorial</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>HTML</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>CSS</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>JavaScript</DropdownItem>
-          <DropdownItem leftIcon={<BoltIcon />}>Awesome!</DropdownItem>
-        </div>
-      </CSSTransition>
-
-      <CSSTransition
-        in={activeMenu === 'animals'}
-        timeout={500}
-        classNames="menu-secondary"
-        unmountOnExit
-        onEnter={calcHeight}>
-        <div className="menu">
-          <DropdownItem goToMenu="main" leftIcon={<ArrowIcon />}>
-            <h2>Animals</h2>
-          </DropdownItem>
-          <DropdownItem leftIcon="🦘">Kangaroo</DropdownItem>
-          <DropdownItem leftIcon="🐸">Frog</DropdownItem>
-          <DropdownItem leftIcon="🦋">Horse?</DropdownItem>
-          <DropdownItem leftIcon="🦔">Hedgehog</DropdownItem>
-        </div>
-      </CSSTransition>
-    </div>
-  );
+    <NavWrap>
+      {/* <input className={classes.menuToggle} id="menuToggle" type="checkbox" />
+      <label className={classes.dropdownMenuContainer} for="menuToggle">
+        <div className={classes.dropdownMenuButton}></div>
+      </label>
+        <ul className={classes.dropdownMenu} > */}
+      <StyledInput id="menuToggle" />
+        <MenuButtonContainer for="menuToggle">
+          <MenuButton></MenuButton>
+        </MenuButtonContainer>
+        <StyledMenu>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three</li>
+          <li>Four</li>
+          <li>Five</li>
+        </StyledMenu>
+    </NavWrap>
+  )
 }

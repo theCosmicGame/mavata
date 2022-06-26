@@ -55,10 +55,10 @@ const useStyles = makeStyles((theme) => ({
 
     flex: '0 0 auto',
 
-    display: 'inline-block',
     padding: '11px 30px 11px 15px',
     margin: '0 auto',
-
+    
+    align: 'center',
     verticalAlign: 'middle',
 
     backgroundColor: '#0c0a89',
@@ -126,8 +126,9 @@ const useStyles = makeStyles((theme) => ({
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
 
-    display: 'block',
-    align: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+    alginItems: 'center',
   },
 }))
 

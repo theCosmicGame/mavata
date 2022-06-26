@@ -32,7 +32,7 @@ const ButtonText = styled.span`
     order: 2;
     flex-grow: 0;
 
-    @media (max-width: 767px) {
+    @media screen and (max-width: 767px) {
       display: none;
     };
 `
