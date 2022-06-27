@@ -50,22 +50,23 @@ const ContainerBox = styled.div`
 
 const ContainerBoxFlex = styled.div`
   padding: 0px 10px;
+  margin: 0;
 
   display: flex;
   flex-direction: row;
 
   justify-content: space-between;
-  align-items: stretch;  
+  align-items: stretch;
+
+  width: 100%;
   
   @media screen and (max-width: 850px) {
     flex-direction: column;
   };
 
-  ${props => props.isExpanded} {
-    @media screen and (max-width: 900px) {
-      flex-direction: column;
-    }
-  }
+  @media screen and (max-width: 1100px) {
+    flex-direction: ${props => ((props.mainWidth <= 850) || props.isExpanded) ? 'column' : 'row'};
+  };
 `
 
 const TitleText = styled.h1`
@@ -74,8 +75,10 @@ const TitleText = styled.h1`
   font-weight: 400;
   font-size: 18px;
   vertical-align: middle;
-
-  padding: 10px 0;
+  display: inline-block;
+  
+  margin: 0;
+  padding: 0;
   /* Grays/001 */
   color: #3E3D5C;
 
@@ -92,7 +95,7 @@ const TitleText = styled.h1`
 `
 
 const TitleLine = styled.div`
-  padding: 0;
+  padding: 5px 0;
   margin: 0;
   width: 100%;
 
@@ -108,7 +111,7 @@ const Description = styled.div`
 
   min-height: 100px;
   max-height: 200px;
-  width: 65%;       /* tied to width of 'Details' styled div */
+  width: ${props => (props.mainWidth > 850 ? '65%' : 'auto')};       /* tied to width of 'Details' styled div */
 
   overflow: auto;
   padding-right: 10px;
@@ -128,7 +131,7 @@ const Details = styled.div`
   min-width: 25%;   /* tied to width of 'Description' styled div */
   width: auto;
 
-  display: ${props => (props.mainWidth > 850) ? 'flex' : 'none'};
+  display: ${props => ((props.mainWidth <= 850) || props.isExpanded) ? 'none' : 'flex'};
   flex-direction: column;
   align-items: left;
   vertical-align: middle;
@@ -139,24 +142,24 @@ const Details = styled.div`
   @media screen and (max-width: 850px) {
     display: none;
   };
+
+  @media screen and (max-width: 1100px) {
+
+  };
 `
 
 const DetailsSmall = styled.div`
-  ${props => props.isExpanded} {
-    display: ${props => (props.mainWidth <= 850) ? 'flex' : 'none'};
-    flex-direction: row;
-    justify-content: space-around;
-  }
+  display: ${props => (props.mainWidth <= 850) ? 'flex' : 'none'};
+  flex-flow: row nowrap;
+  justify-content: space-around;
 
-  ${props => !props.isExpanded} {
-    @media screen and (min-width: 850px) {
-      display: none;
-    }
+  @media screen and (max-width: 1100px) {
+    display: ${props => ((props.mainWidth <= 850) || props.isExpanded) ? 'flex' : 'none'};
   }
 `
 
 export default function Intro({ isExpanded, mainWidth }) {
-  console.log('main width', mainWidth)
+  console.log('main width', mainWidth, window.innerWidth)
   return (
     <Wrapper>
       <Banner>
@@ -171,11 +174,11 @@ export default function Intro({ isExpanded, mainWidth }) {
         </TitleLine>
       </ContainerBox>
 
-      <ContainerBoxFlex isExpanded={isExpanded} >
+      <ContainerBoxFlex isExpanded={isExpanded} mainWidth={mainWidth} >
         <DetailsSmall isExpanded={isExpanded} mainWidth={mainWidth} >
-          <DescriptionDetails />
+          <DescriptionDetails isExpanded={isExpanded} mainWidth={mainWidth} />
         </DetailsSmall>
-        <Description>
+        <Description mainWidth={mainWidth} >
           <div>
             <p>FastServe HVAC is a leading provider of residential HVAC services in the Chicagoland. The Company provides HVAC installation, maintenance, and repair services to over 1500 residential customers.</p>
             <p>The Company operates across the greater Chicagoland (IL, WI, IN) with over 70 employees.</p>

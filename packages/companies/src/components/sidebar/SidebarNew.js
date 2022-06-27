@@ -30,12 +30,12 @@ import DescriptionIcon from '@material-ui/icons/Description';
 
 const animateLeft = keyframes`
   from {
-    left:-300px;
-    opacity:0
+    left: -300px;
+    opacity: 0;
   }
   to {
-    left:0;
-    opacity:1
+    left: 0;
+    opacity: 1;
   }
 `
 
@@ -88,7 +88,7 @@ const IconWrapper = styled.div`
   margin: 0px 5px;
   align-items: center;
   vertical-align: middle;
-  transform: ${(props) => (props.isExpanded ? `rotate(0deg)` : `rotate(90deg)`)}
+  transform: ${(props) => (props.isExpanded ? `rotate(0deg)` : `rotate(90deg)`)};
 `
 
 const rotate = keyframes`
@@ -113,6 +113,10 @@ const RotatingIcon = styled(ArrowForwardIosIcon)`
       -webkit-transform: rotate(90deg);
       transform: rotate(90deg);
     }
+`
+
+const SideDiv = styled.div`
+  width: ${props => props.isExpanded ? '250px' : '52px'};
 `
 
 const useStyles = makeStyles((theme) => ({
@@ -153,7 +157,9 @@ const useStyles = makeStyles((theme) => ({
   sidebarCollapsed: {
     display: 'flex',
     flexDirection: 'column',
-
+    
+    width: '52px',
+    
     position: 'fixed',
     left: 0,
     bottom: 0,
@@ -172,8 +178,6 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '24px',
       display: 'block',
     },
-
-    width: '52px',
 
     '& + $sidebarIcon': {
       marginRight: 0,
@@ -215,26 +219,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Sidebar( { isExpanded, setIsExpanded, setMainWidth } ) {
+export default function Sidebar( { isExpanded, setIsExpanded, mainWidth, setWidthSidebar } ) {
   const classes = useStyles();
+  
     
   const handleToggle = () => {
     if (isExpanded) {
       setIsExpanded(false);
       localStorage.setItem('sidebar-collapsed', true);
-
-      setMainWidth(window.innerWidth - 50)    // BEM TO DO: what do if display none / collapse irrelevant
     } else {
       setIsExpanded(true);
       localStorage.removeItem('sidebar-collapsed');
-
-      setMainWidth(window.innerWidth - 250)
     }
   };
 
+  // default is expanded
+
   return (
-    <SidebarContainer>
-      <div className={isExpanded ? classes.sidebar2 : classes.sidebarCollapsed }>
+    <SidebarContainer isExpanded={isExpanded} >
+      <SideDiv isExpanded={isExpanded} className={isExpanded ? classes.sidebar2 : classes.sidebarCollapsed }>
         <SidebarHeader>
           <IconWrapper isExpanded={isExpanded} onClick={handleToggle}  >
             <ArrowForwardIosIcon/>
@@ -266,7 +269,7 @@ export default function Sidebar( { isExpanded, setIsExpanded, setMainWidth } ) {
         <SidebarDiv>
           <OutlinedButton to='company/data/newfolder' isExpanded={isExpanded}>Add a folder</OutlinedButton>
         </SidebarDiv>
-      </div>
+      </SideDiv>
     </SidebarContainer>
   );
 }

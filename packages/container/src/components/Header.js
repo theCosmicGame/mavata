@@ -25,7 +25,7 @@ export default function Header({ isSignedIn, onSignOut }) {
   const linkMap = [
     ["All Companies", "/companies"],
     ["Company Profile", "/companies/last"], // BEM TO DO: change to dropdown 
-    ["Settings", "/dashboard"]
+    ["Settings", "/user/settings"]
   ];
 
   return (  

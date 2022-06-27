@@ -30,24 +30,23 @@ const DetailHeading = styled.h5`
   margin: 2px 0 0 0;
   padding: 0;
 
+  font-size: ${props => (props.mainWidth <= 850) ? '14px!important' : '16px!important'};
   font-weight: 700;
-  font-size: 16px;
   /* identical to box height, or 125% */
   letter-spacing: -0.02em;
   /* Blacks/002 */
   color: #2F2F4C;
-
   @media screen and (max-width: 850px) {
     font-size: 12px;
   };
 `
 
-const DetailDescriptor = styled.h6`
+const DetailDescriptor = styled.h6.attrs()`
   margin: 0;
   padding: 0;
 
+  font-size: ${props => (props.mainWidth <= 850) ? '12px!important' : '14px!important'};
   font-weight: 400;
-  font-size: 14px;
   /* identical to box height, or 114% */
   letter-spacing: -0.02em;
   /* Grays/003 */
@@ -62,7 +61,12 @@ const Icon = styled.img`
   @media screen and (max-width: 850px) {
     height: 30px;
     width: auto;
-    vertical-align: top;
+    vertical-align: top!important;
+  };
+
+  @media screen and (max-width: 1100px) {
+    height: ${props => ((props.mainWidth <= 850) || props.isExpanded) ? '40px' : 'auto'};
+    vertical-align: top!important;
   };
 `
 
@@ -80,25 +84,25 @@ export default function DescriptionDetails({ isExpanded, mainWidth }) {
   return(
     <React.Fragment>
       <Detail>
-        <Icon src={IconBriefcase} alt='sector' />
+        <Icon src={IconBriefcase} alt='sector' isExpanded={isExpanded} mainWidth={mainWidth} />
         <DetailText>
-          <DetailHeading>Business Serivces </DetailHeading>
-          <DetailDescriptor>Sector</DetailDescriptor>
+          <DetailHeading mainWidth={mainWidth} >Business Serivces </DetailHeading>
+          <DetailDescriptor mainWidth={mainWidth} >Sector</DetailDescriptor>
         </DetailText>
       </Detail>
       <Detail>
-        <Icon src={IconLocation} alt='headquarters' />
+        <Icon src={IconLocation} alt='headquarters' isExpanded={isExpanded} mainWidth={mainWidth} />
         <DetailText>
-          <DetailHeading>Chicago, IL </DetailHeading>
-          <DetailDescriptor>Headquarters</DetailDescriptor>
+          <DetailHeading mainWidth={mainWidth} >Chicago, IL </DetailHeading>
+          <DetailDescriptor mainWidth={mainWidth} >Headquarters</DetailDescriptor>
         </DetailText>
       </Detail>
       <Detail>
-        <Icon src={IconGlobe} alt='webpage' />
+        <Icon src={IconGlobe} alt='webpage' isExpanded={isExpanded} mainWidth={mainWidth} />
         {/* BEM TO DO: refactor icon to link */}
         <DetailText>
-          <DetailHeading>www.fastservhvac.com<ExtLinkIcon /></DetailHeading>
-          <DetailDescriptor>Website</DetailDescriptor>
+          <DetailHeading mainWidth={mainWidth} >www.fastservhvac.com<ExtLinkIcon /></DetailHeading>
+          <DetailDescriptor mainWidth={mainWidth} >Website</DetailDescriptor>
         </DetailText>
       </Detail>
     </React.Fragment>

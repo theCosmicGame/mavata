@@ -10,7 +10,7 @@ const devConfig = {
     publicPath: 'http://localhost:8084/'   // don't forget the slash at the end
   },
   devServer: {
-    port: 8082,
+    port: 8084,
     historyApiFallback: {
       index: 'index.html',
     },

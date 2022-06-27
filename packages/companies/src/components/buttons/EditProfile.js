@@ -56,8 +56,9 @@ const useStyles = makeStyles((theme) => ({
     flex: '0 0 auto',
 
     display: 'inline-block',
-    padding: '11px 30px 11px 15px',
-    margin: '0 auto',
+    //padding: '11px 30px 11px 15px',
+    margin: 0,
+    width: '100%',
 
     verticalAlign: 'middle',
 
@@ -103,11 +104,12 @@ const useStyles = makeStyles((theme) => ({
 
   /* Add a new company */
   buttonText: {
-    width: '81px',
+    width: '88px',
     height: '20px',
     marginLeft: '6%',
     marginTop: '5px',
     marginBottom: '5px',
+    marginRight: 0,
 
     verticalAlign: 'center',
     color: '#08048C',
@@ -133,6 +135,10 @@ const useStyles = makeStyles((theme) => ({
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
     align: 'center',
+    width: 'fit-content',
+
+    margin: 0,
+    padding: 0,
   },
 }))
 

@@ -1,5 +1,12 @@
+import React from 'react';
+import SidebarAnt from './sidebar/SidebarAnt';
+import NavbarAnt from './sidebar/NavbarAnt';
+
 export default function Settings() {
   return (
-    <h1>Hello World</h1>
+    <React.Fragment>
+      <NavbarAnt />
+      <SidebarAnt />
+    </React.Fragment>
   )
 }

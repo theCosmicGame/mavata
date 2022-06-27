@@ -71,23 +71,51 @@ export default function Company() {
   const [sidebarWidth, setSidebarWidth] = useState(isExpanded ? '250px' : '50px')
   const [mainWidth, setMainWidth] = useState(window.innerWidth - parseInt(sidebarWidth))
 
-  
+  function setWidthSidebar() {
+    let x = (window.innerWidth > 850) ? '50px' : '0px';
+    let y = (isExpanded && (window.innerWidth > 850)) ? '250px' : x;
+    setSidebarWidth(y);
+    return y;
+  }
+
+  // useEffect(() => {
+  //   const debouncedHandleResize = debounce(function handleResize() {
+  //     setWidthSidebar()
+  //   }, 100);
+
+  //   window.addEventListener('resize', debouncedHandleResize);
+
+  //   return _ => {
+  //     window.removeEventListener('resize', debouncedHandleResize)
+  //   };
+  // });
 
   // resize on sidebar collapse or window resize
   useEffect(() => {
+    setWidthSidebar();
+    
     const debouncedHandleResize = debounce(async function handleResize() {
-      let x = (window.innerWidth > 850) ? '50px' : '0px';
-      let y = (isExpanded && (window.innerWidth > 850)) ? '250px' : x;
-      await setSidebarWidth(y);
-
       if (isExpanded && (window.innerWidth <= 850)) {
-        setIsExpanded(false)
+        await setIsExpanded(false)
         localStorage.setItem('sidebar-collapsed', true);
+        await setSidebarWidth('0px')
+      } else if (window.innerWidth <= 850) {
+        localStorage.setItem('sidebar-collapsed', true);
+        await setSidebarWidth('0px')
+      } else {
+        localStorage.removeItem('sidebar-collapse')
       }
 
+      let y = setWidthSidebar();
       let z = (window.innerWidth - parseInt(y))
-      setMainWidth(z);
-      setMainWidth(z);
+      await setMainWidth(z);
+
+      if (window.innerWidth - mainWidth > 260) {
+        let y = setWidthSidebar();
+        let z = (window.innerWidth - parseInt(y))
+        await setMainWidth(z);
+      }
+
       console.log('2 main width ', mainWidth, window.innerWidth, z, parseInt(y))
     }, 100);
 
@@ -96,12 +124,13 @@ export default function Company() {
     // necessary cleanup
     return _ => {
       window.removeEventListener('resize', debouncedHandleResize)
+      setWidthSidebar()
     };
   });
   
   const contentStyle = {
     marginLeft: isExpanded ? '250px' : sidebarWidth,
-    transition: 'margin 0.2s ease',
+    transition: 'margin 0.3s ease',
     
     marginRight: 0,
     marginTop: 0,
@@ -109,12 +138,14 @@ export default function Company() {
     width: '100%',
   };
 
+  console.log('sidebar width', sidebarWidth)
+
   return (
     <React.Fragment>
       <div className={classes.wrapper2}>
         <Row>
           <Col flex={sidebarWidth}>
-            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} setMainWidth={setMainWidth} />
+            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} mainWidth={mainWidth} setWidthSidebar={setWidthSidebar} />
           </Col>
           <div style={contentStyle}>
             <main className={classes.bodyMain2}>
