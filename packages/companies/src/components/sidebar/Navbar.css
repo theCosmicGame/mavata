@@ -1,6 +1,7 @@
-@import "~antd/dist/antd.css";
+@import "../../assets/css/antd.css";
 
 .menu {
+  position: fixed;
   border-bottom: solid 1px #f5e2e2;
   overflow: auto;
   padding: 0px 19px;

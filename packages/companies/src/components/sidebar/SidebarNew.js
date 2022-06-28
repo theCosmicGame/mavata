@@ -222,6 +222,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Sidebar( { isExpanded, setIsExpanded, mainWidth, setWidthSidebar } ) {
   const classes = useStyles();
   
+  console.log('sidebarr', isExpanded);
+  console.log('mainWidth', mainWidth, window.innerWidth)
     
   const handleToggle = () => {
     if (isExpanded) {
@@ -231,6 +233,8 @@ export default function Sidebar( { isExpanded, setIsExpanded, mainWidth, setWidt
       setIsExpanded(true);
       localStorage.removeItem('sidebar-collapsed');
     }
+
+    setWidthSidebar();
   };
 
   // default is expanded

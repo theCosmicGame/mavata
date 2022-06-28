@@ -135,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
     align: 'center',
-    width: 'fit-content',
+    width: '100px',
 
     margin: 0,
     padding: 0,

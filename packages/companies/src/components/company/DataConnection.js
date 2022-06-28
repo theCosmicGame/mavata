@@ -50,6 +50,7 @@ const ConnectionContainer = styled.div`
 const StyledButton = styled.div`
   order: 3;
   flex-grow: 0;
+  padding: 20px 30px 30px;
 `
 
 export default function DataConnection() {

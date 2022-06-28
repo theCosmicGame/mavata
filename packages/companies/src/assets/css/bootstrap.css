@@ -96,20 +96,6 @@ address {
   line-height: inherit;
 }
 
-ol,
-ul,
-dl {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-ol ol,
-ul ul,
-ol ul,
-ul ol {
-  margin-bottom: 0;
-}
-
 dt {
   font-weight: 700;
 }
@@ -146,17 +132,6 @@ sub {
 
 sup {
   top: -.5em;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
 }
 
 a:not([href]) {
@@ -2118,7 +2093,7 @@ select.form-control:focus::-ms-value {
 
 .form-control-sm {
   height: calc(1.5em + 0.5rem + 2px);
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.75rem;
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;

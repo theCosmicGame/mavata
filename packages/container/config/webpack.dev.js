@@ -20,7 +20,7 @@ const devConfig = {
       remotes: {
         marketingMfe: 'marketingMod@http://localhost:8081/remoteEntry.js',
         authMfe: 'authMod@http://localhost:8082/remoteEntry.js',
-        dashboardMfe: 'dashboardMod@http://localhost:8083/remoteEntry.js',
+        // dashboardMfe: 'dashboardMod@http://localhost:8083/remoteEntry.js',
         companiesMfe: 'companiesMod@http://localhost:8085/remoteEntry.js',
       },
       shared: packageJson.dependencies,

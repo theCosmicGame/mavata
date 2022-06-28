@@ -9,6 +9,7 @@ import Sidebar from './sidebar/SidebarNew';
 import Intro from './company/Intro';
 import DataConnection from './company/DataConnection';
 import UsersTable from './company/UsersTable';
+import UsersTableEdit from './company/UsersTableEdit';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -69,12 +70,17 @@ export default function Company() {
   const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
   const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
   const [sidebarWidth, setSidebarWidth] = useState(isExpanded ? '250px' : '50px')
-  const [mainWidth, setMainWidth] = useState(window.innerWidth - parseInt(sidebarWidth))
+  const [mainWidth, setMainWidth] = useState(0)
 
-  function setWidthSidebar() {
+  async function setWidthSidebar() {
     let x = (window.innerWidth > 850) ? '50px' : '0px';
     let y = (isExpanded && (window.innerWidth > 850)) ? '250px' : x;
-    setSidebarWidth(y);
+
+    await setSidebarWidth(y);
+    let z = (window.innerWidth - parseInt(y))
+    await setMainWidth(z);
+
+    console.log('z', z, mainWidth)
     return y;
   }
 
@@ -93,30 +99,22 @@ export default function Company() {
   // resize on sidebar collapse or window resize
   useEffect(() => {
     setWidthSidebar();
-    
-    const debouncedHandleResize = debounce(async function handleResize() {
+
+    const debouncedHandleResize = debounce(function handleResize() {
       if (isExpanded && (window.innerWidth <= 850)) {
-        await setIsExpanded(false)
+        setIsExpanded(false)
         localStorage.setItem('sidebar-collapsed', true);
-        await setSidebarWidth('0px')
+        // setSidebarWidth('0px')
       } else if (window.innerWidth <= 850) {
         localStorage.setItem('sidebar-collapsed', true);
-        await setSidebarWidth('0px')
+        // setSidebarWidth('0px')
       } else {
         localStorage.removeItem('sidebar-collapse')
       }
 
       let y = setWidthSidebar();
-      let z = (window.innerWidth - parseInt(y))
-      await setMainWidth(z);
 
-      if (window.innerWidth - mainWidth > 260) {
-        let y = setWidthSidebar();
-        let z = (window.innerWidth - parseInt(y))
-        await setMainWidth(z);
-      }
-
-      console.log('2 main width ', mainWidth, window.innerWidth, z, parseInt(y))
+      console.log('2 main width ', mainWidth, window.innerWidth, y)
     }, 100);
 
     window.addEventListener('resize', debouncedHandleResize);
@@ -135,10 +133,7 @@ export default function Company() {
     marginRight: 0,
     marginTop: 0,
     marginBottom: 0,
-    width: '100%',
   };
-
-  console.log('sidebar width', sidebarWidth)
 
   return (
     <React.Fragment>

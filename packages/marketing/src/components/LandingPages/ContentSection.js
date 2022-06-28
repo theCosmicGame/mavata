@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   
-  section1: {
+  section2: {
     display: '-webkit-box',
     display: '-webkit-flex',
     display: '-ms-flexbox',
@@ -33,8 +33,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     backgroundColor: '#ffd343',
     maxWidth: 'none',
-    paddingTop: '50px',
-    paddingBottom: '120px',
+    padding: '50px 50px 120px 50px',
     webkitBoxOrient: 'horizontal',
     webkitBoxDirection: 'normal',
     webkitFlexDirection: 'row',
@@ -105,7 +104,7 @@ export default function ContentSection(props) {
   return (
     <React.Fragment>
       <div className={classes.containerYellow}>
-      <section className={classes.section1}>
+      <section className={classes.section2}>
         <div className={classes.container1}>{props.children}</div>
       </section>
       </div>

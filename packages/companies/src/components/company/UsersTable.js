@@ -37,21 +37,16 @@ const customStyles = {
 
 export default function UsersTable() {
   const table = [
-                  ['FastServe HVAC', 'Business Services', 'Admin'],
-                  ['Hong Business Solutions', 'Business Services', 'Admin'],
-                  ['Kearn Manufacturing', 'Industrials', 'Admin'],
-                  ['RetChem', 'Industrials', 'Admin'],
-                  ['ChallengeT', 'Business Services', 'Admin'],
-                  ['Excalipre', 'Software', 'Admin'],
-                  ['OilFast', 'Franchisor', 'Admin'],
-                  ['Rigid Bikes', 'Consumer', 'Admin'],
-                  ['UCare', 'Healthcare', 'Admin'],
-                  ['LifeWorx', 'Healthcare', 'Admin']
+                  ['Jennifer Doe', 'jennifer.doe@rockequity.com', 'Admin', ''],
+                  ['Ryan Tse', 'ryan.tse@rockequity.com', 'Collaborator', ''],
+                  ['Jane Rach', 'jane.rach@rockequity.com', 'User', ''],
+                  ['Eric Eay', 'eric@cpa-QofE.com', 'User', ''],
+                  ['Jack Plence', 'jack@fastserv.com', 'Collaborator', '']
                 ];
 
   let rows = [];
   table.forEach((row) => {
-    let r = { name: row[0], sector: row[1], role: row[2], link: `<a href="/companies/${row[0].trim()}" >View</a>` }
+    let r = { name: row[0], email: row[1], role: row[2], buttons: `<a href="/" >View</a>` }
     rows.push(r)
   });
 
@@ -84,14 +79,19 @@ export default function UsersTable() {
         width: 450,
       },
       { 
-        label: 'Sector', 
-        field: 'sector',
+        label: 'Email', 
+        field: 'email',
         width: 200,
       },
       { 
         label: 'Your Role', 
         field: 'role',
         width: 150,
+       },
+       {
+        label: '',
+        field: 'buttons',
+        width: 50,
        },
     ],
   

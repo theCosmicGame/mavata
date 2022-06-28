@@ -111,7 +111,7 @@ const Description = styled.div`
 
   min-height: 100px;
   max-height: 200px;
-  width: ${props => (props.mainWidth > 850 ? '65%' : 'auto')};       /* tied to width of 'Details' styled div */
+  width: ${props => (props.mainWidth > 850 && !props.isExpanded ? '65%' : 'auto')};       /* tied to width of 'Details' styled div */
 
   overflow: auto;
   padding-right: 10px;
@@ -125,13 +125,22 @@ const Description = styled.div`
   @media screen and (max-width: 850px) {
     width: auto!important;
   };
+
+  @media screen and (min-width: 851px) and (max-width: 1100px) {
+    width: ${props => (props.isExpanded) ? 'auto' : '65%'};
+  }
+
+  ${props => !props.isExpanded} {
+    @media screen and (max-width: 1100px) {
+      width: auto;
+    };
+  };
 `
 
 const Details = styled.div`
-  min-width: 25%;   /* tied to width of 'Description' styled div */
-  width: auto;
+  min-width: 20%;   /* tied to width of 'Description' styled div */
 
-  display: ${props => ((props.mainWidth <= 850) || props.isExpanded) ? 'none' : 'flex'};
+  display: ${props => (props.mainWidth <= 850) ? 'none' : 'flex'};
   flex-direction: column;
   align-items: left;
   vertical-align: middle;
@@ -143,8 +152,8 @@ const Details = styled.div`
     display: none;
   };
 
-  @media screen and (max-width: 1100px) {
-
+  @media screen and (min-width: 1101px) {
+    display: flex;
   };
 `
 
@@ -159,7 +168,7 @@ const DetailsSmall = styled.div`
 `
 
 export default function Intro({ isExpanded, mainWidth }) {
-  console.log('main width', mainWidth, window.innerWidth)
+  
   return (
     <Wrapper>
       <Banner>
