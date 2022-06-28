@@ -70,17 +70,18 @@ export default function Company() {
   const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
   const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
   const [sidebarWidth, setSidebarWidth] = useState(isExpanded ? '250px' : '50px')
-  const [mainWidth, setMainWidth] = useState(0)
+  const [mainWidth, setMainWidth] = useState(window.innerWidth - parseInt(sidebarWidth))
 
-  async function setWidthSidebar() {
+  console.log('2 main width ', mainWidth, window.innerWidth, sidebarWidth)
+
+  function setWidthSidebar() {
     let x = (window.innerWidth > 850) ? '50px' : '0px';
     let y = (isExpanded && (window.innerWidth > 850)) ? '250px' : x;
 
-    await setSidebarWidth(y);
+    setSidebarWidth(y);
     let z = (window.innerWidth - parseInt(y))
-    await setMainWidth(z);
+    setMainWidth(z);
 
-    console.log('z', z, mainWidth)
     return y;
   }
 
@@ -101,28 +102,21 @@ export default function Company() {
     setWidthSidebar();
 
     const debouncedHandleResize = debounce(function handleResize() {
-      if (isExpanded && (window.innerWidth <= 850)) {
+      if (window.innerWidth <= 850) {
         setIsExpanded(false)
-        localStorage.setItem('sidebar-collapsed', true);
-        // setSidebarWidth('0px')
-      } else if (window.innerWidth <= 850) {
         localStorage.setItem('sidebar-collapsed', true);
         // setSidebarWidth('0px')
       } else {
         localStorage.removeItem('sidebar-collapse')
       }
-
-      let y = setWidthSidebar();
-
-      console.log('2 main width ', mainWidth, window.innerWidth, y)
     }, 100);
 
     window.addEventListener('resize', debouncedHandleResize);
+    let y = setWidthSidebar();
 
     // necessary cleanup
     return _ => {
       window.removeEventListener('resize', debouncedHandleResize)
-      setWidthSidebar()
     };
   });
   
