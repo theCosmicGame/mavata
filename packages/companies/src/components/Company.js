@@ -109,10 +109,12 @@ export default function Company() {
       } else {
         localStorage.removeItem('sidebar-collapse')
       }
+      
+      let y = setWidthSidebar();
+
     }, 100);
 
     window.addEventListener('resize', debouncedHandleResize);
-    let y = setWidthSidebar();
 
     // necessary cleanup
     return _ => {

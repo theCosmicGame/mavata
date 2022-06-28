@@ -222,7 +222,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Sidebar( { isExpanded, setIsExpanded, mainWidth, setWidthSidebar } ) {
   const classes = useStyles();
   
-  console.log('~~sidebarr', isExpanded);
+  console.log('~sidebarr', isExpanded);
   console.log('~mainWidth', mainWidth, window.innerWidth)
     
   const handleToggle = () => {
