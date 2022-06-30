@@ -29,7 +29,7 @@ export default ({ history }) => {
         <Router history={history}>
           <Switch>
             <Route exact path="/earlyaccess" component={EarlyAccess} />
-            <Route exact path="/learn" component={Learn} />
+            <Route exact path="/learn" component={EarlyAccess} />
             <Route path="/" component={Landing} />
           </Switch>
         </Router>

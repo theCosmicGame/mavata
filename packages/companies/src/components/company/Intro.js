@@ -33,7 +33,7 @@ const CompanyImage = styled.img`
   top: -30px;
   margin-bottom: -10px;
 
-  @media (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     width: auto;
   };
 `
@@ -82,14 +82,14 @@ const TitleText = styled.h1`
   /* Grays/001 */
   color: #3E3D5C;
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     font-size: 22px;
     font-style: normal;
   };
-  @media (min-width: 1024px) {
+  @media screen and (min-width: 1024px) {
       font-size: 24px;
   };
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
       font-size: 28px;
   };
 `
@@ -168,7 +168,6 @@ const DetailsSmall = styled.div`
 `
 
 export default function Intro({ isExpanded, mainWidth }) {
-  
   return (
     <Wrapper>
       <Banner>

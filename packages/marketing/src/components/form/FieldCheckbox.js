@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
   fieldCheckbox2: {
     display: 'inline-block',
-    marginBottom: '2rem',
+    // marginBottom: '2rem',
     paddingBottom: '0.5rem',
     //paddingLeft: '20px',
     borderBottom: '3px solid #15113b',
@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
   fieldCheckbox: {
-    marginBottom: '2rem',
+    // marginBottom: '2rem',
     paddingBottom: '0.5rem',
     paddingLeft: '0px',
     borderBottom: '3px solid #15113b',

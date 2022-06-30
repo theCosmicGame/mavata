@@ -3,23 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputField from './InputField';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    h1: {
-      fontFamily: ['Playfair Display', 'sans-serif'],
-      fontWeight: 'bold',
-      marginBottom: '10px',
-      fontSize: '48px',
-      lineHeight: '42px',
-      marginTop: '20px',
-    },
-    
-    p: {
-      marginTop: 0,
-      marginBottom: '20px',
-    },
+   '@global': {
+      h1: {
+        fontFamily: ['Playfair Display', 'sans-serif'],
+        fontWeight: 'bold',
+        marginBottom: '10px',
+        fontSize: '48px',
+        lineHeight: '42px',
+        marginTop: '20px',
+      },
+   },
 
-  },
-    
   emailForm: {
     display: '-webkit-box',
     display: '-webkit-flex',
@@ -41,6 +35,48 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
     },
   },
+     
+  heading28: {
+    fontFamily: ['Playfair Display', 'sans-serif'],
+    color: '#0c0a89',
+  },
+    
+  paragraph8: {
+    fontFamily: ['Barlow', 'sans-serif'],
+    color: '#0c0a89',
+    fontSize: '16px',
+
+    marginTop: 0,
+    marginBottom: '20px',
+  },
+  
+  wNode725Ded3CE6D: {
+    webkitAlignSelf: 'center',
+    msFlexItemAlign: 'center',
+    msGridRowAlign: 'center',
+    alignSelf: 'center',
+  },
+    
+  contactsWrap: {
+    display: '-webkit-box',
+    display: '-webkit-flex',
+    display: '-ms-flexbox',
+    display: 'flex',
+    webkitBoxOrient: 'vertical',
+    webkitBoxDirection: 'normal',
+    webkitFlexDirection: 'column',
+    msFlexDirection: 'column',
+    flexDirection: 'column',
+  },
+      
+  contactLink: {
+    marginBottom: '19px',
+    fontFamily: ['Playfair Display', 'sans-serif'],
+    color: '#0c0a89',
+    fontSize: '20px',
+    fontWeight: 700,
+    textDecoration: 'none',
+  },
     
   wLayoutGrid: {
     display: '-ms-grid',
@@ -53,19 +89,7 @@ const useStyles = makeStyles((theme) => ({
     gridRowGap: '16px',
     gridColumnGap: '16px',
   },
-      
-  wLayoutGrid: {
-    display: '-ms-grid',
-    display: 'grid',
-    gridAutoColumns: '1fr',
-    msGridColumns: '1fr 1fr',
-    gridTemplateColumns: '1fr 1fr',
-    msGridRows: 'auto auto',
-    gridTemplateRows: 'auto auto',
-    gridRowGap: '16px',
-    gridColumnGap: '100px',
-  },
-        
+
   _2ColGrid: {
     display: '-webkit-box',
     display: '-webkit-flex',
@@ -113,45 +137,6 @@ const useStyles = makeStyles((theme) => ({
     gridRowEnd: 3,
   },
     
-  heading28: {
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    color: '#0c0a89',
-  },
-    
-  paragraph8: {
-    fontFamily: ['Barlow', 'sans-serif'],
-    color: '#0c0a89',
-    fontSize: '16px',
-  },
-  
-  wNode725Ded3CE6D: {
-    webkitAlignSelf: 'center',
-    msFlexItemAlign: 'center',
-    msGridRowAlign: 'center',
-    alignSelf: 'center',
-  },
-    
-  contactsWrap: {
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
-    webkitBoxOrient: 'vertical',
-    webkitBoxDirection: 'normal',
-    webkitFlexDirection: 'column',
-    msFlexDirection: 'column',
-    flexDirection: 'column',
-  },
-    
-  contactLink: {
-    marginBottom: '19px',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    color: '#0c0a89',
-    fontSize: '20px',
-    fontWeight: 700,
-    textDecoration: 'none',
-  },
-
   infoLink: {
     marginTop: '25px',
     display: '-webkit-box',
@@ -164,6 +149,7 @@ const useStyles = makeStyles((theme) => ({
     msFlexDirection: 'column',
     flexDirection: 'column',
   },
+
   ContactSection: {
     padding: '5px',
     margin: 0,
@@ -179,16 +165,16 @@ export default function ContactForm() {
       <form data-name="Contact Form V2" name="wf-form-Contact-Form-V2" id={classes.emailForm} method="get" aria-label="Contact Form V2" data-hs-cf-bound="true">
         <div className={classes.wLayoutGrid}>
           <div className={`${classes._2ColGrid} ${classes.contactV2}`} >
-              <InputField />
-              <div id={classes.wNode725Ded3CE6D} className={classes.contactsWrap}>
-                <h1 className={classes.heading28}>Get Early Access</h1>
-                <p className={classes.paragraph8}>Apply below and we'll reach out to discuss upcoming private beta access!</p>
-              </div>
+            <InputField />
+            <div id={classes.wNode725Ded3CE6D} className={classes.contactsWrap}>
+              <h1 className={classes.heading28}>Get Early Access</h1>
+              <p className={classes.paragraph8}>Apply below and we'll reach out to discuss upcoming private beta access!</p>
             </div>
-            <div id={classes.wNode725ed35E6} className={classes.messageWrap}>
-              <div className={classes.infoLink}>
-                <a to="mailto:info@mavata.com?subject=Early%20Access" className={classes.contactLink}>info@mavata.com</a>
-              </div>
+          </div>
+          <div id={classes.wNode725ed35E6} className={classes.messageWrap}>
+            <div className={classes.infoLink}>
+              <a to="mailto:info@mavata.com?subject=Early%20Access" className={classes.contactLink}>info@mavata.com</a>
+            </div>
           </div>
         </div>
       </form>

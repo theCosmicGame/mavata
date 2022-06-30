@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   button9: {
-    marginTop: '20px',
+    // marginTop: '20px',
     borderRadius: '3px',
     webkitTransition: 'all 350ms ease',
     transition: 'all 350ms ease',
@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
   },
       
   submitBtnContact2: {
-    marginTop: '20px',
+    // marginTop: '20px',
     backgroundColor: '#15113b',
     color: '#fff',
 
@@ -127,12 +127,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SubmitButton(props) {
+export default function SubmitButton() {
   const classesSubmitButton = useStyles();
 
   return (
     <React.Fragment>
-      <input type="submit" value="Send " data-wait="Please wait..." className={`${classesSubmitButton.button9} ${classesSubmitButton.submitBtnContact2} ${classesSubmitButton.wButton}`}></input>
+      <input type="submit" value="Send " data-wait="Please wait..." className={`${classesSubmitButton.button9} ${classesSubmitButton.submitBtnContact2} ${classesSubmitButton.wButton}`} />
     </React.Fragment>
   );
 };

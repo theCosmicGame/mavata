@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ContentSection from './ContentSection';
-import ContactForm from '../form/ContactForm';
-import LearnMoreSection from '../form/LearnMoreSection';
+import ContentSection from '../LandingPages/ContentSection';
+import ContactForm from './ContactForm';
+import LearnMoreSection from '../LandingPages/LearnMoreSection';
 import Footer from '../footer/Footer';
 import SubmitButton from '../buttons/SubmitButton';
 

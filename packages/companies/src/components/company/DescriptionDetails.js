@@ -42,15 +42,15 @@ const DetailHeading = styled.h5`
   /* Blacks/002 */
   color: #2F2F4C;
 
-  @media (max-width: 599px) {
+  @media screen and (max-width: 599px) {
     font-size: ${palette.fontSizeMin}px;
   };
 
-  @media (min-width: 600px and max-width: 1100px) {
+  @media screen and (min-width: 600px and max-width: 1100px) {
     font-size: ${props => (props.mainWidth <= 850) ? '100px' : `calc(${palette.fontSizeMin} + (100vw — ${palette.mobile}) / ${palette.screenDiff} * ${palette.fontSizeDiff})px`}
   };
 
-  @media (min-width: 1101px) { 
+  @media screen and (min-width: 1101px) { 
     font-size: ${palette.fontSizeMax}px;
   }
 `
@@ -66,15 +66,15 @@ const DetailDescriptor = styled.h6.attrs()`
   color: #6A698C;
 
 
-  @media (max-width: 599px) {
+  @media screen and (max-width: 599px) {
     font-size: ${palette.fontSizeSmMin}px;
   };
 
-  @media (min-width: 600px and max-width: 1100px) {
+  @media screen and (min-width: 600px and max-width: 1100px) {
     font-size: ${props => (props.mainWidth <= 850) ? '100px' : `calc(${palette.fontSizeSmMin} + (100vw — ${palette.mobile}) / ${palette.screenDiff} * ${palette.fontSizeSmDiff})px`}
   };
 
-  @media (min-width: 1101px) { 
+  @media screen and (min-width: 1101px) { 
     font-size: ${palette.fontSizeSmMax}px;
   }
 `

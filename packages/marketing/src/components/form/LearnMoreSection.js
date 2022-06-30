@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: 'Playfair Display',
     },
   },
-  
+
   h42: {
     position: 'relative',
     padding: '0px',
@@ -205,8 +205,8 @@ export default function LearnMoreSection(props) {
     <React.Fragment>
       <h4 className={classes.h42}>I'm interested in: </h4>
       <div className={`${classes.wLayoutGrid3} ${classes.formCheckboxGrid}`}>
-        <FieldCheckbox name="Support">Learn More</FieldCheckbox>
-        <FieldCheckbox name="Pricing-and-Plans">Getting Early Access</FieldCheckbox>
+        <AccessCheckbox name="Support">Learn More</AccessCheckbox>
+        <AccessCheckbox name="Pricing-and-Plans">Getting Early Access</AccessCheckbox>
       </div>
     </React.Fragment>
   )

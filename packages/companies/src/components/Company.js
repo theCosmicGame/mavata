@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Col, Row } from 'antd';
 import styled from 'styled-components';
 
-import '../assets/css/antd.css';
+import getWindowWidth from '../functions/getWindowWidth';
 
 import Sidebar from './sidebar/SidebarNew';
 import Intro from './company/Intro';
@@ -22,13 +22,17 @@ const useStyles = makeStyles((theme) => ({
 
     height: '100%',
     minHeight: '100vh',
-    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     verticalAlign: 'top',
 
     position: 'relative',
     //transition: 'margin-left .4s',
+
+    [theme.breakpoints.down('850')]: {
+      maxWidth: '100%',
+      width: '100%',
+    },
   },
 
   sectionContent2: {
@@ -50,6 +54,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const Wrapper = styled.div`
+  background-color: #fff;
+  position: relative;
+
+  display: table;
+  width: 100%;
+  height: 100%;
+`
+
+const StyledSection = styled.div`
+  margin-left: ${props => props.isExpanded ? '250px' : props.sidebarWidth};
+  transition: margin 0.3s ease;
+
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+`
 
 function debounce(fn, ms) {
   let timer
@@ -69,17 +90,19 @@ export default function Company() {
   localStorage.setItem('sidebar-collapsed', (window.innerWidth > 850) ? false : true);
   const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
   const [isExpanded, setIsExpanded] = useState(sidebarCollapsed ? false : true);
+
   const [sidebarWidth, setSidebarWidth] = useState(isExpanded ? '250px' : '50px')
   const [mainWidth, setMainWidth] = useState(window.innerWidth - parseInt(sidebarWidth))
 
   console.log('2 main width ', mainWidth, window.innerWidth, sidebarWidth)
 
   function setWidthSidebar() {
-    let x = (window.innerWidth > 850) ? '50px' : '0px';
-    let y = (isExpanded && (window.innerWidth > 850)) ? '250px' : x;
+    let w = getWindowWidth();
+    let x = (w > 850) ? '50px' : '0px';
+    let y = (isExpanded && (w > 850)) ? '250px' : x;
 
     setSidebarWidth(y);
-    let z = (window.innerWidth - parseInt(y))
+    let z = (w - parseInt(y))
     setMainWidth(z);
 
     return y;
@@ -97,7 +120,6 @@ export default function Company() {
   //   };
   // });
 
-  // resize on sidebar collapse or window resize
   useEffect(() => {
     setWidthSidebar();
 
@@ -121,34 +143,23 @@ export default function Company() {
       window.removeEventListener('resize', debouncedHandleResize)
     };
   });
-  
-  const contentStyle = {
-    marginLeft: isExpanded ? '250px' : sidebarWidth,
-    transition: 'margin 0.3s ease',
-    
-    marginRight: 0,
-    marginTop: 0,
-    marginBottom: 0,
-  };
 
   return (
     <React.Fragment>
-      <div className={classes.wrapper2}>
-        <Row>
-          <Col flex={sidebarWidth}>
-            <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} mainWidth={mainWidth} setWidthSidebar={setWidthSidebar} />
-          </Col>
-          <div style={contentStyle}>
-            <main className={classes.bodyMain2}>
-              <div className={classes.sectionContent2}>
-                <Intro isExpanded={isExpanded} mainWidth={mainWidth} />
-                <DataConnection />
-                <UsersTable />
-              </div>
-            </main>
-          </div>
-        </Row>
-      </div>
+      <Wrapper>
+        <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} mainWidth={mainWidth} setWidthSidebar={setWidthSidebar} />
+        
+        <StyledSection isExpanded={isExpanded} sidebarWidth={sidebarWidth}>
+          <main className={classes.bodyMain2}>
+            <div className={classes.sectionContent2}>
+              <Intro isExpanded={isExpanded} mainWidth={mainWidth} />
+              <DataConnection />
+              <UsersTable />
+            </div>
+          </main>
+        </StyledSection>
+
+      </Wrapper>
     </React.Fragment>
   );
 };

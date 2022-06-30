@@ -1,4 +1,6 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+
 import Logo from './Navbar/Logo';
 import ButtonNew from './Navbar/ButtonNew';
 import NavTabs from './Navbar/NavTabs';
@@ -11,6 +13,7 @@ import Dropdown from './Navbar/Dropdown';
 
 export default function Header({ isSignedIn, onSignOut }) {
   const classes = useStyles();
+  let location = useLocation();
 
   const onClick = () => {
     // && onSignOut function is ALWAYS TRUE
@@ -42,7 +45,7 @@ export default function Header({ isSignedIn, onSignOut }) {
 
           <ul className={`${classes.navItem} ${classes.navItemOptional}`}>
             <ButtonNew to={isSignedIn ? '/' : '/auth/signin'} onClick={onClick}>{isSignedIn ? 'Logout' : 'Login'}</ButtonNew>
-            {isSignedIn ? '' : <ButtonNew to='/earlyaccess'>Early Access ➝</ButtonNew>}
+            {(isSignedIn || location.pathname.includes('auth/')) ? '' : <ButtonNew to='/earlyaccess'>Early Access ➝</ButtonNew>}
           </ul>
 
       </NavbarContainer>

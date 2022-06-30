@@ -83,6 +83,7 @@ export default () => {
             {!isSignedIn && <Redirect to="/" />}
             <DashboardLazy />
           </Route> */}
+          <Route path="/earlyaccess" component={MarketingLazy} />
           <Route path="/" component={MarketingLazy} />
           {/* 
           Removed after Refactoring #1

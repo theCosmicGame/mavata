@@ -1,15 +1,14 @@
 import React from 'react';
 import ContentSection from './ContentSection';
-import ContactForm from './ContactForm';
-import SubmitButton from './SubmitButton';
 import Footer from '../footer/Footer';
+
+import AccessForm from '../form/AccessForm';
 
 export default function EarlyAccess() {  
   return (
     <React.Fragment>
       <ContentSection>
-        <ContactForm />
-        <SubmitButton />
+        <AccessForm />
       </ContentSection>
       <Footer />
     </React.Fragment>

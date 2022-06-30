@@ -54,11 +54,9 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-
   
   inputUl: {
-    marginTop: '10px',
-    marginBottom: '10px',
+    margin: '0px',
     padding: '0px',
   },
 
