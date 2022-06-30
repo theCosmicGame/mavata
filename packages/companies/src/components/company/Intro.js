@@ -33,7 +33,7 @@ const CompanyImage = styled.img`
   top: -30px;
   margin-bottom: -10px;
 
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     width: auto;
   };
 `
@@ -82,14 +82,14 @@ const TitleText = styled.h1`
   /* Grays/001 */
   color: #3E3D5C;
 
-  @media screen and (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 22px;
     font-style: normal;
   };
-  @media screen and (min-width: 1024px) {
+  @media (min-width: 1024px) {
       font-size: 24px;
   };
-  @media screen and (min-width: 1280px) {
+  @media (min-width: 1280px) {
       font-size: 28px;
   };
 `
@@ -111,7 +111,7 @@ const Description = styled.div`
 
   min-height: 100px;
   max-height: 200px;
-  width: ${props => (props.mainWidth > 850 && !props.isExpanded ? '65%' : 'auto')};       /* tied to width of 'Details' styled div */
+  width: ${props => (props.mainWidth > 850 ? '65%' : 'auto')};       /* tied to width of 'Details' styled div */
 
   overflow: auto;
   padding-right: 10px;
@@ -125,20 +125,11 @@ const Description = styled.div`
   @media screen and (max-width: 850px) {
     width: auto!important;
   };
-
-  @media screen and (min-width: 851px) and (max-width: 1100px) {
-    width: ${props => (props.isExpanded) ? 'auto' : '65%'};
-  }
-
-  ${props => !props.isExpanded} {
-    @media screen and (max-width: 1100px) {
-      width: auto;
-    };
-  };
 `
 
 const Details = styled.div`
-  min-width: 20%;   /* tied to width of 'Description' styled div */
+  min-width: 25%;   /* tied to width of 'Description' styled div */
+  width: auto;
 
   display: ${props => (props.mainWidth <= 850) ? 'none' : 'flex'};
   flex-direction: column;
@@ -150,10 +141,6 @@ const Details = styled.div`
 
   @media screen and (max-width: 850px) {
     display: none;
-  };
-
-  @media screen and (min-width: 1101px) {
-    display: flex;
   };
 `
 
@@ -168,6 +155,7 @@ const DetailsSmall = styled.div`
 `
 
 export default function Intro({ isExpanded, mainWidth }) {
+  console.log('main width', mainWidth, window.innerWidth)
   return (
     <Wrapper>
       <Banner>

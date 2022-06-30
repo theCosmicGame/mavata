@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Col, Row } from 'antd';
 import styled from 'styled-components';
-
 import getWindowWidth from '../functions/getWindowWidth';
+
+import '../assets/css/antd.css';
 
 import Sidebar from './sidebar/SidebarNew';
 import Intro from './company/Intro';
 import DataConnection from './company/DataConnection';
 import UsersTable from './company/UsersTable';
 import UsersTableEdit from './company/UsersTableEdit';
-
 
 const useStyles = makeStyles((theme) => ({
   bodyMain2: {
@@ -22,17 +22,13 @@ const useStyles = makeStyles((theme) => ({
 
     height: '100%',
     minHeight: '100vh',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     verticalAlign: 'top',
 
     position: 'relative',
     //transition: 'margin-left .4s',
-
-    [theme.breakpoints.down('850')]: {
-      maxWidth: '100%',
-      width: '100%',
-    },
   },
 
   sectionContent2: {
@@ -57,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 const Wrapper = styled.div`
   background-color: #fff;
   position: relative;
-
   display: table;
   width: 100%;
   height: 100%;
@@ -66,11 +61,13 @@ const Wrapper = styled.div`
 const StyledSection = styled.div`
   margin-left: ${props => props.isExpanded ? '250px' : props.sidebarWidth};
   transition: margin 0.3s ease;
-
   margin-right: 0;
   margin-top: 0;
   margin-bottom: 0;
+
+  width: ${props => props.sidebarWidth ? `calc(100% - props.sidebarWidth)` : '100%'};
 `
+
 
 function debounce(fn, ms) {
   let timer
@@ -108,33 +105,31 @@ export default function Company() {
     return y;
   }
 
-  // useEffect(() => {
-  //   const debouncedHandleResize = debounce(function handleResize() {
-  //     setWidthSidebar()
-  //   }, 100);
-
-  //   window.addEventListener('resize', debouncedHandleResize);
-
-  //   return _ => {
-  //     window.removeEventListener('resize', debouncedHandleResize)
-  //   };
-  // });
-
+  // resize on sidebar collapse or window resize
   useEffect(() => {
     setWidthSidebar();
-
+    
     const debouncedHandleResize = debounce(function handleResize() {
-      if (window.innerWidth <= 850) {
+      if (isExpanded && (getWindowWidth() <= 850)) {
         setIsExpanded(false)
         localStorage.setItem('sidebar-collapsed', true);
-        // setSidebarWidth('0px')
+        setSidebarWidth('0px')
+      } else if (getWindowWidth() <= 850) {
+        localStorage.setItem('sidebar-collapsed', true);
+        setSidebarWidth('0px')
       } else {
         localStorage.removeItem('sidebar-collapse')
       }
-      
+
       let y = setWidthSidebar();
 
     }, 100);
+
+    
+    if (sidebarWidth + mainWidth > getWindowWidth()) {
+      console.log('NEED A FIX')
+      let y = setWidthSidebar();
+    }
 
     window.addEventListener('resize', debouncedHandleResize);
 
@@ -143,23 +138,33 @@ export default function Company() {
       window.removeEventListener('resize', debouncedHandleResize)
     };
   });
+  
+  const contentStyle = {
+    marginLeft: isExpanded ? '250px' : sidebarWidth,
+    transition: 'margin 0.3s ease',
+    
+    marginRight: 0,
+    marginTop: 0,
+    marginBottom: 0,
+    width: '100%',
+  };
+
+  console.log('sidebar width', sidebarWidth)
 
   return (
-    <React.Fragment>
-      <Wrapper>
+    <Wrapper>
+      <Col flex={sidebarWidth}>
         <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} mainWidth={mainWidth} setWidthSidebar={setWidthSidebar} />
-        
-        <StyledSection isExpanded={isExpanded} sidebarWidth={sidebarWidth}>
-          <main className={classes.bodyMain2}>
-            <div className={classes.sectionContent2}>
-              <Intro isExpanded={isExpanded} mainWidth={mainWidth} />
-              <DataConnection />
-              <UsersTable />
-            </div>
-          </main>
-        </StyledSection>
-
-      </Wrapper>
-    </React.Fragment>
+      </Col>
+      <StyledSection sidebarWidth={sidebarWidth} >
+        <main className={classes.bodyMain2}>
+          <div className={classes.sectionContent2}>
+            <Intro isExpanded={isExpanded} mainWidth={mainWidth} />
+            <DataConnection />
+            <UsersTable />
+          </div>
+        </main>
+      </StyledSection>
+    </Wrapper>
   );
 };
