@@ -4,7 +4,8 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const commonConfig = require('./webpack.common');
 const packageJson = require('../package.json');
 const path = require('path');
-import { port } from '../src/variables/port';
+const globals = require('../src/variables/global.jsbles/global.js')
+const port = globals.port
 
 const devConfig = {
   mode: 'development',

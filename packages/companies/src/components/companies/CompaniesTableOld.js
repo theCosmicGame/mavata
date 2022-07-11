@@ -34,7 +34,7 @@ const customStyles = {
   },
 };
 
-export default function CompaniesTable() {
+export default function CompaniesTableOld() {
   const table = [
                   ['FastServe HVAC', 'Business Services', 'Admin'],
                   ['Hong Business Solutions', 'Business Services', 'Admin'],

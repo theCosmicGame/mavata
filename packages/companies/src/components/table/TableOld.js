@@ -7,7 +7,6 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import makeData from './makeData';
 
-import axios from 'axios';
 import Wrapper from '../Wrapper';
 
 import styled from 'styled-components';
