@@ -7,8 +7,6 @@ import Buttons from './buttons/SideBySideButtons';
 import HeroContent from './LandingPages/HeroContent';
 import { makeStyles } from '@material-ui/core/styles';
 
-// deploy bump
-
 const useStyles = makeStyles((theme) => ({
   '@global': {
     // MUST KEEP

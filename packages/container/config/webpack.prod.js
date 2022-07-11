@@ -18,8 +18,9 @@ const prodConfig = {
         // each key, e.g. "marketing" must match up to import statement in bootstrap.js file within sub-project folder 
         marketingMfe: `marketingMod@${domain}/marketing/latest/remoteEntry.js`,
         authMfe: `authMod@${domain}/auth/latest/remoteEntry.js`,
-        // dashboardMfe: `dashboardMod@${domain}/dashboard/latest/remoteEntry.js`,
         companiesMfe: `companiesMod@${domain}/companies/latest/remoteEntry.js`,
+        // tablesMfe: `tablesMod@${domain}/tables/latest/remoteEntry.js`,
+        // mdbReactMfe: `mdbReactMod@${domain}/mdbreact/latest/remoteEntry.js`
       },
       shared: packageJson.dependencies,
     }),

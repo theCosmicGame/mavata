@@ -4,8 +4,7 @@ import Footer from '../footer/Footer';
 
 import AccessForm from '../form/AccessForm';
 
-export default function EarlyAccess() {  
-  console.log(window.location.pathname)
+export default function EarlyAccess() {
   return (
     <React.Fragment>
       <ContentSection>

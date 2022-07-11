@@ -8,9 +8,6 @@ import NavSelect from './Navbar/NavSelect';
 import NavbarContainer from './Navbar/NavbarContainer';
 import useStyles from './styling/NavStyle';
 
-import DropdownOld from './Navbar/DropdownOld';
-import Dropdown from './Navbar/Dropdown';
-
 export default function Header({ isSignedIn, onSignOut }) {
   const classes = useStyles();
   let location = useLocation();

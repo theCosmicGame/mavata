@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import CompaniesHeading from './companies/CompaniesHeading';
-import CompaniesTable from './companies/CompaniesTable';
+import CompaniesTable from './table/CompaniesTable';
 
 
 

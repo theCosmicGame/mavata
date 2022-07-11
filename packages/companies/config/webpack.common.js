@@ -130,6 +130,9 @@ module.exports = {
     },
     resolve: {
       extensions: ['', '.js', '.jsx', '.scss', '.eot', '.ttf', '.svg', '.woff'],
-      modules: ['node_modules', 'scripts', 'images', 'fonts']
+      modules: ['node_modules', 'scripts', 'images', 'fonts'],
+      alias: {
+        mdbReactUiKit: 'mdb-react-ui-kit'
+      },
     },
 };

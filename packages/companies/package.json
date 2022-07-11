@@ -8,11 +8,15 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@mui/x-data-grid": "^5.12.3",
     "antd": "^4.21.4",
+    "axios": "^0.27.2",
+    "mdb-react-ui-kit": "git+https://oauth2:SR42kF-Dy2FLLvz_4E3N@git.mdbootstrap.com/mdb/react/mdb5/prd/mdb5-react-ui-kit-pro-essential#3.0.0",
     "mdbreact": "^4.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
+    "react-table": "^7.8.0",
     "react-table-editor": "^1.0.16",
     "styled-components": "^5.3.5"
   },
@@ -36,5 +40,8 @@
     "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^4.9.1",
     "webpack-merge": "^5.2.0"
+  },
+  "browser": {
+    "crypto": false
   }
 }

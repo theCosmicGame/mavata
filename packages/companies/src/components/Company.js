@@ -1,4 +1,14 @@
+/* 
+    BEM TO DO
+    - update table buttons to send email
+    - edit user settings button in table
+    - make add data connection button functional
+    - 
+*/
+
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { Col, Row } from 'antd';
 import styled from 'styled-components';
@@ -9,8 +19,7 @@ import '../assets/css/antd.css';
 import Sidebar from './sidebar/SidebarNew';
 import Intro from './company/Intro';
 import DataConnection from './company/DataConnection';
-import UsersTable from './company/UsersTable';
-import UsersTableEdit from './company/UsersTableEdit';
+import UsersTable from './table/UsersTable';
 
 const useStyles = makeStyles((theme) => ({
   bodyMain2: {
@@ -83,6 +92,9 @@ function debounce(fn, ms) {
 export default function Company() {
   const classes = useStyles();
 
+  // BEM TO DO: get ID from company and pass as prop instead of company
+  let { company } = useParams();
+
   // sidebar collapse
   localStorage.setItem('sidebar-collapsed', (window.innerWidth > 850) ? false : true);
   const sidebarCollapsed = localStorage.getItem('sidebar-collapsed');
@@ -138,30 +150,20 @@ export default function Company() {
       window.removeEventListener('resize', debouncedHandleResize)
     };
   });
-  
-  const contentStyle = {
-    marginLeft: isExpanded ? '250px' : sidebarWidth,
-    transition: 'margin 0.3s ease',
-    
-    marginRight: 0,
-    marginTop: 0,
-    marginBottom: 0,
-    width: '100%',
-  };
 
   console.log('sidebar width', sidebarWidth)
 
   return (
     <Wrapper>
       <Col flex={sidebarWidth}>
-        <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} mainWidth={mainWidth} setWidthSidebar={setWidthSidebar} />
+        <Sidebar company={company} isExpanded={isExpanded} setIsExpanded={setIsExpanded} mainWidth={mainWidth} setWidthSidebar={setWidthSidebar} />
       </Col>
       <StyledSection sidebarWidth={sidebarWidth} >
         <main className={classes.bodyMain2}>
           <div className={classes.sectionContent2}>
-            <Intro isExpanded={isExpanded} mainWidth={mainWidth} />
-            <DataConnection />
-            <UsersTable />
+            <Intro company={company} isExpanded={isExpanded} mainWidth={mainWidth} />
+            <DataConnection company={company} />
+            <UsersTable company={company} />
           </div>
         </main>
       </StyledSection>
