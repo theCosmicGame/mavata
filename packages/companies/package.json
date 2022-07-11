@@ -1,9 +1,18 @@
 {
   "name": "companies",
   "version": "1.0.0",
+  "private": true,
+  "config": {
+    "gitlabtoken": 
+  },
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theCosmicGame/mavata.git",
+    "directory": "packages/companies"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",

@@ -17,6 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - run: git config --global url."https://oauth2:${{ secrets.GITLAB_TOKEN }}@git.".insteadOf git@git.
       - run: npm install --force
       - run: npm run build
         env:

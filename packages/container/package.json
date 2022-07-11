@@ -5,6 +5,11 @@
     "start": "webpack serve --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theCosmicGame/mavata.git",
+    "directory": "packages/container"
+  },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
