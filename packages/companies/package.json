@@ -1,0 +1,50 @@
+{
+  "name": "companies",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve --config config/webpack.dev.js",
+    "build": "webpack --config config/webpack.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theCosmicGame/mavata.git",
+    "directory": "packages/companies"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "antd": "^4.21.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^5.2.7",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "postcss-loader": "^7.0.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass-loader": "^13.0.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webfontloader": "^1.6.28",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^4.9.1",
+    "webpack-merge": "^5.2.0"
+  },
+  "browser": {
+    "crypto": false
+  },
+  "optionalDependencies": {
+    "mdb-react-ui-kit": "git+https://oauth2:SR42kF-Dy2FLLvz_4E3N@git.mdbootstrap.com/mdb/react/mdb5/prd/mdb5-react-ui-kit-pro-essential#3.0.0"
+  }
+}
