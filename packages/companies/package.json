@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
-    "build": "webpack --config config/webpack.prod.js"
+    "build": "webpack --config config/webpack.prod.js",
+    "postinstall": "node env-dependencies.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,9 @@
     "@babel/preset-react": "^7.12.1",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-var": "^1.1.0",
     "css-loader": "^5.2.7",
+    "dotenv-cli": "^6.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "postcss-loader": "^7.0.0",
@@ -43,6 +46,12 @@
   },
   "browser": {
     "crypto": false
+  },
+  "envDependencies": {
+    "localJSON": "./.env",
+    "urls": [
+      "git+https://oauth2:${MDB_TOKEN}@git.mdbootstrap.com/mdb/react/mdb5/prd/mdb5-react-ui-kit-pro-essential#3.0.0"
+    ]
   },
   "optionalDependencies": {
     "mdb-react-ui-kit": "git+https://oauth2:SR42kF-Dy2FLLvz_4E3N@git.mdbootstrap.com/mdb/react/mdb5/prd/mdb5-react-ui-kit-pro-essential#3.0.0"
