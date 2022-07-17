@@ -2,10 +2,10 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Logo from './Navbar/Logo';
-import ButtonNew from './Navbar/ButtonNew';
-import NavTabs from './Navbar/NavTabs';
-import NavbarContainer from './Navbar/NavbarContainer';
+import Logo from './navbar/Logo';
+import ButtonNew from './navbar/ButtonNew';
+import NavTabs from './navbar/NavTabs';
+import NavbarContainer from './navbar/NavbarContainer';
 
 const NavItem = styled.ul`
   margin: 0;
