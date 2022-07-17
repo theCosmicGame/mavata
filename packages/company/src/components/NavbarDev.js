@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Logo from './Navbar/Logo';
-import NavTabs from './Navbar/NavTabs';
-import NavbarContainer from './Navbar/NavbarContainer';
+import Logo from './navbar/Logo';
+import NavTabs from './nvbar/NavTabs';
+import NavbarContainer from './navbar/NavbarContainer';
 
 const NavItem = styled.ul`
   margin: 0;
