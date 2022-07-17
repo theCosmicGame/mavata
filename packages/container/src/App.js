@@ -39,50 +39,35 @@ export default () => {
   // 
   useEffect(() => {
     if (isSignedIn) {
-      history.push('/companies/last')
+      history.push('/companies')
     }
   }, [isSignedIn]);
-  
+
 
   return (
     <Router history={history}>
-    <StylesProvider generateClassName={generateClassName}>
-    <div>
-      <Header onSignOut={() => setIsSignedIn(false)} isSignedIn={isSignedIn}/>
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
-      <Suspense fallback={<Progress />} >
-        <Switch>
-        {/* 
-          path indicated in Route is meant to match up to first part of a path
-          IMPT NOTE: route in order of priority ('/dashboard' before '/' or else '/' gets routed first)
-         */}
-          {/* removed after Refactoring #2 
-          <Route path="/auth" component={AuthLazy} /> */}
-          <Route path="/auth">
-            <AuthLazy onSignIn={() => setIsSignedIn(true)} />
-            {/* you can pull in more state management stuff like Redux here */}
-          </Route>
-          <Route path="/companies">
-            {!isSignedIn && <Redirect to="/" />}
-            <CompaniesLazy />
-          </Route>
-          {/* refactor #3
-          <Route path="/dashboard" component={DashboardLazy} /> */}
-          {/* <Route path="/dashboard">
-            {!isSignedIn && <Redirect to="/" />}
-            <DashboardLazy />
-          </Route> */}
-          <Route path="/earlyaccess" component={MarketingLazy} />
-          <Route path="/" component={MarketingLazy} />
-          {/* 
-          Removed after Refactoring #1
-          <Route path="/auth" component={AuthApp} />
-          <Route path="/" component={MarketingApp} />
-           */}
-        </Switch>
-      </Suspense>
-    </div>
-    </StylesProvider>
+      <StylesProvider generateClassName={generateClassName}>
+        <div>
+          <Header onSignOut={() => setIsSignedIn(false)} isSignedIn={isSignedIn} />
+          <Suspense fallback={<Progress />} >
+            <Switch>
+              <Route path="/auth">
+                <AuthLazy onSignIn={() => setIsSignedIn(true)} />
+              </Route>
+              <Route path="/companies">
+                {!isSignedIn && <Redirect to="/" />}
+                <CompaniesLazy />
+              </Route>
+              <Route path="/user">
+                {!isSignedIn && <Redirect to="/" />}
+                <CompaniesLazy />
+              </Route>
+              <Route path="/earlyaccess" component={MarketingLazy} />
+              <Route path="/" component={MarketingLazy} />
+            </Switch>
+          </Suspense>
+        </div>
+      </StylesProvider>
     </Router>
   );
 };
