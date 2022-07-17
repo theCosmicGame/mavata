@@ -31,6 +31,14 @@ const devConfig = {
       template: './public/index.html',
     }),
   ],
+  resolve: {
+    // for dotenv config
+    fallback: {
+      "fs": false,
+      "os": false,
+      "path": false
+    },
+  },
 };
 
 module.exports = merge(commonConfig, devConfig);

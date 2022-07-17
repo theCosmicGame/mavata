@@ -5,7 +5,7 @@
 
 // destructuring useState from React as it is a named export
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
 import { createBrowserHistory } from 'history';
 
@@ -26,7 +26,7 @@ import Header from './components/Header';
 
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 const AuthLazy = lazy(() => import('./components/AuthApp'));
-// const DashboardLazy = lazy(() => import('./components/DashboardApp'));
+const CompanyLazy = lazy(() => import('./components/CompanyApp'));
 const CompaniesLazy = lazy(() => import('./components/CompaniesApp'));
 
 const generateClassName = createGenerateClassName({
@@ -73,9 +73,9 @@ export default () => {
             {!isSignedIn && <Redirect to="/" />}
             <CompaniesLazy />
           </Route>
-          <Route path="/user">
+          <Route path="/user/settings">
             {!isSignedIn && <Redirect to="/" />}
-            <CompaniesLazy />
+            <CompanyLazy />
           </Route>
           {/* refactor #3
           <Route path="/dashboard" component={DashboardLazy} /> */}

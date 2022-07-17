@@ -30,6 +30,7 @@
     "cross-var": "^1.1.0",
     "css-loader": "^5.2.7",
     "dotenv-cli": "^6.0.0",
+    "dotenv-webpack": "^8.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^4.5.0",
     "postcss-loader": "^7.0.0",
