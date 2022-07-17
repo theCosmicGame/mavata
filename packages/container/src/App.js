@@ -1,9 +1,3 @@
-//rendering logic is inherently coupled with other UI logic: 
-  // how events are handled
-  // how the state changes over time
-  // how the data is prepared for display.
-
-// destructuring useState from React as it is a named export
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
