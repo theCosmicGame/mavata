@@ -25,7 +25,7 @@ WebFont.load({
 // deleted because we are now using lazy function and Suspense module
 // import MarketingApp from './components/MarketingApp';
 // import AuthApp from './components/AuthApp';
-import Progress from './components/Navbar/Progress';
+import Progress from './components/navbar/Progress';
 import Header from './components/Header';
 
 const MarketingLazy = lazy(() => import('./components/MarketingApp'));
