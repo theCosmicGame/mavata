@@ -4,6 +4,8 @@ import styled, { createGlobalStyle } from 'styled-components';
 import CompaniesHeading from './companies/CompaniesHeading';
 import CompaniesTable from './table/CompaniesTable';
 
+// remove comment
+
 const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
