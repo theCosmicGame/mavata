@@ -1,22 +1,18 @@
 import React from 'react';
-import { Switch, Route, Router } from 'react-router-dom';
-import { StylesProvider, createGenerateClassName } from '@material-ui/core/styles';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 
 import Landing from './components/Landing';
 import EarlyAccess from './components/LandingPages/EarlyAccess';
-import Learn from './components/LandingPages/Learn';
 
 import WebFont from 'webfontloader';
 
-WebFont.load({
-  google: {
-    families: ['Barlow', 'Playfair Display', 'Overpass']
-  }
-});
-
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'mktg',
-});
+if (process.env.NODE_ENV === 'development') {
+  WebFont.load({
+    google: {
+      families: ['Barlow', 'Playfair Display', 'Overpass']
+    }
+  });
+}
 
 /* 
 Rather than create a memory history object inside app.js, we create it in bootstrap.js because we want to customize it quite a bit
@@ -25,15 +21,13 @@ export default ({ history }) => {
 
   return (
     <div>
-      <StylesProvider generateClassName={generateClassName}>
-        <Router history={history}>
-          <Switch>
-            <Route exact path="/earlyaccess" component={EarlyAccess} />
-            <Route exact path="/learn" component={EarlyAccess} />
-            <Route path="/" component={Landing} />
-          </Switch>
-        </Router>
-      </StylesProvider>
+      <Router location={history.location} history={history}>
+        <Routes>
+          <Route exact path="/earlyaccess" element={ <EarlyAccess /> } />
+          <Route exact path="/learn" element={ <EarlyAccess /> } />
+          <Route path="/" element={ <Landing /> } />
+        </Routes>
+      </Router>
     </div>
   );
 };

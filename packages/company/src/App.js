@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-dom';
 import { port } from './variables/global';
 import "./assets/css/mdb.css";
@@ -10,11 +10,13 @@ import NavbarDev from './components/NavbarDev';
 
 import WebFont from 'webfontloader';
 
-WebFont.load({
-  google: {
-    families: ['Barlow', 'Playfair Display', 'Overpass']
-  }
-});
+if (process.env.NODE_ENV === 'development') {
+  WebFont.load({
+    google: {
+      families: ['Barlow', 'Playfair Display', 'Overpass']
+    }
+  });
+}
 
 function CompaniesRouter() {
   return (
@@ -61,7 +63,7 @@ export default ({ history }) => {
   // let firstRender = true;
 
   return (
-    <Router history={history}>
+    <Router location={history.location} history={history}>
       {(process.env.NODE_ENV === 'development' && whatPort === port.toString()) ? <NavbarDev /> : ''}
       <Routes>
         <Route path="/companies/*" element={<CompaniesRouter />} />

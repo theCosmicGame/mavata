@@ -1,10 +1,10 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import MaterialLink from '@material-ui/core/Link';
+import Typography from '@mui/material/Typography';
+import MaterialLink from '@mui/material/Link';
 import { Link } from 'react-router-dom';
-import { createMuiTheme, ThemeProvider, CssBaseline } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     fontFamily: [
       'Playfair Display',

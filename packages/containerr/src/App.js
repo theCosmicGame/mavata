@@ -1,7 +1,18 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { createGlobalStyle } from 'styled-components';
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    height: 100%;
+    min-height: 100vh;
+  }
+
+  html {
+    height: 100%;
+  }
+`
 
 import WebFont from 'webfontloader';
 
@@ -17,7 +28,7 @@ WebFont.load({
 import Progress from './components/Navbar/Progress';
 import Header from './components/Header';
 
-// const MarketingLazy = lazy(() => import('./components/MarketingApp'));
+const MarketingLazy = lazy(() => import('./components/MarketingApp'));
 // const AuthLazy = lazy(() => import('./components/AuthApp'));
 const CompaniesLazy = lazy(() => import('./components/CompanyApp'));
 
@@ -41,6 +52,7 @@ export default function App() {
   return (
     <Router history={history}>
       <div>
+        <GlobalStyle />
         <Header onSignOut={() => setIsSignedIn(false)} isSignedIn={isSignedIn} />
         <Suspense fallback={<Progress />} >
           <Routes>
@@ -56,7 +68,7 @@ export default function App() {
               <CompaniesLazy />
             </Route>
             <Route path="/earlyaccess" element={ <MarketingLazy /> } /> */}
-            <Route path="/" element={ <CompaniesLazy /> } />
+            <Route path="/" element={ <MarketingLazy /> } />
           </Routes>
         </Suspense>
       </div>

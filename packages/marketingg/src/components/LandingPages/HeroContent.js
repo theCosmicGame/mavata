@@ -1,78 +1,72 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
-const useStyles = makeStyles((theme) => ({
-  h1styled: {
-    fontWeight: 'bold',
-    marginBottom: '10px',
-    fontSize: '90px',
-    marginTop: '20px',
-  },
+const LargeHeading = styled.p`
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 300;
 
-  subHeadingLarge: {
-    fontSize: '24px',
-    lineHeight: '36px',
-    fontWeight: 300,
+  @media screen and (max-width: 767px) {
+    margin-top: 14px;
+    font-size: 20px;
+    line-height: 30px;
+  }
 
-    '@media screen and (max-width: 767px)': {
-      marginTop: '14px',
-      fontSize: '20px',
-      lineHeight: '30px',
-    },
-  },
+  text-align: center;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: Barlow, sans-serif;
+  color: #0c0a89;
+  font-size: 20px;
+`
 
-  bottomSpace: {
-    marginBottom: '20px',
-  },
+const StyledHeading = styled.h1`
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 90px;
+  margin-top: 20px;
 
-  intro: {
-    textAlign: 'center',
-    marginRight: 'auto',
-    marginBottom: '0px',
-    marginLeft: 'auto',
-    paddingTop: '10px',
-    paddingBottom: '10px',
-    fontFamily: ['Barlow', 'sans-serif'],
-    color: '#0c0a89',
-    fontSize: '20px',
-  },
+  font-family: Playfair Display; sans-serif;
+  color: #0c0a89;
+  text-align: center;
 
-  alignCenter: {
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    color: '#0c0a89',
-    textAlign: 'center',
-  },
-        
-  max800Px: {
-    color: '#0c0a89',
-    fontSize: '48px',
-    lineHeight: '60px',
-    maxWidth: 'none',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    textAlign: 'center',
-  },
-    
-  centerAligned: {
-    maxWidth: '750px',
-    margin: '40px auto',
-    fontFamily: ['Barlow', 'sans-serif'],
-    color: '#0c0a89',
-    fontSize: '20px',
-    lineHeight: '24px',
-    textAlign: 'center',
+  font-size: 48px;
+  line-height: 60px;
+  max-width: none;
+  text-align: center;
+`
 
-    paddingLeft: '0px',
-  },
-}));
+const SubHeading = styled.p`
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 300;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 14px;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  max-width: 750px;
+  margin: 40px auto;
+  font-family: Barlow, sans-serif;
+  color: #0c0a89;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  padding-left: 0px;
+`
 
 export default function HeroContent() {
-  const classes = useStyles();
-
   return (
     <React.Fragment>
-      <p className={`${classes.subHeadingLarge} ${classes.intro}`}>Aggregate & Collaborate</p>
-      <h1 className={`${classes.h1styled} ${classes.alignCenter} ${classes.max800Px}`}>Modern Data Collection for PE/IB</h1>
-      <p className={`${classes.subHeadingLarge} ${classes.centerAligned}`}>Collect operating data without burdening management and simplify data collaboration.</p>
+      <LargeHeading>Aggregate & Collaborate</LargeHeading>
+      <StyledHeading>Modern Data Collection for PE/IB</StyledHeading>
+      <SubHeading>Collect operating data without burdening management and simplify data collaboration.</SubHeading>
     </React.Fragment>
   );
 };

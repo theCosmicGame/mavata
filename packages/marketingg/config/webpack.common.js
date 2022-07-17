@@ -35,6 +35,22 @@ module.exports = {
           }
         ]
       },
+      {
+        // Load all images as base64 encoding if they are smaller than 8192 bytes
+        test: /\.(png|jpg|jpeg|gif|ico)$/,
+        use: [
+          {
+            // loader: 'url-loader',
+            loader: 'file-loader',
+            options: {
+              // On development we want to see where the file is coming from, hence we preserve the [path]
+              name: '[path][name].[ext]?hash=[hash:20]',
+              //name: '[path][name].[ext]',
+              limit: 8192
+            },
+          },
+        ],
+      },
     ],
     
     

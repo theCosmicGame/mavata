@@ -1,143 +1,137 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import styled from 'styled-components';
 
-const useStyles = makeStyles((theme) => ({
-  h4styled: {
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    fontWeight: 'bold',
-    marginBottom: '5px',
-    fontSize: '15px',
-    lineHeight: '20px',
-    marginTop: '10px',
-  },
+const StyledCard = styled(Card)`
+  background-color: #8ef0de;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 33px 20px 33px;
+  margin-right: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  align: center!important;
+  border-radius: 8px;
+  box-shadow: 1px 1px 13px 0 rgba(0, 0, 0, 0.07);
 
-  card2: {
-    backgroundColor: '#8ef0de',
-    position: 'relative',
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
-    width: '100%',
-    height: 'auto',
-    padding: '33px 20px 33px',
-    marginRight: 0,
-    webkitBoxOrient: 'vertical',
-    webkitBoxDirection: 'normal',
-    webkitFlexDirection: 'column',
-    msFlexDirection: 'column',
-    flexDirection: 'column',
-    webkitBoxPack: 'center',
-    webkitJustifyContent: 'center',
-    msFlexPack: 'center',
-    justifyContent: 'center',
-    webkitBoxAlign: 'center',
-    webkitAlignItems: 'center',
-    msFlexAlign: 'center',
-    alignItems: 'center',
-    align: 'center!important',
-    borderRadius: '8px',
-    boxShadow: '1px 1px 13px 0 rgba(0, 0, 0, 0.07)',
+  @media screen and (max-width: 991px) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+  }
 
-    '@media screen and (max-width: 991px)': {
-      webkitBoxOrient: 'horizontal',
-      webkitBoxDirection: 'normal',
-      webkitFlexDirection: 'row',
-      msFlexDirection: 'row',
-      flexDirection: 'row',
-    },
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+`
 
-    '@media screen and (max-width: 767px)': {
-      width: '100%',
-      marginBottom: '10px',
-      paddingTop: '20px',
-      paddingBottom: '20px',
-    },
-  },
+const StyledCardContent = styled(CardContent)`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 
-  cardContent: {
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 
-    lineClamp: 2,
-    WebkitLineClamp: 2,
-    webkitBoxOrient: 'vertical',
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 
-    webkitBoxDirection: 'normal',
-    webkitFlexDirection: 'column',
-    msFlexDirection: 'column',
-    flexDirection: 'column',
-    webkitBoxPack: 'center',
-    webkitJustifyContent: 'center',
-    msFlexPack: 'center',
-    justifyContent: 'center',
-    webkitBoxAlign: 'center',
-    webkitAlignItems: 'center',
-    msFlexAlign: 'center',
-    alignItems: 'center',
+  flex-grow: 1;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
 
-    flexGrow: 1,
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    marginTop: '10px',
+  font-family: 'Playfair Display', sans-serif;
+  color: #0c0a89;
 
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    color: '#0c0a89',
+  text-align: center;
 
-    textAlign: 'center',
-  },
-  
-  _24pxAlignLeftMobileLandscape: {
-    fontSize: '16px',
+  & h4 {
+    font-family: 'Playfair Display', sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 10px;
 
-    '@media screen and (max-width: 991px)': {
-      fontSize: '16px',
-      lineHeight: '24px',
-      textAlign: 'center',
-    },
+    font-size: 16px;
 
-    '@media screen and (max-width: 767px)': {
-      textAlign: 'left',
-    },
+    @media screen and (max-width: 991px) {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+    }
 
-    '@media screen and (max-width: 479px)': {
-      display: '-webkit-box',
-      display: '-webkit-flex',
-      display: '-ms-flexbox',
-      display: 'flex',
-      marginRight: 'auto',
-      marginLeft: 'auto',
-      webkitBoxOrient: 'vertical',
-      webkitBoxDirection: 'normal',
-      webkitFlexDirection: 'column',
-      msFlexDirection: 'column',
-      flexDirection: 'column',
-      webkitBoxPack: 'center',
-      webkitJustifyContent: 'center',
-      msFlexPack: 'center',
-      justifyContent: 'center',
-      webkitBoxAlign: 'center',
-      webkitAlignItems: 'center',
-      msFlexAlign: 'center',
-      alignItems: 'center',
-      fontSize: '15px',
-      textAlign: 'center',
-    },
-  },
-}));
+    @media screen and (max-width: 767px) {
+      text-align: left;
+    }
+
+    @media screen and (max-width: 479px) {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+`
 
 export default function CardNew(props) {
-  const classes = useStyles();
-  
   return (
-    <Card className={classes.card2}>
-      <CardContent className={classes.cardContent}>
-          <h4 className={`${classes.h4styled} ${classes._24pxAlignLeftMobileLandscape}`}>{props.children}</h4>
-      </CardContent>
-  </Card>
+    <StyledCard>
+      <StyledCardContent>
+        <h4>{props.children}</h4>
+      </StyledCardContent>
+    </StyledCard>
   )
 };

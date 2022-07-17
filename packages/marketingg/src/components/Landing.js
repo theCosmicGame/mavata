@@ -1,42 +1,44 @@
 import React from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+
 import Footer from './footer/Footer';
 import ContentSection from './LandingPages/ContentSection';
 import Cards from './card/Cards';
 import CardsStyled from './card/CardsStyled';
 import Buttons from './buttons/SideBySideButtons';
 import HeroContent from './LandingPages/HeroContent';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    // MUST KEEP
-    html: {
-      height: '100%',
-      webkitTextSizeAdjust: '100%',
-    },
-    body: {
-      margin: 0,
-      padding: 0,
-      height: '100%',
-    },
+const GlobalStyle = createGlobalStyle`
+  body {
+    height: 100%;
+    min-height: 100vh;
 
-    a: {
-      fontFamily: '"Playfair Display"',
-      textDecoration: 'none',
-    },
+    -webkit-text-size-adjust: 100%;
+  }
 
-    '*': {
-      webkitFontSmoothing: 'antialiased',
-      mozOsxFontSmoothing: 'grayscale',
-      fontSmoothing: 'always',
-    },
-  },
-}));
+  html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    font-family: 'Playfair Display';
+    text-decoration: none;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: always;
+  }
+`
 
 export default function Landing() {
 
   return (
     <React.Fragment>
+      <GlobalStyle />
       <ContentSection>
         <HeroContent />
         <CardsStyled />

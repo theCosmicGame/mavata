@@ -1,7 +1,8 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import CardStyled from './CardStyled';
 import styled from 'styled-components';
+import Container from '@mui/material/Container';
+
+import CardStyled from './CardStyled';
 
 const GridContainer = styled(Container)`
   display: -webkit-box;

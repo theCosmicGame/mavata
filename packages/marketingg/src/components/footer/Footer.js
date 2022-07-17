@@ -1,9 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-import FooterLink from './FooterLink';
-import Copyright from './Copyright';
-import FooterButtons from './FooterButtons';
 import styled from 'styled-components';
+
+import FooterLink from './FooterLink';
+// import Copyright from './Copyright';
+import FooterButtons from './FooterButtons';
+import LinkedInLogo from '../../assets/images/LinkedIn.png';
 
 const FooterStyled = styled.footer`
   /* .section-10 */
@@ -191,167 +192,85 @@ const FooterTitle = styled.div`
   };
 `
 
-const useStyles = makeStyles((theme) => ({
-    footerContainer: {
-        backgroundColor: 'rgba(21, 17, 59, 1)',   // company darkest blue
-        marginTop: '0px',
-        marginRight: 'auto',
-        marginLeft: 'auto',
-        fontFamily: ['Playfair Display', 'sans-serif'],
-    },
+const StyledMediaQuery = styled.div`
+  font-family: inherit;
+  max-width: 300px;
+`
 
-    footerWrap: {
-        display: '-webkit-box',
-        display: '-webkit-flex',
-        display: '-ms-flexbox',
-        display: 'flex',
-        width: '100%',
-        webkitBoxPack: 'justify',
-        webkitJustifyContent: 'space-between',
-        msFlexPack: 'justify',
-        justifyContent: 'space-between',
-        
-        '@media screen and (max-width: 991px)': {
-            width: '100%',
-        },
-        
-        '@media screen and (max-width: 767px)': {
-            webkitBoxOrient: 'vertical',
-            webkitBoxDirection: 'normal',
-            webkitFlexDirection: 'column',
-            msFlexDirection: 'column',
-            flexDirection: 'column',
-            webkitBoxPack: 'center',
-            webkitJustifyContent: 'center',
-            msFlexPack: 'center',
-            justifyContent: 'center',
-            webkitBoxAlign: 'start',
-            webkitAlignItems: 'flex-start',
-            msFlexAlign: 'start',
-            alignItems: 'flex-start',
-        },
+const StyledDiv = styled.div`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 
-        '@media screen and (max-width: 469px)': {
-            webkitBoxAlign: 'start',
-            webkitAlignItems: 'flex-start',
-            msFlexAlign: 'start',
-            alignItems: 'flex-start',
-        },
-    },
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 
-    textWhite: {
-        color: '#fff',
-        fontFamily: '"Playfair Display"',
-        align: 'left',
-    },
+  & a {
+    max-width: 100%;
+    display: inline-block;
 
-    footerBottom: {
-        display: 'flex',
-        height: '30px',
-    },
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+`
 
-    footerGrid: {
-        // 4-col-grid
-        display: 'grid',
-        paddingTop: '20px',
-        paddingBottom: '20px',
-        gridColumnGap: '35px',
-        gridRowGap: '0px',
-        gridTemplateColumns: '1fr 1fr 1fr 1fr',
-        gridTemplateRows: 'auto',
-    },
-
-    footerColumn: {
-        borderTop: '1px solid hsla(0, 0%, 96.9%, 0.2)',
-        fontSize: '16px'
-    },
-
-    footerTitle: {
-        paddingTop: '8px',
-        paddingBottom: '8px',
-        fontFamily: '"Playfair Display"',
-        fontSize: '20px',
-        fontWeight: '700',
-    },
-
-    button8displayBlock: {
-        display: 'flex'
-    },
-        
-    max300Px: {
-        fontFamily: 'inherit',
-        maxWidth: '300px',
-    },
-        
-    socialLinksWrapper: {
-        display: '-webkit-box',
-        display: '-webkit-flex',
-        display: '-ms-flexbox',
-        display: 'flex',
-        marginTop: '10px',
-        marginLeft: '0px',
-        marginBottom: '10px',
-        webkitBoxPack: 'center',
-        webkitJustifyContent: 'center',
-        msFlexPack: 'center',
-        justifyContent: 'center',
-        webkitBoxAlign: 'center',
-        webkitAlignItems: 'center',
-        msFlexAlign: 'center',
-        alignItems: 'center',
-    },
-
-    justifyStart: {
-        webkitBoxPack: 'start',
-        webkitJustifyContent: 'flex-start',
-        msFlexPack: 'start',
-        justifyContent: 'flex-start',
-    },
-        
-    wInlineBlock: {
-        maxWidth: '100%',
-        display: 'inline-block',
-    },
-
-
-}));
-
+const FooterBottom = styled.div`
+  display: flex;
+  height: 30px;
+`
 
 export default function Footer() {
-    const classes = useStyles();
+  return (
+    <FooterStyled>
+      <FooterContainer>
+        <FooterWrap>
+          <StyledMediaQuery>
+            <StyledH2>Connect</StyledH2>
+            <StyledDiv>
+              <a href="https://www.linkedin.com/company/mavata" target="_blank" >
+                <img src={LinkedInLogo} width="18" sizes="(max-width: 767px) 18px, (max-width: 991px) 2vw, 18px" alt="Link Up with Mavata" />
+              </a>
+            </StyledDiv>
+          </StyledMediaQuery>
+          <FooterButtons />
+        </FooterWrap>
 
-    return (
-        <FooterStyled>
-            <FooterContainer>
-                    <FooterWrap>
-                        <div className={classes.max300Px}>
-                            <StyledH2>Connect</StyledH2>
-                            <div className={`${classes.socialLinksWrapper} ${classes.justifyStart}`}>
-                                <a href="https://www.linkedin.com/company/mavata" target="_blank" className={`${classes.socialLinksWrapper} ${classes.wInlineBlock}`}>
-                                <img src="https://uploads-ssl.webflow.com/615b5c7a50624691794203d6/627a8f7bffcba4fbc69b5fa0_5e1ed0b824ceb838fadfa9b7_linkedin-icon-png-transparent-background-5.png" width="18" sizes="(max-width: 767px) 18px, (max-width: 991px) 2vw, 18px" srcSet="https://uploads-ssl.webflow.com/615b5c7a50624691794203d6/627a8f7bffcba4fbc69b5fa0_5e1ed0b824ceb838fadfa9b7_linkedin-icon-png-transparent-background-5-p-500.png 500w, https://uploads-ssl.webflow.com/615b5c7a50624691794203d6/627a8f7bffcba4fbc69b5fa0_5e1ed0b824ceb838fadfa9b7_linkedin-icon-png-transparent-background-5.png 609w" alt="Link Up with Mavata" />
-                                </a>
-                            </div>
-                        </div>
-                        <FooterButtons />
-                    </FooterWrap>
-                    
-                    <FooterGrid>
-                        <FoooterColumn><FooterTitle>Home</FooterTitle>
-                            <FooterLink to="/">Home</FooterLink>
-                        </FoooterColumn>
-                        <FoooterColumn><FooterTitle>Company</FooterTitle>
-                            <FooterLink to="/">Careers</FooterLink>
-                        </FoooterColumn>
-                        <FoooterColumn><FooterTitle>Other</FooterTitle>
-                            <FooterLink to="/pp">Privacy Policy</FooterLink>
-                            <FooterLink to="/toa">Terms</FooterLink>
-                        </FoooterColumn>
-                        <FoooterColumn></FoooterColumn>
-                    </FooterGrid>
-                    <div className={classes.footerBottom}></div>
-                    <Copyright />
-            </FooterContainer>
-        </FooterStyled>
+        <FooterGrid>
+          <FoooterColumn><FooterTitle>Home</FooterTitle>
+            <FooterLink to="/">Home</FooterLink>
+          </FoooterColumn>
+          <FoooterColumn><FooterTitle>Company</FooterTitle>
+            <FooterLink to="/">Careers</FooterLink>
+          </FoooterColumn>
+          <FoooterColumn><FooterTitle>Other</FooterTitle>
+            <FooterLink to="/pp">Privacy Policy</FooterLink>
+            <FooterLink to="/toa">Terms</FooterLink>
+          </FoooterColumn>
+          <FoooterColumn></FoooterColumn>
+        </FooterGrid>
+        <FooterBottom />
+        {/* <Copyright /> */}
+      </FooterContainer>
+    </FooterStyled>
 
-    )
+  )
 }

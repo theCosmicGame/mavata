@@ -1,217 +1,122 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import styled from 'styled-components';
 
-const useStyles = makeStyles((theme) => ({
-  darkBlue: {
-    backgroundColor: '#0c0a89',
-    color: '#fff',
-    
-    '&:hover': {
-      backgroundColor: '#09d5b0',
-    },
-  },
+const DisplayBlock = styled.div`
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  border-radius: 3px;
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+  color: #000;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  @media screen and (max-width: 767px) {
+    padding-top: 10px;
+  }
+`
+
+const EarlyAccessLink = styled(RouterLink).attrs({ to: '/earlyaccess'})`
+  display: inline-block;
+  padding: 9px 15px;
+  margin-top: 20px;
+
+  border: 0;
+  border-radius: 3px;
+
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: inherit;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
   
-  hoverTeal: {
-    backgroundColor: '#ffd343',
-    color: '#0c0a89',
-    
-    '&:hover': {
-      backgroundColor: '#09d5b0',
-      webkitTransform: 'translate(0px, -2px)',
-      msTransform: 'translate(0px, -2px)',
-      transform: 'translate(0px, -2px)',
-      color: '#fff',
-    },
-  },
+  background-color: #0c0a89;
+  color: #fff;
 
-  displayBlock: {
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
-    webkitBoxPack: 'justify',
-    webkitJustifyContent: 'space-between',
-    msFlexPack: 'justify',
-    justifyContent: 'center',
-    borderRadius: '3px',
-    webkitTransition: 'all 350ms ease',
-    transition: 'all 350ms ease',
-    color: '#000',
-    fontSize: '16px',
-    textTransform: 'uppercase',
-
-    '@media screen and (max-width: 767px)': {
-      paddingTop: '10px',
-    },
-  },
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
   
-  sideBySideButtonContain: {
-    position: 'static',
-    bottom: '160px',
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
-    marginBottom: '40px',
-    paddingTop: '10px',
-    paddingBottom: '16px',
-    webkitBoxPack: 'center',
-    webkitJustifyContent: 'center',
-    msFlexPack: 'center',
-    justifyContent: 'center',
-    webkitBoxAlign: 'center',
-    webkitAlignItems: 'center',
-    msFlexAlign: 'center',
-    alignItems: 'center',
+  &:hover {
+    background-color: #09d5b0;
+    -webkit-transform: translate(0px, -2px);
+    -ms-transform: translate(0px, -2px);
+    transform: translate(0px, -2px);
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 991px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+`
+
+const LearnMoreLink = styled(RouterLink).attrs({ to: '/learn'})`
+  cursor: pointer;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 15px;
+  padding: 9px 15px;
+
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: #15113b;
+  border-radius: 3px;
+
+  -webkit-transition: all 350ms ease;
+  transition: all 350ms ease;
+
+  background-color: transparent;
+  color: #0c0a89;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
   
-    webkitBoxOrient: 'vertical',
-    webkitBoxDirection: 'normal',
-    webkitFlexDirection: 'column',
-    msFlexDirection: 'column',
-    flexDirection: 'column',
-  },
-  
-  wButton2: {
-    display: 'inline-block',
-    padding: '9px 15px',
-    color: 'white',
-    border: 0,
-    lineHeight: 'inherit',
-    textDecoration: 'none',
-    cursor: 'pointer',
-    borderRadius: 0,
+  @media screen and (max-width: 991px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
 
-    '@media screen and (max-width: 991px)': {
-      paddingRight: '15px',
-      paddingLeft: '15px',
-    },
-  },
-  
-  button8: {
-    marginTop: '20px',
-    borderRadius: '3px',
-    webkitTransition: 'all 350ms ease',
-    transition: 'all 350ms ease',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    fontSize: '16px',
-    fontWeight: 400,
-    textTransform: 'uppercase',
-    
-    '&:hover': {
-      webkitTransform: 'translate(0px, -2px)',
-      msTransform: 'translate(0px, -2px)',
-      transform: 'translate(0px, -2px)',
-      textDecoration: 'none',
-    },
-  },
-  
-  outlinedButton2: {
-    display: '-webkit-box',
-    display: '-webkit-flex',
-    display: '-ms-flexbox',
-    display: 'flex',
-    marginTop: '20px',
-    webkitBoxPack: 'justify',
-    webkitJustifyContent: 'space-between',
-    msFlexPack: 'justify',
-    justifyContent: 'space-between',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    borderColor: '#15113b',
-    borderRadius: '3px',
-    backgroundColor: 'transparent',
-    webkitTransition: 'all 350ms ease',
-    transition: 'all 350ms ease',
-    fontFamily: ['Playfair Display', 'sans-serif'],
-    fontSize: '16px',
-    fontWeight: 400,
-    textTransform: 'uppercase',
-    
-    '&:hover': {
-      borderColor: '#ffd343',
-      backgroundColor: '#ffd343',
-      color: '#000',
-      boxShadow: '1px 1px 12px 0 rgba(0, 0, 0, 0.08)',
-      textDecoration: 'none',
-      webkitTransform: 'translate(0px, -2px)',
-      msTransform: 'translate(0px, -2px)',
-      transform: 'translate(0px, -2px)',
-      textDecoration: 'none',
-    },
-    
-    '&.displayBlock': {
-      display: '-webkit-box',
-      display: '-webkit-flex',
-      display: '-ms-flexbox',
-      display: 'flex',
-      webkitBoxPack: 'justify',
-      webkitJustifyContent: 'space-between',
-      msFlexPack: 'justify',
-      justifyContent: 'space-between',
-      fontSize: '16px',
-      
-      '&:hover': {
-        borderColor: '#09d5b0',
-        backgroundColor: '#09d5b0',
-        webkitTransform: 'none',
-        msTransform: 'none',
-        transform: 'none',
-      },
-
-      '@media screen and (max-width: 767px)': {
-        display: '-webkit-box',
-        display: '-webkit-flex',
-        display: '-ms-flexbox',
-        display: 'flex',
-      },
-
-      '&.introButton': {
-        '@media screen and (max-width: 767px)': {
-          marginLeft: '0px',
-          textAlign: 'center',
-        },
-      },
-    },
-  },
-
-  introButton2: {
-    marginLeft: '15px',
-    borderColor: '#15113b',
-    borderRadius: '3px',
-    color: '#0c0a89',
-    
-    '&:hover': {
-      backgroundColor: '#15113b',
-      webkitTransform: 'translate(0px, -3px)',
-      msTransform: 'translate(0px, -3px)',
-      transform: 'translate(0px, -3px)',
-      color: '#fff',
-    },
-  },
-
-  button1: {
-    '&:hover': {
-
-    },
-  },
-
-  button2: {
-    '&:hover': {
-      
-    },
-  },
-}));
+  &:hover {
+    background-color: #15113b;
+    border-color: #ffd343;
+    color: #fff;
+    box-shadow: 1px 1px 12px 0 rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    -webkit-transform: translate(0px, -2px);
+    -ms-transform: translate(0px, -2px);
+    transform: translate(0px, -2px);
+    text-decoration: none;
+  }
+`
 
 export default function Buttons() {
-  const classes = useStyles();
-  
   return (
     <React.Fragment>
-      <div className={classes.displayBlock}>
-          <RouterLink to='/earlyaccess' className={`${classes.darkBlue} ${classes.button8} ${classes.wButton2}`}>Early Access</RouterLink>
-          <RouterLink to='/learn' className={`${classes.outlinedButton2} ${classes.introButton2} ${classes.wButton2}`}>Learn More</RouterLink>
-      </div>
+      <DisplayBlock>
+          <EarlyAccessLink>Early Access</EarlyAccessLink>
+          <LearnMoreLink>Learn More</LearnMoreLink>
+      </DisplayBlock>
     </React.Fragment>
   )
 }
