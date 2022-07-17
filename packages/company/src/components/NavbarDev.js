@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Logo from './navbar/Logo';
-import NavTabs from './nvbar/NavTabs';
+import NavTabs from './navbar/NavTabs';
 import NavbarContainer from './navbar/NavbarContainer';
 
 const NavItem = styled.ul`

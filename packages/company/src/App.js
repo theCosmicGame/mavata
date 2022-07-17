@@ -5,7 +5,6 @@ import "./assets/css/mdb.css";
 
 import Companies from './components/Companies';
 import Company from './components/Company';
-// import Settings from './components/UserSettings';
 import NavbarDev from './components/NavbarDev';
 
 import WebFont from 'webfontloader';
