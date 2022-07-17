@@ -34,6 +34,8 @@ const CompaniesLazy = lazy(() => import('./components/CompanyApp'));
 
 const history = createBrowserHistory();
 
+// remove comment
+
 export default function App() {
   // useState is a HOOK to keep track of the application state IN A FUNCTION COMPONENT, in this case if the user isSignedIn
   // State generally refers to data or properties that need to be tracking in an application
