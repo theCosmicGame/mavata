@@ -20,11 +20,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
   const root = ReactDOM.createRoot(el);
 
-  root.render(
-    <React.StrictMode>
-      <App history={history} />
-    </React.StrictMode>
-  );
+  root.render(<App history={history} />);
 
   return{
     onParentNavigate({ pathname: nextPathname }) {
