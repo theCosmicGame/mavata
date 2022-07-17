@@ -1,16 +1,16 @@
 import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 function Copyright() {
   return (
@@ -25,45 +25,43 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  containerAuth: {
-    position: 'relative',
-    
-  },
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+const StyledContainer = styled(Container)`
+  position: relative;
+
+  & div {
+    margin-top: 64px; /* theme.spacing(8); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+const StyledAvatar = styled(Avatar)`
+  margin: 8px; /* theme.spacing(1) */
+  background-color: #9c27b0; /* theme.palette.secondary.main; */
+`
+
+const StyledForm = styled.form`
+  width: 100%;
+  margin-top: 8px; /* theme.spacing(1) */
+`
+
+const SubmitButton = styled(Button)`
+  margin: 24px 0px 16px; /* theme.spacing(3, 0, 2); */
+`
 
 export default function SignIn({ onSignIn }) {
-  const classes = useStyles();
-
   return (
-    <Container component="main" maxWidth="xs" className={classes.containerAuth}>
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+    <StyledContainer component="main" maxWidth="xs">
+      <div>
+        <StyledAvatar>
           <LockOutlinedIcon />
-        </Avatar>
+        </StyledAvatar>
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form
+        <StyledForm
           onSubmit={(e) => e.preventDefault()}
-          className={classes.form}
           noValidate
         >
           <TextField
@@ -92,26 +90,25 @@ export default function SignIn({ onSignIn }) {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Button
+          <SubmitButton
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
             onClick={onSignIn}
           >
             Sign In
-          </Button>
+          </SubmitButton>
           <Grid container>
             <Grid item>
               <Link to="/auth/signup">{"Don't have an account? Sign Up"}</Link>
             </Grid>
           </Grid>
-        </form>
+        </StyledForm>
       </div>
       <Box mt={8}>
         <Copyright />
       </Box>
-    </Container>
+    </StyledContainer>
   );
 }

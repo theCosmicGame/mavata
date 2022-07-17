@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Router } from 'react-router-dom';
+import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
 
 import Signin from './components/Signin';
 import Signup from './components/Signup';
@@ -10,7 +10,7 @@ Rather than create a memory history object inside app.js, we create it in bootst
 export default ({ history, onSignIn }) => {
   return (
     <div>
-      <Router history={history}>
+      <Router location={history.location} history={history}>
         <Routes>
           <Route path="/auth/signin">
             <Signin onSignIn={onSignIn} />

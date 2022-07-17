@@ -6,9 +6,13 @@ import App from './App';
 
 // Mount function to start up the app
 // NOTE: if you update mount parameters then change the code for running the app in isolation below this definition
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   // if given a default history object, assign it to history; otherwise use MemoryHistory object
-  const history = defaultHistory || createMemoryHistory();
+  // const history = defaultHistory || createMemoryHistory();
+  const history = defaultHistory || createMemoryHistory({
+    initialEntries: [initialPath],
+  });
+
 
   if (onNavigate) {
     history.listen(onNavigate); // event listener tied to the history object which listens to whenever navigation occur
@@ -24,8 +28,6 @@ const mount = (el, { onNavigate, defaultHistory }) => {
 
   return{
     onParentNavigate({ pathname: nextPathname }) {
-      console.log('Container-marketing just navigated.');
-      // console.log(location);
 
       const { pathname } = history.location;
 

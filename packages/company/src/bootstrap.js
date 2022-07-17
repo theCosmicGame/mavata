@@ -12,8 +12,6 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     initialEntries: [initialPath],    // what initial path is for MemoryHistory
   });
 
-  console.log(history.location.pathname);
-
   if (onNavigate) {
     history.listen(onNavigate); // event listener tied to the history object which listens to whenever navigation occur
   }
@@ -28,12 +26,8 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
-      console.log('Container-companies just navigated.');
-      // console.log(location);
       
-      console.log('here')
       const { pathname } = history.location;
-      console.log('companies next path ' + nextPathname)
 
       // avoid getting into an infinite loop
       if (pathname !== nextPathname) {

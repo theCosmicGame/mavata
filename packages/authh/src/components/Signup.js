@@ -8,9 +8,34 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const StyledContainer = styled(Container)`
+  position: relative;
+
+  & div {
+    margin-top: 64px; /* theme.spacing(8); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+const StyledAvatar = styled(Avatar)`
+  margin: 8px; /* theme.spacing(1) */
+  background-color: #9c27b0; /* theme.palette.secondary.main; */
+`
+
+const StyledForm = styled.form`
+  width: 100%;
+  margin-top: 8px; /* theme.spacing(1) */
+`
+
+const SubmitButton = styled(Button)`
+  margin: 24px 0px 16px; /* theme.spacing(3, 0, 2); */
+`
 
 function Copyright() {
   return (
@@ -22,41 +47,18 @@ function Copyright() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
 export default function SignUp({ onSignIn }) {
-  const classes = useStyles();
-
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+    <StyledContainer component="main" maxWidth="xs">
+      <div>
+        <StyledAvatar>
           <LockOutlinedIcon />
-        </Avatar>
+        </StyledAvatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form
+        <StyledForm
           onSubmit={(e) => e.preventDefault()}
-          className={classes.form}
           noValidate
         >
           <Grid container spacing={2}>
@@ -113,26 +115,25 @@ export default function SignUp({ onSignIn }) {
               />
             </Grid>
           </Grid>
-          <Button
+          <SubmitButton
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
             onClick={onSignIn}
           >
             Sign Up
-          </Button>
+          </SubmitButton>
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="/auth/signin">Already have an account? Sign in</Link>
             </Grid>
           </Grid>
-        </form>
+        </StyledForm>
       </div>
       <Box mt={5}>
         <Copyright />
       </Box>
-    </Container>
+    </StyledContainer>
   );
 }
