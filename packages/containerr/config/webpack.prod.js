@@ -19,8 +19,7 @@ const prodConfig = {
         marketingMfe: `marketingMod@${domain}/marketing/latest/remoteEntry.js`,
         authMfe: `authMod@${domain}/auth/latest/remoteEntry.js`,
         companiesMfe: `companiesMod@${domain}/companies/latest/remoteEntry.js`,
-        comnpanyMfe: `companyMod@${domain}/company/latest/remoteEntry.js`,
-        // mdbReactMfe: `mdbReactMod@${domain}/mdbreact/latest/remoteEntry.js`
+        companyMfe: `companyMod@${domain}/company/latest/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),

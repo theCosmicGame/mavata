@@ -39,7 +39,7 @@ export default () => {
   // 
   useEffect(() => {
     if (isSignedIn) {
-      history.push('/companies')
+      history.push('/companies/last')
     }
   }, [isSignedIn]);
 
